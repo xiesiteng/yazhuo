@@ -3,7 +3,7 @@ import App from './App.vue'
 import {router} from '@/router/index.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-// +++
+// xiesiteng
 // ---1
 Vue.use(VueAwesomeSwiper)
 
