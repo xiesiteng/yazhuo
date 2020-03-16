@@ -6,6 +6,7 @@
 
 <style lang="less">
 @import url('//at.alicdn.com/t/font_1651123_u4xq1abkgp.css');
+@import url('./assets/common/common.css');
 
 #app * {
     box-sizing: border-box;
