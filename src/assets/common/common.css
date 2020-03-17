@@ -52,6 +52,10 @@
 	align-items: center;
 }
 
+
+input{border: none;outline: none;}
+
+
 /* 子元素超过父元素宽度可横向滚动 */
 .full-x{overflow-x: scroll;overflow-y: hidden;white-space: nowrap;width: 100%;}
 /* 隐藏滚动条 */
