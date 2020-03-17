@@ -1,70 +1,74 @@
 <template>
-  <div class="content">
-    <div class="text">
-      <div class="left"></div>
-      <div class="right">
-        <div class="box">
-          <div class="title">
-            <div class="titletext">
-              <div class="titlebody">亚卓智慧平台</div>
-              <div class="titlefooter">Yazhuo Wisdom Platform</div>
-            </div>
-            <div class="wechat" >
-                <i class="iconfont iconweixin" style="color:#333333; "></i>
-            </div>
+  <div class="loginBox" style="background:url(http://huangqinchao.host3v.vip/yazhuo/logBg.png)">
+    <div class="posForm">
+      <!-- 亚卓智慧平台 -->
+      <div class="titletext">
+        <div class="titlebody">亚卓智慧平台</div>
+        <div class="titlefooter">Yazhuo Wisdom Platform</div>
+      </div>
+      <!-- 表单开始 -->
+      <div class="loginForm">
+        <!-- 登录中心 -->
+        <div class="centerDiv inpDivs">
+          <div class="titlecenter">登录中心</div>
+          <div class="titleline"></div>
+        </div>
+        <!-- 账号 -->
+        <div class="accountDiv inpComs inpDivs">
+          <div class="picture">
+            <i class="iconfont iconzhanghao"></i>
           </div>
-          <div class="logincenter">
-            <div class="loginbootom">登录中心</div>
-          </div>
-          <div class="line"></div>
-          <div class="words">
-            <div class="account">
-              <div class="picture">
-                <i class="iconfont iconzhanghao"></i>
-              </div>
-              <div class="input">
-                <input class="input" type="text" value="请输入您的账号" />
-              </div>
-            </div>
-            <div class="password">
-              <div class="picture">
-                <i class="iconfont iconmima"></i>
-              </div>
-              <div class="input">
-                <input class="input" type="text" value="请输入您的密码" />
-              </div>
-            </div>
-            <div class="button">
-              <button class="btn" @click="gotoMenu">
-                立即登录
-              </button>
-            </div>
-            <div class="forget">
-              <div class="forgetPD">忘记密码?</div>
-            </div>
+          <div class="inputtxt">
+            <input type="text" placeholder="请输入您的账号" class="yourAccount" />
           </div>
         </div>
+        <!-- 密码 -->
+        <div class="passwordDiv inpComs inpDivs">
+          <div class="picture">
+            <i class="iconfont iconmima"></i>
+          </div>
+          <div class="inputtxt">
+            <input type="password" placeholder="请输入您的密码" class="yourPass" />
+          </div>
+        </div>
+        <div class="buttonDiv inpDivs">
+          <button class="comBtn1" @click="loginTurn()">立即登录</button>
+          <a href="javascript:;" class="icons icon1">
+            <img src="http://huangqinchao.host3v.vip/yazhuo/log1.png" />
+          </a>
+          <a href="javascript:;" class="icons icon2">
+            <img src="http://huangqinchao.host3v.vip/yazhuo/log2.png" />
+          </a>
+        </div>
+        <div class="forgetDiv inpDivs">
+          <a href="javascript:;" class="forgetLink" @click="forgetPass()">忘记密码?</a>
+        </div>
       </div>
+      <!-- 表单结束 -->
     </div>
   </div>
 </template>
+
 <script>
 import Axios from "axios";
-
+import tail from "@/components/tail/tail";
 export default {
   name: "login",
-  components: {},
+  components: {
+    tail
+  },
   data() {
     return {
-      list: [],
+      loginList: [], //登录接口
+      yourAccount: "", //账号
+      yourPass: "" //密码
     };
   },
   created() {
-    this.getmessage();
+    this.getLoginMsg();
   },
-
   methods: {
-    getmessage() {
+    getLoginMsg() {
       var that = this;
       Axios.get(
         "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/login",
@@ -73,188 +77,215 @@ export default {
           timeout: 3000 // 配置
         }
       ).then(res => {
-        that.list = res.data.data.famous;
+        that.loginList = res.data.data.famous;
       });
     },
-    gotoMenu(){
-        this.$router.replace('/home')
+    // 立即登录
+    loginTurn() {
+      // this.$router.replace("/home");
+      if (this.yourAccount === "") {
+        console.log("账号不能为空");
+        return false;
+      }
+      if (this.yourPass === "") {
+        console.log("密码不能为空");
+        return false;
+      }
+    },
+    // 忘记密码
+    forgetPass() {
+      console.log("忘记密码");
+      // this.$router.replace("/home");
     }
   }
 };
 </script>
 
-<style scoped lang="less">
-@color_1: #333333;
-@color_2: #808080;
-@color_3: #007ab7;
-@color_4: #ffffff;
-@color_5: rgba(179, 179, 179, 0.5);
-@font_family_1: Source Han Sans CN;
-@background_color_1: #ffffff;
-@background_color_2: #007ab7;
-@background_color_3: #ebebeb;
-
-.content {
+<style scoped>
+/* 页面公共huang */
+a {
+  text-decoration: none;
+  color: #333;
+}
+img {
+  border: none;
+  vertical-align: middle;
+}
+input,
+button {
+  outline: none;
+  border: none;
+}
+/* 背景图 */
+.loginBox {
+  display: block;
   height: 100%;
   width: 100%;
-  background-image: url(https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E7%99%BB%E9%99%86%E9%A1%B5%E8%83%8C%E6%99%AF.png);
-    background-size: 100% 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-size: 100% 100% !important;
+  position: relative;
+  background: #1e9fff;
 }
-
-.text {
-  height: 1080px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.left {
-  width: 700px;
-  height: 680px;
-}
-
-.box {
+/* 登录框 */
+.posForm {
   width: 540px;
-  height: 680px;
-  background-color: @background_color_1;
+  height: 640px;
+  position: absolute;
+  top: 50%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  background: #fff;
   border-radius: 8px;
+  box-shadow: 0 0 5px #fff;
 }
-.title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* 亚卓智慧平台 */
 .titletext {
-  height: 187px;
-    width: 500px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.titlebody {
-  color: @color_1;
-  font-size: 48px;
-  font-family: Source Han Sans CN;
-  font-weight: 600;
-}
-
-.titlefooter {
-  color: @color_2;
-  font-size: 26px;
-}
-
-.logincenter {
-  width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 30px 0;
+  width: 100%;
   text-align: center;
-  margin-top: 20px;
-  color: @color_3;
-  font-family: @font_family_1;
-  font-weight: 500;
-  font-size: 24px;
 }
-.line {
+.titletext .titlebody {
+  color: #333;
+  font-size: 48px;
+  font-family: "microsoft yahei";
+  padding-bottom: 10px;
+}
+.titletext .titlefooter {
+  color: #808080;
+  font-size: 26px;
+  font-family: "microsoft yahei";
+}
+/* 表单公共 */
+.inpComs {
+  display: flex;
+  height: 68px;
+  overflow: hidden;
+}
+.inpComs .picture {
+  height: 68px;
+  width: 68px;
+  background: #007ab7;
+  text-align: center;
+  line-height: 68px;
+  border-radius: 8px 0px 0px 8px;
+  float: left;
+}
+.inpComs .inputtxt {
+  display: block;
+  flex: 1;
+  float: left;
+  width: 82%;
+}
+.inpComs input {
+  text-indent: 1em;
+  font-size: 24px;
+  height: 68px;
+  line-height: 68px;
+  background: #ebebeb;
+  font-family: "microsoft yahei";
+  display: block;
+  width: 100%;
+  box-shadow: 0 0 4px #bbb inset;
+}
+.inpComs input:focus {
+  box-shadow: 0 0 4px #1e9fff inset;
+}
+.iconfont {
+  font-size: 40px;
+  color: #ffffff;
+}
+.inpDivs {
+  margin-bottom: 30px;
+  width: 100%;
+}
+.loginForm {
+  width: 90%;
+  margin: 0 auto;
+}
+/* 登录中心和下划线 */
+.titlecenter {
+  width: 180px;
+  color: #007ab7;
+  font-family: "microsoft yahei";
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+.titleline {
   width: 48px;
   height: 4px;
   background: #007ab7;
   border-radius: 2px;
-  margin-left: 40px;
 }
-
-.loginbootom {
-  width: 100px;
+/* 提交按钮 */
+.buttonDiv {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
-
-.words {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.buttonDiv .icons {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: #1e9fff;
+  overflow: hidden;
+  border-radius: 100%;
+  margin-left: 20px;
 }
-
-.account {
-  width: 460px;
-  height: 68px;
-  width: 460px;
-  margin-top: 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.buttonDiv .icons:hover {
+  box-shadow: 0 0 4px #1e9fff;
 }
-
-.password {
-  width: 460px;
-  height: 68px;
-  width: 460px;
-  margin-top: 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.buttonDiv .icons img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-
-.img {
-  width: 36px;
-  height: 38px;
-}
-
-.button {
-  margin-top: 40px;
-  width: 460px;
-}
-
-.btn {
+.comBtn1 {
+  display: inline-block;
   height: 60px;
-  width: 260px;
-  color: @color_4;
-  background-color: @background_color_2;
+  color: #fff;
+  background: #007ab7;
   font-size: 26px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 4px;
+  padding: 0 60px;
+  font-family: "microsoft yahei";
 }
-
-.forgetPD {
-  height: 60px;
-  width: 460px;
-  color: @color_5;
+.comBtn1:hover {
+  cursor: pointer;
+  background: #2095d0;
+}
+/* 忘记密码 */
+.forgetDiv .forgetLink {
+  color: #b3b3b3;
   font-size: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  font-family: "microsoft yahei";
 }
-
-.picture {
-  height: 68px;
-  width: 68px;
-  background-color: #007ab7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px 0px 0px 8px;
+.forgetDiv .forgetLink:hover {
+  color: #007ab7;
 }
-
-.input {
-  height: 68px;
-  width: 320px;
-  font-size: 28px;
-  background-color: #EBEBEB;
+/* 1600px */
+@media (max-width: 1600px) {
+  .posForm {
+    width: 500px;
+    height: 600px;
+  }
 }
-.iconfont{
-    font-size: 40px;
-    color: #ffffff;
+/* 1440px */
+@media (max-width: 1440px) {
+  .posForm {
+    left: 78%;
+    width: 490px;
+  }
+  .titletext .titlebody {
+    font-size: 44px;
+  }
+  .titletext .titlefooter {
+    font-size: 24px;
+  }
 }
-.wechat{
-    height:187px;
+/* 1366px */
+@media (max-width: 1366px) {
+  .posForm {
+    width: 470px;
+  }
 }
 </style>
