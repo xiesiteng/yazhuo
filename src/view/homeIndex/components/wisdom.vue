@@ -1,19 +1,13 @@
 <template>
-  <div class="app" :style="{backgroundImage:'url('+bg+')',backgroungSize:'100% 100%'}">
-    <div class="title">
-      <div class="contents">
-        <div class="uptitle">
-          <div class="titlename">智/慧/课/堂</div>
-        </div>
-        <div class="downtext">教育信息化融入课堂，彻底融合教育信息化解决方案</div>
-      </div>
-    </div>
-    <div class="box">
+  <div class="app" style="background:url(http://huangqinchao.host3v.vip/yazhuo/wisdbg.png);">
+    <div class="boxHead">智慧教学</div>
+    <div class="boxBody">
+      <!-- 1/ 开始 -->
       <div class="left">
         <div class="list0">
           <div class="text">
             <div class="title">{{list1.title}}</div>
-            <div class="keyWord">关键字：{{list1.stitle}}</div>
+            <div class="ksyWord">关键字：{{list1.stitle}}</div>
             <div class="content">{{list1.content}}</div>
           </div>
           <div class="icon">
@@ -31,22 +25,30 @@
           </div>
         </div>
       </div>
+      <!-- 1/ 结束 -->
+      <!-- 2/ 开始 -->
       <div class="middleline">
         <div class="linetop"></div>
         <div class="linedown"></div>
       </div>
+      <!-- 2/ 结束 -->
+      <!-- 3/ 开始 -->
       <div class="ball" :style="{backgroundImage:'url('+ball+')',backgroundSize:'100% 100%'}">
         <img class="ballImage" :src="runaround" alt />
       </div>
+      <!-- 3/ 结束 -->
+      <!-- 4/ 开始 -->
       <div class="middleline2">
         <div class="linetop"></div>
         <div class="linedown"></div>
       </div>
+      <!-- 4/ 结束 -->
+      <!-- 5/ 开始 -->
       <div class="right">
         <div class="list0">
           <div class="text">
             <div class="title">{{list1.title}}</div>
-            <div class="keyWord">关键字：{{list1.stitle}}</div>
+            <div class="ksyWord">关键字：{{list1.stitle}}</div>
             <div class="content">{{list1.content}}</div>
           </div>
           <div class="icon">
@@ -64,6 +66,7 @@
           </div>
         </div>
       </div>
+      <!-- 5/ 结束 -->
     </div>
   </div>
 </template>
@@ -71,9 +74,6 @@
 import Axios from "axios";
 export default {
   name: "wisdom",
-  components: {},
-  computed: {},
-  beforeCreate() {},
   created() {
     this.getmessage();
   },
@@ -111,50 +111,21 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped lang="less">
 .app {
+  display: block;
   height: 658px;
   color: #ffffff;
-  .title {
-    .contents {
-      height: 166px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .uptitle {
-        // height: 160px;
-        width: 500px;
-        display: flex;
-        // flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .titlename {
-          color: #ffffff;
-          font-family: Source Han Sans CN;
-          font-size: 24px;
-        }
-      }
-      .downtext {
-        width: 1050px;
-        height: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // height: 104px;
-        color: #ffffff;
-        font-size: 14px;
-      }
-      .picture {
-        margin-top: 34px;
-        .img {
-          width: 1100px;
-          height: 364px;
-        }
-      }
-    }
+  width: 100%;
+  background-position: center center !important;
+  .boxHead {
+    background: -orange;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    padding: 60px 0;
   }
-  .box {
+  .boxBody {
     height: 444px;
     display: flex;
     justify-content: center;
@@ -178,14 +149,12 @@ export default {
           .title {
             font-size: 20px;
             font-weight: 600;
+            padding-bottom: 10px;
           }
-          .title:hover{
-            color: #007AB7;
-          }
-          .keyWord {
-            height: 36px;
+          .ksyWord {
             font-size: 16px;
             opacity: 0.9;
+            padding-bottom: 10px;
           }
           .content {
             height: 55px;
@@ -196,7 +165,6 @@ export default {
         .icon {
           height: 130px;
           margin-left: 16px;
-
           .img {
             width: 53px;
             height: 53px;
@@ -295,14 +263,12 @@ export default {
           .title {
             font-size: 20px;
             font-weight: 600;
+            padding-bottom: 10px;
           }
-          .title:hover{
-            color: #007AB7;
-          }
-          .keyWord {
-            height: 36px;
+          .ksyWord {
             font-size: 16px;
             opacity: 0.9;
+            padding-bottom: 10px;
           }
           .content {
             height: 55px;
@@ -323,5 +289,4 @@ export default {
     }
   }
 }
-      
 </style>

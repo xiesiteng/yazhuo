@@ -1,60 +1,65 @@
 <template>
-  <div class="app" :style="{backgroundImage:'url('+bg+')',
-            backgroundSize:'100% 100%'}">
-    <div class="title">
-      <div class="contents">
-        <div class="uptitle">
-          <div class="titlename">生/态/共/建</div>
-        </div>
-        <div class="downtext">我们一起来推进教育信息化建设</div>
-      </div>
-    </div>
-    <div class="ecologymenu">
+  <div class="app" style="background:url(http://huangqinchao.host3v.vip/yazhuo/mapbg.png)">
+    <div class="boxHead">生态共建</div>
+    <!-- tab切换 开始 -->
+    <div class="headTitTab">
       <div
-        class="ecologybutton"
-        :style="{borderBottom:index == choose?'1px solid #007AB7':'2px solid #d6d6d6'}"
+        :class="(choose===index?'tabOn':'')"
+        class="tablink"
         v-for="(items, index) in list"
         :key="index"
-      >
-        <div class="ecologycontent" @click="click(index)">{{items.title}}</div>
-      </div>
-      <div class="ecologyline"></div>
+        @click="changeTab(index)"
+      >{{items.title}}</div>
     </div>
-    <div class="show1" v-show="choose == 0?true:false">
-      <div class="left"></div>
-      <swiper :options="swiperOption" class="list" >
-        <swiper-slide style="display:flex;" class="expert" v-for="(items, index) in company" :key="index">
-            <div class="picture">
-              <img :src="items" alt class="img" />
-            </div>
-        </swiper-slide>
-        <div class="swiper-button-prev" slot="pagination"></div>
-        <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-        <div class="swiper-button-next" slot="pagination"></div>
-        <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
-      </swiper>
-      <div class="right"></div>
+    <!-- tab切换 结束 -->
+    <!-- 盒子1 开始 -->
+    <div class="showBoxs show1" v-show="choose == 0?true:false">
+      <p>1111111111111111</p>
+      <!-- <div class="left"></div> -->
+      <!-- <swiper :options="swiperOption" class="list"> -->
+      <!-- <swiper-slide
+          style="display:flex;"
+          class="expert"
+          v-for="(items, index) in company"
+          :key="index"
+        >
+          <div class="picture">
+            <img :src="items" alt class="img" />
+          </div>
+      </swiper-slide>-->
+      <!-- <div class="swiper-button-prev" slot="pagination"></div> -->
+      <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+      <!-- <div class="swiper-button-next" slot="pagination"></div> -->
+      <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
+      <!-- </swiper> -->
+      <!-- <div class="right"></div> -->
     </div>
-    <div class="show2" v-show="choose == 1?true:false">
-      <div class="left2">
+    <!-- 盒子1 结束 -->
+    <!-- 盒子2 开始 -->
+    <div class="showBoxs show2" v-show="choose == 1?true:false">
+      <p>222222222222</p>
+      <!-- <div class="left2">
         <div class="school" :class="schoolactive" @click="changeschool">学校</div>
         <div class="company" :class="companyactive" @click="changecompany">公司</div>
-      </div>
-      <swiper class="list" :options="swiperOption">
-        <swiper-slide class="expert" v-for="(items, index) in school" :key="index">
+      </div>-->
+      <!-- <swiper class="list" :options="swiperOption"> -->
+      <!-- <swiper-slide class="expert" v-for="(items, index) in school" :key="index">
           <div class="picture">
             <img :src="items" alt class="imgg" />
           </div>
-        </swiper-slide>
-        <div class="swiper-button-prev" slot="pagination"></div>
-        <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
-        <div class="swiper-button-next" slot="pagination"></div>
-        <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
-      </swiper>
-      <div class="right"></div>
+      </swiper-slide>-->
+      <!-- <div class="swiper-button-prev" slot="pagination"></div> -->
+      <!--左箭头。如果放置在swiper-container外面，需要自定义样式。-->
+      <!-- <div class="swiper-button-next" slot="pagination"></div> -->
+      <!--右箭头。如果放置在swiper-container外面，需要自定义样式。-->
+      <!-- </swiper> -->
+      <!-- <div class="right"></div> -->
     </div>
-    <div class="show3" v-show="choose == 2?true:false">
-      <div class="box">
+    <!-- 盒子2 结束 -->
+    <!-- 盒子3 开始 -->
+    <div class="showBoxs show3" v-show="choose == 2?true:false">
+      <p>3333333333333</p>
+      <!-- <div class="box">
         <div class="boxtitle">意向录入</div>
         <div class="boxtext">
           <div class="input">
@@ -82,15 +87,15 @@
         <div class="button">
           <button class="btn" @click="submit">提交信息</button>
         </div>
-      </div>
+      </div>-->
     </div>
-
-    <div v-show="popup">
-      <!--这里是要展示的内容层-->
-      <div class="mock">输入正确的 {{errormessage}}</div>
-      <!--这里是半透明背景层-->
-      <div class="over" @click="closemock"></div>
-    </div>
+    <!-- 盒子3 结束 -->
+    <!-- 页面提示 开始 -->
+    <!-- <div v-show="popup">
+      <div class="layertip">输入正确的 {{errormessage}}</div>
+      <div class="layerover" @click="closemock"></div>
+    </div>-->
+    <!-- 页面提示 结束 -->
   </div>
 </template>
 <script>
@@ -114,8 +119,8 @@ export default {
       name: "",
       sel: "",
       popup: 0,
-      schoolactive:'active',
-      companyactive:'',
+      schoolactive: "active",
+      companyactive: "",
       errormessage: "",
       swiperOption: {
         direction: "horizontal",
@@ -150,8 +155,10 @@ export default {
         that.school = res.data.data.list[1].company.school;
       });
     },
-    click(index) {
+    // tab切换
+    changeTab(index) {
       this.choose = index;
+      console.log(index);
     },
     submit() {
       let that = this;
@@ -177,245 +184,99 @@ export default {
     },
     changeschool() {
       this.school = this.list[1].company.school;
-      this.schoolactive ='active';
-      this.companyactive = '';
+      this.schoolactive = "active";
+      this.companyactive = "";
     },
     changecompany() {
       this.school = this.list[1].company.company;
-      this.companyactive = 'active';
-      this.schoolactive = '';
+      this.companyactive = "active";
+      this.schoolactive = "";
     }
   }
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped lang="less">
 .app {
-  height: 776px;
-  .title {
-    .contents {
-      height: 166px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      .uptitle {
-        // height: 160px;
-        width: 500px;
-        display: flex;
-        // flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .titlename {
-          color: #333333;
-          font-family: Source Han Sans CN;
-          font-size: 35px;
-        }
-      }
-      .downtext {
-        width: 1050px;
-        height: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // height: 104px;
-        color: #333333;
-        font-size: 16px;
-      }
-      .picture {
-        margin-top: 34px;
-        .img {
-          width: 1100px;
-          height: 364px;
-        }
-      }
-    }
+  // 背景图片
+  height: 655px;
+  width: 100%;
+  background-position: center center !important;
+  // 标题文字
+  .boxHead {
+    background: -orange;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    padding: 40px 0;
   }
-  .ecologymenu {
+  // tab切换
+  .headTitTab {
+    background: -pink;
     display: flex;
-    justify-content: center;
     align-items: center;
-    .ecologybutton {
-      // border-bottom: 2px solid #d6d6d6;
-      .ecologycontent {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-        width: 400px;
-        color: #333333;
-        font-size: 20px;
-      }
+    justify-content: space-around;
+    border-bottom: 1px solid #d6d6d6;
+    .tablink {
+      display: inline-block;
+      width: auto;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      padding-bottom: 15px;
+      position: relative;
     }
-    // .ecologyline {
-    // }
-  }
-  .show1,
-  .show2 {
-    height: 482px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // .left {
-    // }
-    .left2 {
-      height: 478px;
-      .school,
-      .company {
-        width: 60px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #b2b2b2;
-      }
-      .active {
-        background-color: #007ab7;
-        color: #ffffff;
-      }
+    .tablink:hover,
+    .tabOn {
+      color: #007ab7;
     }
-    .list {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1200px;
-      .expert {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .picture {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 180px;
-          height: 260px;
-          .img {
-            width: 180px;
-            height: 260px;
-          }
-          .imgg {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-          }
-        }
-      }
-    }
-    // .right {
-    // }
-  }
-  .show3 {
-    height: 540px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .box {
-      height: 500px;
-      width: 400px;
-      background: rgba(255, 255, 255, 0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      .boxtitle {
-        height: 54px;
-        color: #333333;
-        font-size: 24px;
-        font-weight: bold;
-        display: flex;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-content: center;
-      }
-      .boxtext {
-        height: 324px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .input {
-          width: 360px;
-          height: 108px;
-          .listtitle {
-            height: 38px;
-            font-size: 18px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-          }
-          .select {
-            .sel {
-              height: 50px;
-              width: 360px;
-              font-size: 16px;
-            }
-          }
-          .boxinput {
-            .inp {
-              height: 50px;
-              width: 360px;
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      .button {
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        .btn {
-          width: 360px;
-          height: 40px;
-          font-size: 18px;
-          background-color: #007ab7;
-          color: #ffffff;
-        }
-      }
+    .tablink:hover:after,
+    .tabOn:after {
+      content: "";
+      display: inline-block;
+      width: 144px;
+      height: 8px;
+      background: url(http://huangqinchao.host3v.vip/yazhuo/online.png);
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat !important;
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
-
-  .rule {
-    position: absolute;
-    width: 0.82rem;
-    height: 0.36rem;
-    top: 0.08rem;
-    right: 0rem;
-    background: #111111;
+  .showBoxs {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
   }
-  .mock {
-    position: fixed;
-    font-size: 48px;
-    height: 100px;
-    width: 600px;
-    background-color: #ffffff;
-    color: #007ab7;
-    border-radius: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-  .over {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    opacity: 0.7; //透明度为70%
-    filter: alpha(opacity=70);
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: #111111;
-  }
-
-  .active{
-    background-color: #007AB7;
-    color: #FFFFFF;
-  }
+  // 页面提示
+  // .layertip {
+  //   position: fixed;
+  //   font-size: 48px;
+  //   height: 100px;
+  //   width: 600px;
+  //   background-color: #ffffff;
+  //   color: #007ab7;
+  //   border-radius: 0.25rem;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%, -50%);
+  //   z-index: 1000;
+  // }
+  // .layerover {
+  //   position: fixed;
+  //   width: 100%;
+  //   height: 100%;
+  //   opacity: 0.7;
+  //   filter: alpha(opacity=70);
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 999;
+  //   background-color: #111111;
+  // }
 }
 </style>

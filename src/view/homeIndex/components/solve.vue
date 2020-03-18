@@ -1,58 +1,19 @@
 <template>
   <div class="app">
-    <div class="solve">
-      <div class="solvetitle">
-        <div class="name">信/息/化/解/决/方/案</div>
-        <div class="body">为广大中职院校提供教育信息化解决方案</div>
-      </div>
-      <div class="programme">
-        <div class="up">
-          <div class="studyup" style="top: -2800px;" v-for="(items, index) in listup" :key="index">
-            <div class="box">
-              <div class="study">
-                <div
-                  class="programme"
-                  v-for="(title, ind) in items"
-                  :key="ind"
-                  @mouseenter="mouseenter(index,ind)"
-                  @mouseleave="mouseout(index)"
-                >
-                  <div class="spot" v-show="title[ind] != '0'">{{title[ind]}}</div>
-                  
-                  <div class="programmename">{{title.title}}</div>
-                </div>
-              </div>
-              <div class="careerpoints">
-                <div class="points" v-for="(point ,num) in menu[index]" :key="num">{{point}}</div>
-              </div>
-            </div>
-            <div class="tips">
-              <div class="tipscontent" v-show="show && index == choice">
-                <div class="title">{{items[ind].title}}</div>
-                <div class="content">{{items[ind].explain}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="middle">
-          <img class="brokenline" src="../../../assets/折线.png" alt />
-        </div>
-        <div class="down">
-          <div class="up" style="margin-left: 0px;">
-            <div
-              class="studyup"
-              style="top: -2800px;"
-              v-for="(items, index) in listdown"
-              :key="index"
-            >
-              <div class="box" style="flex-direction: column-reverse;">
+    <div class="solve" style="background:url(http://huangqinchao.host3v.vip/yazhuo/solvebg.png)">
+      <div class="solvetitle">亚卓教育素养培养全场景覆盖</div>
+      <div class="flex-center-x">
+        <div class="programme">
+          <div class="up">
+            <div class="studyup" v-for="(items, index) in listup" :key="index">
+              <div class="box">
                 <div class="study">
                   <div
                     class="programme"
                     v-for="(title, ind) in items"
-                    @mouseenter="mouseenterd(index,ind)"
                     :key="ind"
-                    @mouseleave="mouseoutd(index)"
+                    @mouseenter="mouseenter(index,ind)"
+                    @mouseleave="mouseout(index)"
                   >
                     <div class="spot" v-show="title[ind] != '0'">{{title[ind]}}</div>
                     <div class="programmename">{{title.title}}</div>
@@ -63,9 +24,46 @@
                 </div>
               </div>
               <div class="tips">
-                <div class="tipscontent" v-show="showd && index == choiced">
-                  <div class="title">{{items[indd].title}}</div>
-                  <div class="content">{{items[indd].explain}}</div>
+                <div class="tipscontent" v-show="show && index == choice">
+                  <div class="title">{{items[ind].title}}</div>
+                  <div class="content">{{items[ind].explain}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="middle">
+            <img class="brokenline" src="http://huangqinchao.host3v.vip/yazhuo/solveLine.png" alt />
+          </div>
+          <div class="down">
+            <div class="up" style="margin-left: 0px;">
+              <div
+                class="studyup"
+                style="top: -2800px;"
+                v-for="(items, index) in listdown"
+                :key="index"
+              >
+                <div class="box" style="flex-direction: column-reverse;">
+                  <div class="study">
+                    <div
+                      class="programme"
+                      v-for="(title, ind) in items"
+                      @mouseenter="mouseenterd(index,ind)"
+                      :key="ind"
+                      @mouseleave="mouseoutd(index)"
+                    >
+                      <div class="spot" v-show="title[ind] != '0'">{{title[ind]}}</div>
+                      <div class="programmename">{{title.title}}</div>
+                    </div>
+                  </div>
+                  <div class="careerpoints">
+                    <div class="points" v-for="(point ,num) in menu[index]" :key="num">{{point}}</div>
+                  </div>
+                </div>
+                <div class="tips">
+                  <div class="tipscontent" v-show="showd && index == choiced">
+                    <div class="title">{{items[indd].title}}</div>
+                    <div class="content">{{items[indd].explain}}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -78,7 +76,6 @@
 
 <script>
 import Axios from "axios";
-
 export default {
   name: "solve",
   components: {},
@@ -101,7 +98,6 @@ export default {
   created() {
     this.getmessage();
   },
-
   methods: {
     getmessage() {
       var that = this;
@@ -115,16 +111,12 @@ export default {
         that.title = res.data.data;
         that.list = res.data.data.solve;
         that.menu = res.data.data.name;
-
-        //   console.log(that.list)
         that.listup = that.group(that.list, 3)[0];
         that.listdown = that.group(that.list, 3)[1];
-        
       });
-      // 判断是否登录
     },
     group(array, subGroupLength) {
-      //    1,将数组array分成长度为subGroupLength的小数组并返回新数组
+      //  将数组array分成长度为subGroupLength的小数组并返回新数组
       let index = 0;
       let newArray = [];
       while (index < array.length) {
@@ -158,42 +150,23 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-
 <style scoped lang="less">
-// 解决方案
 .solve {
   height: 600px;
   width: 100%;
-  background-image: url("../../../assets/bg2.png");
+  background-position: center center !important;
   .solvetitle {
-    height: 116px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .name {
-      margin: 10px;
-      width: 244px;
-      height: 25px;
-      font-size: 24px;
-      font-family: Microsoft YaHei;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 1);
-
-    }
-    .body {
-      width: 264px;
-      height: 14px;
-      font-size: 14px;
-      font-family: Microsoft YaHei;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 1);
-    }
+    text-align: center;
+    font-size: 24px;
+    font-family: "Microsoft YaHei";
+    color: #ffffff;
+    padding: 40px 0;
   }
   .programme {
-    
+    background: -pink;
+    display: inline-block;
+    width: auto;
     .up {
       margin-left: 380px;
       display: flex;
@@ -215,13 +188,28 @@ export default {
             box-shadow: 1px 1px 10px #ffffff;
             width: 180px;
             margin: 0 20px;
-            // height:120px;
             height: 100%;
             .programme {
               height: 36px;
               display: flex;
               align-items: center;
-
+              position: relative;
+              &:hover {
+                background: -red;
+                cursor: pointer;
+                border-bottom: -1px solid #fff;
+              }
+              &:hover::after {
+                content: "";
+                display: block;
+                width: 50%;
+                height: 1px;
+                background: #ffffff;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+              }
               .spot {
                 margin-top: 6px;
                 margin-left: 20px;
@@ -236,7 +224,7 @@ export default {
                 margin-left: 30px;
                 color: #ffffff;
                 font-size: 16px;
-                font-family: Microsoft YaHei;
+                font-family: "Microsoft YaHei";
                 font-weight: 400;
               }
             }
@@ -248,7 +236,7 @@ export default {
             margin: 5px 0;
             color: #ffffff;
             font-size: 20px;
-            font-family: Microsoft YaHei;
+            font-family: "Microsoft YaHei";
             font-weight: 400;
             width: 30px;
             height: 30px;
@@ -299,7 +287,6 @@ export default {
           box-shadow: 1px 1px 10px #ffffff;
           width: 180px;
           margin: 0 60px;
-          // height:120px;
           height: 100%;
           .programme {
             height: 36px;
@@ -319,9 +306,8 @@ export default {
               margin-left: 30px;
               color: #ffffff;
               font-size: 16px;
-              font-family: Microsoft YaHei;
+              font-family: "Microsoft YaHei";
               font-weight: 400;
-              
             }
           }
         }
@@ -360,6 +346,20 @@ export default {
         height: 92px;
       }
     }
+  }
+}
+/* 1440px */
+@media (max-width: 1440px) {
+  .flex-center-x {
+    position: relative;
+    left: -80px;
+  }
+}
+/* 1366px */
+@media (max-width: 1366px) {
+  .flex-center-x {
+    position: relative;
+    left: -90px;
   }
 }
 </style>
