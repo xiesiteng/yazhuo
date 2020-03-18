@@ -27,15 +27,19 @@
         </div>
       </div>
     </div>
+    <!-- 回到顶部 -->
+    <back-top></back-top>
   </div>
 </template>
 
 <script lang="js">
 import Axios from "axios";
-
+import backTop from '@/components/backTop/backTop.vue'
 export default {
   name: "ggbasicclass",
-  components: {},
+  components: {
+    backTop
+  },
   data() {
     return {
         list:[],

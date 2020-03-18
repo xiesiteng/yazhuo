@@ -1,0 +1,138 @@
+<template>
+  <div class="main">
+    <transition name = "fade">
+      <!-- back-wrap绝对定位 -->
+      <div class="back-wrap" v-if="showBtn">
+        <!-- back-wrap-inner相对定位 -->
+        <div class="back-wrap-inner flex-end">
+          <div class="back-item-wrap">
+            <!-- 回到顶部的箭头 -->
+            <div class="back-item" style="background: pink" @click="toTop"></div>
+            <!-- 售前与售后 -->
+            <div 
+              v-for="(item, index) in itemList" :key="index"
+              :class="['back-item', active == index ? 'back-item-active' : '']"
+              @click="choose(index)"
+            >
+              {{item}}
+            </div>
+            <!-- 售前与售后end -->
+          </div>
+          <!-- 售前 售后的电话显示 -->
+          <div class="sale-pre flex-center-y" v-show="active == 0">
+            <img src="" alt="">
+            <span>6 8 7 3 0 6 2 5</span>
+          </div>
+          <div class="sale-over flex-center-y" v-show="active == 1">
+            <img src="" alt="">
+            <span>6 8 7 3 0 6 2 5</span>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return{
+      active: 0,
+      itemList: ['售前', '售后'],
+      showBtn: false
+    }
+  },
+  created() {
+    this.$nextTick(()=>{
+      window.addEventListener('scroll', this.scrollToTop)
+    })
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.scrollToTop)
+  },
+  methods: {
+    choose (index) {
+      this.active = index
+    },
+    // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+    scrollToTop () {
+      const _this = this
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      _this.scrollTop = scrollTop
+      if (_this.scrollTop > 60) {
+        _this.showBtn = true
+      } else {
+        _this.showBtn = false
+      }
+    },
+    // 回到顶部
+    toTop () {
+      var timer = setInterval(function(){
+        let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let ispeed = Math.floor(-osTop / 5); 
+        document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+        this.isTop = true;
+        if(osTop === 0){
+          clearInterval(timer);
+        }
+      },30)
+    }
+  }
+}
+</script>
+
+<style scoped lang="less">
+  .back-wrap {
+    width: 253px;
+    height: 138px;
+    position: fixed;
+    bottom: 110px;
+    right: 40px;
+    transition: all .3s ease-in-out;
+    .back-wrap-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .back-item-wrap {
+        width: 60px;
+        height: 100%;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      .back-item {
+        width: 100%;
+        height: 46px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 46px;
+      }
+      .back-item-active {
+        background-color: #007AB7;
+        color: #fff;
+      }
+    }
+    .sale-pre, .sale-over{
+      width: 183px;
+      height: 45px;
+      background-color: #007AB7;
+      padding: 0 10px;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+    }
+    .sale-pre span, .sale-over span{
+      color: #fff;
+    }
+    .sale-over{
+      bottom: 0;
+    }
+  }
+}
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active, 2.1.8 版本以下 */ {
+    opacity: 0
+}
+</style>
