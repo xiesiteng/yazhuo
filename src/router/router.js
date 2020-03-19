@@ -1,5 +1,6 @@
 import main from '@/layout/index/index.vue'
 import login from '@/layout/login/login.vue'
+import School from '@/layout/school/school.vue'
 
 export const links = [
     { path: '*', redirect: '/home' },
@@ -86,6 +87,12 @@ export const links = [
                 component: () => import('../view/forum/forum'),
             },
         ],
+    },
+    {
+        title: '亚卓学院',
+        path: '/school',
+        name: 'school',
+        component: School,
     },
     {
         title: '登录',
