@@ -66,7 +66,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Axios from "axios";
 export default {
   name: "curriculum",
@@ -93,54 +93,54 @@ export default {
     };
   },
   created() {
-    // this.getmessage();
+    this.getmessage();
   },
   methods: {
-    // getmessage() {
-    //   var that = this;
-    //   Axios.get(
-    //     "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-    //     {
-    //       params: {}, // 参数
-    //       timeout: 3000 // 配置
-    //     }
-    //   ).then(res => {
-    //     that.getData = res.data.data[0].Education; //获取数据
-    //     console.log(res.data.data); //获取数据
-    //     that.typeList = that.getData; //tab切换
-    //     // console.log(that.getData);//tab切换
-    //     that.namelist = that.getData[that.ind].list;
-    //     that.url = that.getData[that.ind].list[0].url;
-    //     that.poster = that.getData[that.ind].list[0].picture;
-    //     // console.log(res.data.data);
-    //   });
-    // },
-    // // 改变左边播放的内容
-    // choose(index) {
-    //   var that = this;
-    //   that.click = index;
-    //   let player = document.querySelector("#video");
-    //   player.src = that.url;
-    //   // player.play();
-    //   that.url = that.getData[that.ind].list[index].url;
-    //   that.poster = that.getData[that.ind].list[index].picture;
-    //   console.log(that.poster);
-    // },
-    // // tab切换
-    // changeTab(index) {
-    //   this.choose2 = index;
-    //   this.getmessage();
-    //   console.log(index);
-    // },
-    // opean() {
-    //   // this.popup = 1;
-    // },
-    // closemock() {
-    //   // this.popup = 0;
-    //   // this.errormessage = "";
-    // }
+    getmessage() {
+      var that = this;
+      Axios.get(
+        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
+        {
+          params: {}, // 参数
+          timeout: 3000 // 配置
+        }
+      ).then(res => {
+        that.getData = res.data.data[0].Education; //获取数据
+        // console.log(res.data.data); //获取数据
+        that.typeList = that.getData; //tab切换
+        // console.log(that.getData);//tab切换
+        that.namelist = that.getData[that.ind].list;
+        that.url = that.getData[that.ind].list[0].url;
+        that.poster = that.getData[that.ind].list[0].picture;
+        // console.log(res.data.data);
+      });
+    },
+    // 改变左边播放的内容
+    choose(index) {
+      var that = this;
+      that.click = index;
+      let player = document.querySelector("#video");
+      player.src = that.url;
+      // player.play();
+      that.url = that.getData[that.ind].list[index].url;
+      that.poster = that.getData[that.ind].list[index].picture;
+      console.log(that.poster);
+    },
+    // tab切换
+    changeTab(index) {
+      this.choose2 = index;
+      this.getmessage();
+      console.log(index);
+    },
+    opean() {
+      // this.popup = 1;
+    },
+    closemock() {
+      // this.popup = 0;
+      // this.errormessage = "";
+    }
   }
-}
+};
 </script>
 
 <style scoped lang="less">
