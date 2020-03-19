@@ -92,6 +92,11 @@ export const links = [
         path: '/login',
         component: login,
         children: [],
+    },
+    {
+        title: '中职教育',
+        path: '/middleEducation',
+        component: () => import('../view/middleEducation/middleEducation')
     }
 ]
 export const routers = [...links]
