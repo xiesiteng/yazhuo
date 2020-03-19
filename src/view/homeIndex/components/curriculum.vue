@@ -106,7 +106,7 @@ export default {
         }
       ).then(res => {
         that.getData = res.data.data[0].Education; //获取数据
-        console.log(res.data.data); //获取数据
+        // console.log(res.data.data); //获取数据
         that.typeList = that.getData; //tab切换
         // console.log(that.getData);//tab切换
         that.namelist = that.getData[that.ind].list;
