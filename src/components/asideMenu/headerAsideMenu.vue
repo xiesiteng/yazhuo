@@ -115,7 +115,7 @@
                     },
                     {
                         id: "a05",
-                        url: "javascript:void(0)",
+                        url: "#/school",
                         // url: "page2",
                         name: '亚卓学院',
                         children: [
