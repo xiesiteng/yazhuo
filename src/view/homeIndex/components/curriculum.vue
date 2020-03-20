@@ -66,7 +66,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Axios from "axios";
 export default {
   name: "curriculum",
@@ -140,7 +140,7 @@ export default {
       // this.errormessage = "";
     }
   }
-};
+}
 </script>
 
 <style scoped lang="less">

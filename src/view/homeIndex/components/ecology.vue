@@ -13,8 +13,8 @@
     </div>
     <!-- tab切换 结束 -->
     <!-- 盒子1 开始 -->
-    <div class="showBoxs show1" v-show="isShowTab===0?true:false">
-      <swiper :options="swiperOption" v-if="company.length>0">
+    <div class="showBoxs show1" v-show="isShowTab===0?true:false" ref="sw">
+      <swiper :options="swiperOption" v-if="company.length>0" >
         <swiper-slide
           v-for="(items, index) in company"
           :key="index"
@@ -98,7 +98,10 @@ export default {
     VueAwesomeSwiper
   },
   created() {
-    this.getmessage();
+    this.$nextTick(()=>{
+      this.getmessage();
+      
+    })
   },
   data() {
     return {
@@ -130,6 +133,12 @@ export default {
       }
     };
   },
+  mounted () {
+    setTimeout(()=>{
+      // console.log(this.$refs.sw.children[0].children[0].style.display = "flex")
+      // this.$refs.sw.children[0].children[0].style.display = "flex"
+    }, 500)
+  },
   methods: {
     getmessage() {
       var that = this;
@@ -140,11 +149,12 @@ export default {
           timeout: 3000 // 配置
         }
       ).then(res => {
-        // console.log(that.list)
+        
         that.list = res.data.data.list;
         that.bg = res.data.data.bg;
         that.company = res.data.data.list[that.isShowTab].company;
         that.school = res.data.data.list[1].company.school;
+        // console.log(that.company)
       });
     },
     // tab切换
@@ -260,6 +270,7 @@ export default {
         .swiper-slide {
           display: inline-block;
           width: 196px !important;
+          min-width: 196px !important;
           height: 270px;
           position: relative;
           p {
@@ -315,6 +326,7 @@ export default {
         background: greenyellow;
         .swiper-slide {
           display: inline-block;
+          // min-width: 190px !important;
           width: 190px !important;
           height: 190px;
           margin-bottom: 40px;
@@ -413,5 +425,16 @@ export default {
   //   z-index: 999;
   //   background-color: #111111;
   // }
+  
 }
+</style>
+
+<style>
+  .show1 .swiper-wrapper{
+    display: flex!important;
+  }
+  .show2 .swiper-wrapper{
+    display: flex!important;
+    flex-wrap: wrap;
+  }
 </style>
