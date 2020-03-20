@@ -3,11 +3,9 @@
       <headerAsideMenu/>
       <div class="school-container">
         <div class="up-part">
-            <!-- <img src="../../assets/school/亚卓学院-bg1.png" alt=""> -->
+            <a class="check-btn" href="javascript:;" @click="check"></a>
         </div>
         <div class="down-part">
-            <!-- <div class="down-inner"></div> -->
-            <!-- <img src="../../assets/school/矢量智能对象 拷贝.jpg" alt=""> -->
             <div class="up-item-box" v-for="(item, index) in upItemList" :key="'up-'+index" :style="{left: item.left}">
                 {{item.text}}
             </div>
@@ -30,7 +28,7 @@ export default {
             upItemList: [
                 {
                     text: '优 秀 教 师',
-                    left: '23%'
+                    left: '24%'
                 },
                 {
                     text: '原 创 分 享',
@@ -42,34 +40,38 @@ export default {
                 },
                 {
                     text: '论 坛',
-                    left: '65%'
+                    left: '64%'
                 },
                 {
                     text: '积 分 商 城',
-                    left: '77%'
+                    left: '75%'
                 }
             ],
             downItemList: [
                 {
                     text: '特 色 学 校',
-                    left: '17%'
+                    left: '19%'
                 },
                 {
                     text: '社 区',
-                    left: '29%'
+                    left: '30%'
                 },
                 {
                     text: '案 例 精 选',
-                    left: '59%'
+                    left: '58%'
                 },
                 {
                     text: '产 品 教 程',
-                    left: '71%'
+                    left: '70%'
                 }
             ]
         }
+    },
+    methods: {
+        check () {
+            alert('敬请期待')
+        }
     }
-
 }
 </script>
 
@@ -77,9 +79,18 @@ export default {
 .school-container{
     min-width: 1200px;
     .up-part{
+        position: relative;
         height: 600px;
         background-image: url(../../assets/school/亚卓学院-bg1.png);
         background-size: 100% 100%;
+        .check-btn{
+            display: block;
+            width: 9%;
+            height: 7%;
+            position: absolute;
+            top: 74%;
+            left: 34%;
+        }
     }
     .down-part{
         position: relative;
