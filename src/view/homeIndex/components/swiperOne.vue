@@ -46,6 +46,7 @@ export default {
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家18', title: '教授 博士 研究生导师'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家19', title: '教授 博士 研究生导师'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家20', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家21', title: '教授 博士 研究生导师'},
       ],
       current: 0,
       count: 1, // 纪录超出宽度的item移动数量
