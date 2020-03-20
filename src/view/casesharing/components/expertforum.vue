@@ -47,7 +47,7 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import Axios from "axios";
 
 export default {
@@ -74,44 +74,45 @@ export default {
     };
   },
   created() {
-    this.getmessage();
+    // this.getmessage();
   },
 
   methods: {
-    getmessage() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/casesharing",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
-        }
-      ).then(res => {
-        that.list = res.data.data[0].Education;
-        // console.log(res.data.data)
-        // console.log(that.list[1])
-        that.type = that.list[that.ind].type;
-        // console.log(that.list[0].type);
-        that.namelist = that.list[that.ind].list;
+  //   getmessage() {
+  //     var that = this;
+  //     Axios.get(
+  //       "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/casesharing",
+  //       {
+  //         params: {}, // 参数
+  //         timeout: 3000 // 配置
+  //       }
+  //     ).then(res => {
+  //       that.list = res.data.data[0].Education;
+  //       // console.log(res.data.data)
+  //       // console.log(that.list[1])
+  //       that.type = that.list[that.ind].type;
+  //       // console.log(that.list[0].type);
+  //       that.namelist = that.list[that.ind].list;
 
-      });
-    },
-    // 改变左边播放的内容
-    choose(index){
-        var that = this;
-        that.click = index;
-        let player = document.querySelector('#casesharingvideo') 
-        that.url = that.list[that.ind].list[index].url;
-        player.src = that.url
-        player.play()
-    },
-    change(){
-        var that = this;
-        that.ind == 0 ? that.ind=1 : that.ind=0
-        that.getmessage();
-    }
-  }
-};
+  //     });
+  //   },
+  //   // 改变左边播放的内容
+  //   choose(index){
+  //       var that = this;
+  //       that.click = index;
+  //       let player = document.querySelector('#casesharingvideo') 
+  //       that.url = that.list[that.ind].list[index].url;
+  //       player.src = that.url
+  //       player.play()
+  //   },
+  //   change(){
+  //       var that = this;
+  //       that.ind == 0 ? that.ind=1 : that.ind=0
+  //       that.getmessage();
+  //   }
+  // }
+}
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

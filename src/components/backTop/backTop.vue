@@ -7,7 +7,9 @@
         <div class="back-wrap-inner flex-end">
           <div class="back-item-wrap">
             <!-- 回到顶部的箭头 -->
-            <div class="back-item" style="background: pink" @click="toTop"></div>
+            <div class="back-item flex-center" @click="toTop">
+              <img src="@/assets/test/up-arrow.png" alt="">
+            </div>
             <!-- 售前与售后 -->
             <div 
               v-for="(item, index) in itemList" :key="index"
@@ -20,11 +22,11 @@
           </div>
           <!-- 售前 售后的电话显示 -->
           <div class="sale-pre flex-center-y" v-show="active == 0">
-            <img src="" alt="">
+            <img src="@/assets/test/top-phone.png" alt="">
             <span>6 8 7 3 0 6 2 5</span>
           </div>
           <div class="sale-over flex-center-y" v-show="active == 1">
-            <img src="" alt="">
+            <img src="@/assets/test/top-phone.png" alt="">
             <span>6 8 7 3 0 6 2 5</span>
           </div>
         </div>
@@ -98,12 +100,17 @@ export default {
         height: 100%;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        background-color: #fff;
       .back-item {
         width: 100%;
         height: 46px;
         cursor: pointer;
         text-align: center;
         line-height: 46px;
+        img{
+          width: 43px;
+          height: 24px;
+        }
       }
       .back-item-active {
         background-color: #007AB7;
@@ -121,6 +128,11 @@ export default {
     }
     .sale-pre span, .sale-over span{
       color: #fff;
+      margin-left: 10px;
+    }
+    .sale-pre img, .sale-over img{
+      width: 30px;
+      height: 30px;
     }
     .sale-over{
       bottom: 0;

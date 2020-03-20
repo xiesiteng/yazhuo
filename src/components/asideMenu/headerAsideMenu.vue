@@ -54,7 +54,8 @@
                         children: [
                             {
                                 id: "a01-2",
-                                url: "educational-resources",
+                                url: "/middleEducation",
+                                // url: "educational-resources",
                                 name: '中职德育',
                             },
                             {
@@ -165,13 +166,14 @@
                 // 点击之后把:before伪元素移动到对应父元素上
                 sessionStorage.setItem('headerId', item.id)
                 this.active = sessionStorage.getItem('headerId')
-                this.$router.push({name: data.url, params: {userId: 123}})
+                // console.log(data.url)
+                this.$router.push(data.url)
             },
             choose (item) {
                 if (item.url == 'javascript:void(0)') {
                     return false
                 }
-                console.log('choo')
+                // console.log('choo')
                 sessionStorage.setItem('headerId', item.id)
                 this.active = sessionStorage.getItem('headerId')
             },

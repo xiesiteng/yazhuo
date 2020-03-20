@@ -66,7 +66,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Axios from "axios";
 export default {
   name: "curriculum",
@@ -106,7 +106,7 @@ export default {
         }
       ).then(res => {
         that.getData = res.data.data[0].Education; //获取数据
-        console.log(res.data.data); //获取数据
+        // console.log(res.data.data); //获取数据
         that.typeList = that.getData; //tab切换
         // console.log(that.getData);//tab切换
         that.namelist = that.getData[that.ind].list;
@@ -140,7 +140,7 @@ export default {
       // this.errormessage = "";
     }
   }
-};
+}
 </script>
 
 <style scoped lang="less">

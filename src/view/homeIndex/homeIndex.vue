@@ -1,5 +1,5 @@
 <template>
-  <div class="homeIndex">
+  <div>
     <!-- 亚卓教育素养培养生态空间 -->
     <banner />
     <!-- 亚卓教育素养培养全场景覆盖 -->

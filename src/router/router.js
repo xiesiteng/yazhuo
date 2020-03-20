@@ -1,5 +1,7 @@
 import main from '@/layout/index/index.vue'
 import login from '@/layout/login/login.vue'
+import middleEducation from '@/layout/middleEducation/middleEducation.vue'
+import homeIndex from '@/view/homeIndex/homeIndex'
 import School from '@/layout/school/school.vue'
 
 export const links = [
@@ -12,7 +14,8 @@ export const links = [
             {
                 title: '首页',
                 path: '/home',
-                component: () => import('@/view/homeIndex/homeIndex'),
+                component: homeIndex
+                // component: () => import('@/view/homeIndex/homeIndex'),
             },
             {
                 title: '二级页',
@@ -103,7 +106,7 @@ export const links = [
     {
         title: '中职教育',
         path: '/middleEducation',
-        component: () => import('../view/middleEducation/middleEducation')
+        component: middleEducation,
     }
 ]
 export const routers = [...links]
