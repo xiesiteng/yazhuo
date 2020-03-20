@@ -103,7 +103,8 @@ export default {
       if (this.current == (this.count - 1)*5) {
         // 每页第一个倒退
         console.log(333, this.nextValue, this.count)
-        slide.style.transform = "translateX(" + (this.nextValue + (1)*(1200)) + "px)"
+        slide.style.transform = "translateX(" + (this.nextValue + 1200) + "px)"
+        this.nextValue += 1200
         this.count--
         this.current = this.count*5 - 1
         
