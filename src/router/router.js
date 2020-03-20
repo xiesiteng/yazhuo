@@ -4,6 +4,7 @@ import middleEducation from '@/layout/middleEducation/middleEducation.vue'
 import homeIndex from '@/view/homeIndex/homeIndex'
 import WisdomPlatform from '@/layout/wisdomPlatform/wisdomPlatform.vue'
 import School from '@/layout/school/school.vue'
+import solveCase from '@/layout/solveCase/solveCase.vue'
 
 export const links = [
     { path: '*', redirect: '/home' },
@@ -114,6 +115,11 @@ export const links = [
         title: '中职教育',
         path: '/middleEducation',
         component: middleEducation,
+    },
+    {
+        title: '解决方案',
+        path: '/solveCase',
+        component: solveCase,
     }
 ]
 export const routers = [...links]

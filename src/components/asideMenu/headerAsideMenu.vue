@@ -98,19 +98,19 @@
                     },
                     {
                         id: "a04",
-                        url: "#/home/solution",
+                        url: "#/solveCase",
                         name: '解决方案',
                         children: [
-                            {
-                                id: "a01-1q",
-                                url: "solution",
-                                name: '基教解决方案',
-                            },
-                            {
-                                id: "a01-11",
-                                url: "solution",
-                                name: '职教解决方案',
-                            }
+                            // {
+                            //     id: "a01-1q",
+                            //     url: "solution",
+                            //     name: '基教解决方案',
+                            // },
+                            // {
+                            //     id: "a01-11",
+                            //     url: "solution",
+                            //     name: '职教解决方案',
+                            // }
                         ]
                     },
                     {
