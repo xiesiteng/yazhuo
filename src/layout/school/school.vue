@@ -134,21 +134,19 @@ export default {
         .center-box{
             position: absolute;
             top: 0;;
-            right: 70px;
+            right: 6%;
             bottom: -58px;
             left: 0;
             margin: auto;
-            width: 200px;
-            height: 80px;
+            width: 160px;
+            height: 64px;
             background-image: url(../../assets/school/矩形 523.png);
             background-size: 100%;
             background-repeat:no-repeat;
             text-align: center;
             span{
-                width:161px;
-                height:34px;
-                font-size:36px;
-                line-height: 80px;
+                font-size:28px;
+                line-height: 64px;
             }
         }
         .down-item-box{
@@ -180,7 +178,7 @@ export default {
                 transform: translateX(-50%);
             }
         }
-        @media screen and (max-width: 1900px) {
+        @media screen and (max-width: 1680px) {
             .up-item-box, .down-item-box{
                 position: absolute;
                 width: 80px;
