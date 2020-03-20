@@ -2,6 +2,7 @@ import main from '@/layout/index/index.vue'
 import login from '@/layout/login/login.vue'
 import middleEducation from '@/layout/middleEducation/middleEducation.vue'
 import homeIndex from '@/view/homeIndex/homeIndex'
+import WisdomPlatform from '@/layout/wisdomPlatform/wisdomPlatform.vue'
 import School from '@/layout/school/school.vue'
 
 export const links = [
@@ -90,6 +91,12 @@ export const links = [
                 component: () => import('../view/forum/forum'),
             },
         ],
+    },
+    {
+        title: '智慧平台',
+        path: '/wisdomPlatform',
+        name: 'wisdomPlatform',
+        component: WisdomPlatform,
     },
     {
         title: '亚卓学院',

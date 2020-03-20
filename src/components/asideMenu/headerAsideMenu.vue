@@ -92,7 +92,7 @@
                     },
                     {
                         id: "a03",
-                        url: "#/home/productcenter",
+                        url: "#/wisdomPlatform",
                         name: '智慧平台',
                         children: [],
                     },
