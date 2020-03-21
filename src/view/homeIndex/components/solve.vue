@@ -151,6 +151,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .solve {
   height: 600px;
   width: 100%;

@@ -112,6 +112,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .app {
   display: block;
   height: 658px;

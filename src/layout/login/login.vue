@@ -104,7 +104,7 @@ export default {
 <style scoped>
 /* 页面公共huang */
 * {
-  font-family: "microsoft yehei", "微软雅黑" !important;
+  font-family: "microsoft yehei", "微软雅黑";
 }
 a {
   text-decoration: none;

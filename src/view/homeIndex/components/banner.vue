@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .bannerBox {
   position: relative;
   background-position: center center !important;
@@ -76,6 +79,7 @@ export default {
       justify-content: center;
       width: 100%;
       height: 100%;
+      position: relative;
       .texts {
         display: inline-block;
         text-align: center;
@@ -127,9 +131,10 @@ export default {
         // opacity: 0.1;
         background: rgba(0, 0, 0, 0.1);
         cursor: pointer;
-        height: 100%;
+        height: 200px;
         position: absolute;
         right: 20px;
+        top: 0;
         i {
           color: #ffffff;
           font-size: 36px;
