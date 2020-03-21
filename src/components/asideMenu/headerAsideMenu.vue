@@ -30,158 +30,92 @@
 </template>
 <script>
 export default {
-  components: {},
-  computed: {},
-  created() {},
   data() {
     return {
-      active: sessionStorage.getItem("headerId"),
+      active: 0,
       logoText: "YAZHUO亚卓教育",
       linkList: [
-        {
-          id: "a01",
-          url: "/",
-          name: "首页",
-          children: []
-        },
-        {
-          id: "a02",
-          url: "/middleEducation",
-          // url: 'page2',
-          name: "课程资源",
-          children: [
-            // {
-            //     id: "a01-2",
-            //     url: "/middleEducation",
-            //     // url: "educational-resources",
-            //     name: '中职德育',
-            // },
-            // {
-            //     id: "a01-3",
-            //     url: "zzccomplishment",
-            //     name: '中职核心素养',
-            // },
-            // {
-            //     id: "a01-4",
-            //     url: "bzr-dreamWorks",
-            //     name: '班主任梦工厂',
-            // },
-            // {
-            //     id: "a01-5",
-            //     url: "ggbasic-class",
-            //     name: '公共基础课',
-            // },
-            // {
-            //     id: "a01-6",
-            //     url: "steam-page",
-            //     name: 'steam',
-            // },
-            // {
-            //     id: "a01-7",
-            //     url: "ggbasic-class",
-            //     name: '小猛犸',
-            // },{
-            //     id: "a01-8",
-            //     url: "zhClass",
-            //     name: '综合实践活动课',
-            // }
-          ]
-        },
-        {
-          id: "a03",
-          url: "/wisdomPlatform",
-          name: "智慧平台",
-          children: []
-        },
-        {
-          id: "a04",
-          url: "/solveCase",
-          name: "解决方案",
-          children: [
-            // {
-            //     id: "a01-1q",
-            //     url: "solution",
-            //     name: '基教解决方案',
-            // },
-            // {
-            //     id: "a01-11",
-            //     url: "solution",
-            //     name: '职教解决方案',
-            // }
-          ]
-        },
-        {
-          id: "a05",
-          url: "/school",
-          // url: "page2",
-          name: "亚卓学院",
-          children: [
-            // {
-            //     id: "a05-1q",
-            //     url: "casesharing",
-            //     name: '案例分享',
-            // },
-            // {
-            //     id: "a05-2q",
-            //     url: "forum",
-            //     name: '论坛/讨论',
-            // }
-          ]
+            {
+                id: "a01",
+                url: "/",
+                name: "首页",
+                children: []
+            },
+            {
+                id: "a02",
+                url: "/middleEducation",
+                // url: 'page2',
+                name: "课程资源",
+                children: []
+            },
+            {
+                id: "a03",
+                url: "/wisdomPlatform",
+                name: "智慧平台",
+                children: []
+            },
+            {
+                id: "a04",
+                url: "/solveCase",
+                name: "解决方案",
+                children: []
+            },
+            {
+                id: "a05",
+                url: "/school",
+                name: "亚卓学院",
+                children: []
+            }
+        ],
+            btns: [
+                {
+                id: "b01",
+                url: "/login",
+                name: "登录"
+                }
+            ]
         }
-        // {
-        //     id: "a06",
-        //     url: "page2",
-        //     name: '服务',
-        //     children: [
-        //         {
-        //             id: "a06-01",
-        //             url: "CloudServices",
-        //             name: '云服务',
-        //         },
-        //         {
-        //             id: "a06-02",
-        //             url: "CloudServices",
-        //             name: '本地服务',
-        //         }
-        //     ],
-        // },
-      ],
-      btns: [
-        {
-          id: "b01",
-          url: "/login",
-          name: "登录"
+    },
+        created () {
+            this.isCurrent()
+        },
+        methods: {
+            goPage(data, item) {
+                // 点击之后把:before伪元素移动到对应父元素上
+                sessionStorage.setItem('headerId', item.id)
+                this.active = sessionStorage.getItem('headerId')
+                // console.log(data.url)
+                this.$router.push(data.url)
+            },
+            choose (item) {
+                // if (item.url == 'javascript:void(0)') {
+                //     return false
+                // }
+                this.active = item.id
+            },
+            isCurrent () {
+                let path = this.$route.path
+                switch (path) {
+                    case '/home':
+                        this.active = 'a01'
+                        break
+                    case '/middleEducation':
+                        this.active = 'a02'
+                        break
+                    case '/wisdomPlatform':
+                        this.active = 'a03'
+                        break
+                    case '/solveCase':
+                        this.active = 'a04'
+                        break
+                    case '/school':
+                        this.active = 'a05'
+                        break
+                }
+            }
         }
-      ]
-    };
-  },
-  created() {
-    this.judgeRoute();
-  },
-  methods: {
-    goPage(data, item) {
-      // 点击之后把:before伪元素移动到对应父元素上
-      sessionStorage.setItem("headerId", item.id);
-      this.active = sessionStorage.getItem("headerId");
-      // console.log(data.url)
-      this.$router.push(data.url);
-    },
-    choose(item) {
-      if (item.url == "javascript:void(0)") {
-        return false;
-      }
-      // console.log('choo')
-      sessionStorage.setItem("headerId", item.id);
-      this.active = sessionStorage.getItem("headerId");
-    },
-    // 如果session中不存在状态值就默认在首页
-    judgeRoute() {
-      if (this.isblank(sessionStorage.getItem("headerId"))) {
-        this.active = "a01";
-      }
-    }
-  }
-};
+}
+ 
 </script>
 <style lang="less">
 @media screen and (max-width: 1640px) {
