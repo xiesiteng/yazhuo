@@ -3,47 +3,38 @@
     <!-- 产品体系 开始-->
     <div class="system">
       <!-- 定位闹钟 -->
-      <div
-        class="systemtime"
-        style="background:url(http://huangqinchao.host3v.vip/yazhuo/sysTiem.png)"
-      ></div>
+      <div class="systeperson" :style="{background:`url(${this.base+'sysPerson.png'})`}"></div>
       <!-- 定位背景1 -->
-      <div
-        class="systembgs systembg1"
-        style="background:url(http://huangqinchao.host3v.vip/yazhuo/edufrbg2.png)"
-      ></div>
+      <div class="systembgs systembg1" :style="{background:`url(${this.base+'edufrbg2.png'})`}"></div>
       <!-- 定位背景2 -->
-      <div
-        class="systembgs systembg2"
-        style="background:url(http://huangqinchao.host3v.vip/yazhuo/edufrbg1.png)"
-      ></div>
+      <div class="systembgs systembg2" :style="{background:`url(${this.base+'edufrbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
       <p class="flex-center system-title">产品体系</p>
       <div class="system-content">
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/proBas1.png" />
+            <img :src="this.base+'proBas1.png'" />
             <span>创意科学实验课程</span>
           </div>
           <p>创新科学课堂，融合STEAM理念，培养创新思维，促进全面发展</p>
         </div>
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/proBas2.png" />
+            <img :src="this.base+'proBas2.png'" />
             <span>小学综合实践活动课</span>
           </div>
           <p>动手操作实践，解决实际问题，服务学习和生活</p>
         </div>
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/proBas3.png" />
+            <img :src="this.base+'proBas3.png'" />
             <span>中学生核心素养培养数字资源库</span>
           </div>
           <p>适应终身发展和社会发展需要，落实立德树人根本任务</p>
         </div>
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/proBas4.png" />
+            <img :src="this.base+'proBas4.png'" />
             <span>玩出来的小科学家</span>
           </div>
           <p>绘本、游戏化教学，帮助学前儿童智能和情绪发展</p>
@@ -53,44 +44,41 @@
     <!-- 产品体系 结束-->
     <!-- 课程结构 开始-->
     <div class="lesson">
-      <p class="lesson-title flex-center">课程结构</p>
+      <p class="lesson-title flex-center">课/程/结/构</p>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
-      <div
-        class="lesson-inner-wrap"
-        style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicBg.png)"
-      >
+      <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'basicBg.png'})`}">
         <div class="lesson-inner">
           <!-- 顺序为顺时针，最后一个div是中间最大的 -->
           <div
             class="lesson-item flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >公众号</div>
           <div
             class="lesson-item flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >教学素材</div>
           <div
             class="lesson-item flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >微课</div>
           <div
             class="lesson-item flex-center-col"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >
             <span>在线开放</span>
             <span>课程</span>
           </div>
           <div
             class="lesson-item flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >专题网站</div>
           <div
             class="lesson-item flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicSmall.png)"
+            :style="{background:`url(${this.base+'basicSmall.png'})`}"
           >移动端</div>
           <div
             class="lesson-item-center flex-center"
-            style="background:url(http://huangqinchao.host3v.vip/yazhuo/basicBig.png)"
+            :style="{background:`url(${this.base+'basicBig.png'})`}"
           >集成数字化课程资源</div>
         </div>
       </div>
@@ -98,32 +86,32 @@
     <!-- 课程结构 结束-->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <p class="advantage-title flex-center">亮点优势</p>
+      <p class="advantage-title flex-center">亮/点/优/势</p>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">
-          <img src="http://huangqinchao.host3v.vip/yazhuo/liangfr1.png" />
+          <img :src="this.base+'liangfr1.png'" />
           <span>海量资源</span>
           <div class="line"></div>
           <p>四大产品共728学时，包含6000分钟微课视频，728个资源包，汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源、AR互动游戏等，满足教师课前备课、课中授课以及学生课后拓展学习的需求。</p>
         </div>
         <!-- 2/4权威专家 -->
         <div class="advantage-inner-item">
-          <img src="http://huangqinchao.host3v.vip/yazhuo/liangfr2.png" />
+          <img :src="this.base+'liangfr2.png'" />
           <span>权威专家</span>
           <div class="line"></div>
           <p>由“中国学生发展核心素养”项目负责人林崇德教授担任总顾问，《义务教育小学科学》课标组负责人胡卫平领衔，STEAM教育评价专家会员36位资深专家及国内50多位基础教育领域的课程研究与课程教学的专家及近200位一线优秀教师共同研发。</p>
         </div>
         <!-- 3/4系统科学 -->
         <div class="advantage-inner-item">
-          <img src="http://huangqinchao.host3v.vip/yazhuo/liangfr3.png" />
+          <img :src="this.base+'liangfr3.png'" />
           <span>系统科学</span>
           <div class="line"></div>
           <p>根据学前儿童及中小学生认知水平、身心发展特点分学段进阶式设计，通过高质量、系统性的课程资源库建设，弥补STEAM教育、素养类课程师资的缺乏，深化基础教育课程的广度和深度。</p>
         </div>
         <!-- 4/4信息化学习 -->
         <div class="advantage-inner-item">
-          <img src="http://huangqinchao.host3v.vip/yazhuo/liangfr4.png" />
+          <img :src="this.base+'liangfr4.png'" />
           <span>信息化学习</span>
           <div class="line"></div>
           <p>坚持以学定教，结合学习平台（手机端、PC端）、AR技术等信息化手段实现教师、学生、家长之间的互动与协作。</p>
@@ -143,6 +131,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+* {
+  font-family: "microsoft yehei", "微软雅黑" !important;
+}
 .system {
   width: 100%;
   padding: 80px 0 30px;
@@ -163,11 +154,11 @@ export default {
   .systembg2 {
     height: 285px;
   }
-  .systemtime {
-    width: 261px;
-    height: 194px;
-    top: 115px;
-    right: 17px;
+  .systeperson {
+    width: 231px;
+    height: 245px;
+    bottom: 0;
+    left: 60px;
     display: block;
     position: absolute;
     background-repeat: no-repeat !important;
@@ -352,9 +343,18 @@ export default {
 }
 /* 1600px */
 @media (max-width: 1600px) {
-  .system .systemtime {
-    width: 221px;
-    height: 164px;
+  .system .systeperson {
+    width: 186px;
+    height: 186px;
+    left: 30px;
+  }
+}
+/* 1366px */
+@media (max-width: 1366px) {
+  .system .systeperson {
+    width: 160px;
+    height: 160px;
+    left: 30px;
   }
 }
 </style>

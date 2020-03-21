@@ -3,17 +3,14 @@
     <!-- 头部 -->
     <header-asideMenu />
     <!-- 横幅banner 开始-->
-    <div
-      class="solveBanner"
-      style="background:url(http://huangqinchao.host3v.vip/yazhuo/solveBg.jpg)"
-    ></div>
+    <div class="solveBanner" :style="{background:`url(${this.base+'solveBg.png'})`}"></div>
     <!-- 横幅banner 结束-->
     <!-- 图文列表 开始 -->
     <div class="solveWid100">
       <div class="solveList">
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli1.png" />
+            <img :src="this.base+'solveli1.png'" />
           </p>
           <p class="p2 ellipsis">师资培训</p>
           <p
@@ -22,7 +19,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli2.png" />
+            <img :src="this.base+'solveli2.png'" />
           </p>
           <p class="p2 ellipsis">校园文化</p>
           <p
@@ -31,7 +28,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli3.png" />
+            <img :src="this.base+'solveli3.png'" />
           </p>
           <p class="p2 ellipsis">课程建设</p>
           <p
@@ -40,7 +37,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli4.png" />
+            <img :src="this.base+'solveli4.png'" />
           </p>
           <p class="p2 ellipsis">平台定制</p>
           <p
@@ -49,7 +46,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli5.png" />
+            <img :src="this.base+'solveli5.png'" />
           </p>
           <p class="p2 ellipsis">赛事辅导</p>
           <p
@@ -58,7 +55,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli6.png" />
+            <img :src="this.base+'solveli6.png'" />
           </p>
           <p class="p2 ellipsis">人才培养</p>
           <p
@@ -67,7 +64,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli7.png" />
+            <img :src="this.base+'solveli7.png'" />
           </p>
           <p class="p2 ellipsis">双师课堂</p>
           <p
@@ -76,7 +73,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli8.png" />
+            <img :src="this.base+'solveli8.png'" />
           </p>
           <p class="p2 ellipsis">信息化提升</p>
           <p
@@ -85,7 +82,7 @@
         </a>
         <a href="javascript:;" class="boxlink anisca">
           <p class="p1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/solveli9.png" />
+            <img :src="this.base+'solveli9.png'" />
           </p>
           <p class="p2 ellipsis">名师解码名师解码名师解码名师解码名师解码名师解码名师解码</p>
           <p
@@ -121,7 +118,7 @@ img {
   outline: none;
 }
 * {
-  font-family: "microsoft yahei";
+  font-family: "microsoft yehei", "微软雅黑" !important;
 }
 .solveWid100 {
   width: 100%;
@@ -163,7 +160,6 @@ img {
       color: #0182fa;
     }
     p {
-      // display: block;
       width: 100%;
     }
     .p1 {

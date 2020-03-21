@@ -5,7 +5,7 @@
     <div class="middle">
       <!-- tab选项卡 开始 -->
       <div class="middle-top">
-        <img src="http://huangqinchao.host3v.vip/yazhuo/resBg.png" />
+        <img :src="this.base+'resBg.png'" />
         <div class="fence flex-center-y">
           <div
             :class="['fence-left flex-center-col', active == 0 ? 'fence-active' : '']"
@@ -43,14 +43,10 @@ export default {
   data() {
     return {
       active: 0,
-      // m1: require("http://huangqinchao.host3v.vip/yazhuo/tabm1.png"),
-      // m2: require("http://huangqinchao.host3v.vip/yazhuo/tabm2.png"),
-      // m3: require("http://huangqinchao.host3v.vip/yazhuo/tabm3.png"),
-      // m4: require("http://huangqinchao.host3v.vip/yazhuo/tabm4.png")
-      m1: require("@/assets/test/tabm1.png"),
-      m2: require("@/assets/test/tabm2.png"),
-      m3: require("@/assets/test/tabm3.png"),
-      m4: require("@/assets/test/tabm4.png")
+      m1: `${this.base + "tabm1.png"}`,
+      m2: `${this.base + "tabm2.png"}`,
+      m3: `${this.base + "tabm3.png"}`,
+      m4: `${this.base + "tabm4.png"}`
     };
   },
   components: {
@@ -67,6 +63,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+* {
+  font-family: "microsoft yehei", "微软雅黑" !important;
+}
 .middle {
   .middle-top {
     width: 100%;
