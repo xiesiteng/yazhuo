@@ -28,7 +28,7 @@
           <p class="p1">
             <span class="s1">关注我们:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i :style="{background:`url(${this.base+'iconwx.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
@@ -39,7 +39,7 @@
           <p class="p1">
             <span class="s1">在线客服:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i :style="{background:`url(${this.base+'iconqq.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
@@ -50,7 +50,7 @@
           <p class="p1">
             <span class="s1">钉钉直播群:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i :style="{background:`url(${this.base+'iconding.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
@@ -226,7 +226,9 @@ p {
   text-align: center;
   height: 32px;
   line-height: 32px;
-  border: 1px solid #797979;
+  /* border: 1px solid #797979; */
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
   border-radius: 100%;
   font-size: 22px;
   color: #797979;
