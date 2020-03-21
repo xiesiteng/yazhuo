@@ -5,6 +5,18 @@
           <div class="wp-header"></div>
           <div class="wp-systemModule">
               <div class="center-box">
+                  <div class="left-line-box">
+                    <div class="left-line" v-for="(item, index) in smLeftList" :key="index" :data-text="item">
+                      <img src="../../assets/wisdomPlatform/折线-左.png">
+                      <!-- <span class="line-text">亚卓学院</span> -->
+                    </div>
+                  </div>
+                  <div class="right-line-box">
+                    <div class="right-line" v-for="(item, index) in smRightList" :key="index" :data-text="item">
+                      <img src="../../assets/wisdomPlatform/折线-右.png">
+                      <!-- <span class="line-text">教学中心</span> -->
+                    </div>
+                  </div>
                   <div class="text-box">
                       <span class="up-text">系统模块</span>
                       <span class="down-text">system module</span>
@@ -18,12 +30,12 @@
                   </div>
                   <div class="line"></div>
               </div>
-              <div class="cf-box">
+              <div class="cf-box" @mouseleave="leaveHandle">
                     <div class="cf-item" v-for="(item, index) in cfList" :key="index" @mouseenter="enterHandle(index)">
                         <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">智能化教学</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
+                        <img :src="item.url">
+                        <p class="cf-name">{{item.name}}</p>
+                        <p class="cf-content">{{item.content}}</p>
                         </div>
                     </div>
                     <!-- <div class="cf-item">
@@ -62,11 +74,11 @@
                         </div>
                     </div> -->
                     <!-- <transition name="fade"> -->
-                    <div ref="cfHover" class="cf-item" :class="{ cfHover: isShow }" v-show="isShow" @mouseleave="outHandle">
+                    <div ref="cfHover" class="cf-item" :class="{ cfHover: isShow }" v-show="isShow" @mouseleave="leaveHandle">
                         <div class="cf-inner">
                         <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">生涯教育</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
+                        <p class="cf-name">{{currentData.name}}</p>
+                        <p class="cf-content">{{currentData.content}}</p>
                         </div>
                     </div>
                     <!-- </transition> -->
@@ -130,13 +142,47 @@ export default {
     data () {
         return {
             isShow: false,
-            cfList: [1,2,3,4,5,6]
+            smLeftList: ['亚卓学院', '数据中心', '测试中心'],
+            smRightList: ['教学中心', '管理中心', '评价中心'],
+            cfList: [
+              {
+                url: '../../assets/wisdomPlatform/cf-icon1.png',
+                name: '智能化教学',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              },
+              {
+                url: '../../assets/wisdomPlatform/cf-icon2.png',
+                name: '一体化管理',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              },
+              {
+                url: '../../assets/wisdomPlatform/cf-icon3.png',
+                name: '素材库',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              },
+              {
+                url: '../../assets/wisdomPlatform/cf-icon4.png',
+                name: '选择式备课',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              },
+              {
+                url: '../../assets/wisdomPlatform/cf-icon5.png',
+                name: '生涯教育',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              },
+              {
+                url: '../../assets/wisdomPlatform/cf-icon6.png',
+                name: '大数据中心',
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+              }
+            ],
+            currentData: {}
         }
     },
     methods: {
         enterHandle (index) {
             this.isShow = true
-            this.currentIndex = index
+            this.currentData = this.cfList[index]
             let flag_x = index % 3
             let flag_y = parseInt(index / 3)
             let x = 2 * flag_x * 200 + 'px'
@@ -150,8 +196,9 @@ export default {
             console.log('left', this.$refs.cfHover.style.left)
 
         },
-        outHandle () {
+        leaveHandle () {
             this.isShow = false
+            this.currentData = {}
         }
     }
 
@@ -177,6 +224,70 @@ export default {
             width: 584px;
             height: 558px;
             background-image: url(../../assets/wisdomPlatform/center-box.png);
+            .left-line-box{
+              position: absolute;
+              top: 95px;
+              left: -115px;
+              .left-line{
+                position: relative;
+                &:nth-child(2){
+                  margin: 45px 0 10px;
+                }
+                &::before{
+                  content: attr(data-text);
+                  display: block;
+                  position: absolute;
+                  top: -15px;
+                  left: -110px;
+                  font-size:24px;
+                  font-family:Microsoft YaHei;
+                  font-weight:400;
+                  color:rgba(51,51,51,1);
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+              img{
+                width: 222px;
+              }
+            }
+            .right-line-box{
+              position: absolute;
+              top: 95px;
+              right: -75px;
+              .right-line{
+                position: relative;
+                &::before{
+                  content: attr(data-text);
+                  display: block;
+                  position: absolute;
+                  width: 99px;
+                  top: -15px;
+                  left: 240px;
+                  font-size:24px;
+                  font-family:Microsoft YaHei;
+                  font-weight:400;
+                  color:rgba(51,51,51,1);
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+                &:nth-child(2){
+                  margin: 45px 0 10px;
+                }
+              }
+              img{
+                width: 222px;
+              }
+            }
+            .line-text{
+              font-size:24px;
+              font-family:Microsoft YaHei;
+              font-weight:400;
+              color:rgba(51,51,51,1);
+              line-height:86px;
+            }
             .text-box{
                 display: flex;
                 flex-direction: column;
@@ -341,14 +452,11 @@ export default {
             padding: 0 50px 0 50px;
             .sa-box-left{
                 flex: 6;
+                padding-top: 50px;
                 ul{
                     list-style:none;
                     li{
-                        margin-bottom: 10px;
-                        // .little-icon{
-                        //     width: 24px;
-                        //     height: 30px;
-                        // }
+                        margin-bottom: 20px;
                         img{
                             width: 24px;
                             // height: 30px;
@@ -370,11 +478,11 @@ export default {
                     }
                 }
                 .left-title{
-                    margin-bottom: 50px;
+                    margin-bottom: 60px;
                     .line{
                         width: 130px;
                         border-top: 10px solid #2F2E41;
-                        margin-top: 5px;
+                        margin-top: 10px;
                     }
                 }
             }
