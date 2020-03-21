@@ -152,7 +152,7 @@
                 btns: [
                     {
                         id: 'b01',
-                        url: "#/login",
+                        url: "/login",
                         name: "登录",
                     }
                 ]
