@@ -159,7 +159,7 @@
             }
         },
         created () {
-            this.judgeRoute()
+            this.isCurrent()
         },
         methods: {
             goPage(data, item) {
@@ -170,17 +170,29 @@
                 this.$router.push(data.url)
             },
             choose (item) {
-                if (item.url == 'javascript:void(0)') {
-                    return false
-                }
-                // console.log('choo')
-                sessionStorage.setItem('headerId', item.id)
-                this.active = sessionStorage.getItem('headerId')
+                // if (item.url == 'javascript:void(0)') {
+                //     return false
+                // }
+                this.active = item.id
             },
-            // 如果session中不存在状态值就默认在首页
-            judgeRoute () {
-                if (this.isblank(sessionStorage.getItem('headerId'))) {
-                    this.active = 'a01'
+            isCurrent () {
+                let path = this.$route.path
+                switch (path) {
+                    case '/home':
+                        this.active = 'a01'
+                        break
+                    case '/middleEducation':
+                        this.active = 'a02'
+                        break
+                    case '/wisdomPlatform':
+                        this.active = 'a03'
+                        break
+                    case '/solveCase':
+                        this.active = 'a04'
+                        break
+                    case '/school':
+                        this.active = 'a05'
+                        break
                 }
             }
         }
