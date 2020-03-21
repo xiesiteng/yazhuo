@@ -1,5 +1,5 @@
 <template>
-  <div class="loginBox" style="background:url(http://huangqinchao.host3v.vip/yazhuo/logBg.png)">
+  <div class="loginBox" :style="{background:`url(${this.base+'logBg.png'})`}">
     <div class="posForm">
       <!-- 亚卓智慧平台 -->
       <div class="titletext">
@@ -34,10 +34,10 @@
         <div class="buttonDiv inpDivs">
           <button class="comBtn1" @click="loginTurn()">立即登录</button>
           <a href="javascript:;" class="icons icon1">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/log1.png" />
+            <img :src="this.base+'log1.png'" />
           </a>
           <a href="javascript:;" class="icons icon2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/log2.png" />
+            <img :src="this.base+'log2.png'" />
           </a>
         </div>
         <div class="forgetDiv inpDivs">
@@ -103,6 +103,9 @@ export default {
 
 <style scoped>
 /* 页面公共huang */
+* {
+  font-family: "microsoft yehei", "微软雅黑" !important;
+}
 a {
   text-decoration: none;
   color: #333;
@@ -148,13 +151,11 @@ button {
 .titletext .titlebody {
   color: #333;
   font-size: 48px;
-  font-family: "microsoft yahei";
   padding-bottom: 10px;
 }
 .titletext .titlefooter {
   color: #808080;
   font-size: 26px;
-  font-family: "microsoft yahei";
 }
 /* 表单公共 */
 .inpComs {
@@ -183,7 +184,6 @@ button {
   height: 68px;
   line-height: 68px;
   background: #ebebeb;
-  font-family: "microsoft yahei";
   display: block;
   width: 100%;
   box-shadow: 0 0 4px #bbb inset;
@@ -207,7 +207,6 @@ button {
 .titlecenter {
   width: 180px;
   color: #007ab7;
-  font-family: "microsoft yahei";
   font-size: 24px;
   padding-bottom: 5px;
 }
@@ -247,7 +246,6 @@ button {
   font-size: 26px;
   border-radius: 4px;
   padding: 0 60px;
-  font-family: "microsoft yahei";
 }
 .comBtn1:hover {
   cursor: pointer;
@@ -257,7 +255,6 @@ button {
 .forgetDiv .forgetLink {
   color: #b3b3b3;
   font-size: 20px;
-  font-family: "microsoft yahei";
 }
 .forgetDiv .forgetLink:hover {
   color: #007ab7;

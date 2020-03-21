@@ -5,7 +5,7 @@
       <div class="footerLeft">
         <div class="lines one">
           <a href="javascript:;">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/footlog.png" />
+            <img :src="this.base+'footlog.png'" />
           </a>
         </div>
         <div class="lines two">
@@ -32,7 +32,7 @@
             </span>
           </p>
           <p class="p2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot1.png" />
+            <img :src="this.base+'foot1.png'" />
           </p>
         </div>
         <div class="onebox onebox2">
@@ -43,6 +43,7 @@
             </span>
           </p>
           <p class="p2">
+            <img :src="this.base+'foot2.png'" />
             <img src="http://huangqinchao.host3v.vip/yazhuo/foot2.png" />
           </p>
         </div>
@@ -54,7 +55,7 @@
             </span>
           </p>
           <p class="p2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot3.png" />
+            <img :src="this.base+'foot3.png'" />
           </p>
         </div>
       </div>
@@ -100,6 +101,9 @@ export default {
 
 <style scoped>
 /* 页面公共huang */
+* {
+  font-family: "microsoft yehei", "微软雅黑" !important;
+}
 a {
   text-decoration: none;
   color: #333;
