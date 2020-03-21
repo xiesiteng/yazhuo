@@ -48,7 +48,7 @@
                     },
                     {
                         id: "a02",
-                        url: "#/middleEducation",
+                        url: "/middleEducation",
                         // url: 'page2',
                         name: '课程资源',
                         children: [
@@ -92,13 +92,13 @@
                     },
                     {
                         id: "a03",
-                        url: "#/wisdomPlatform",
+                        url: "/wisdomPlatform",
                         name: '智慧平台',
                         children: [],
                     },
                     {
                         id: "a04",
-                        url: "#/solveCase",
+                        url: "/solveCase",
                         name: '解决方案',
                         children: [
                             // {
@@ -115,7 +115,7 @@
                     },
                     {
                         id: "a05",
-                        url: "#/school",
+                        url: "/school",
                         // url: "page2",
                         name: '亚卓学院',
                         children: [
