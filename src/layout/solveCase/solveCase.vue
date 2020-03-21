@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <header-asideMenu />
     <!-- 横幅banner 开始-->
-    <div class="solveBanner" :style="{background:`url(${this.base+'solveBg.png'})`}"></div>
+    <div class="solveBanner" :style="{background:`url(${this.base+'solveBg.jpg'})`}"></div>
     <!-- 横幅banner 结束-->
     <!-- 图文列表 开始 -->
     <div class="solveWid100">
