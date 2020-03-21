@@ -44,7 +44,6 @@
           </p>
           <p class="p2">
             <img :src="this.base+'foot2.png'" />
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot2.png" />
           </p>
         </div>
         <div class="onebox onebox3">
