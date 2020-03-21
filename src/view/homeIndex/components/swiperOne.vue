@@ -1,8 +1,12 @@
 <template>
   <div class="main">
     <div class="myswiper flex-center">
-      <div class="left-arrow flex-center" @click="pre()">前</div>
-      <div class="right-arrow flex-center" @click="next()">后</div>
+      <div class="left-arrow flex-center" @click="pre()">
+        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfl.png" alt="">
+      </div>
+      <div class="right-arrow flex-center" @click="next()">
+        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfr.png" alt="">
+      </div>
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">
         <div class="myswiper-inner" id="slide">
@@ -16,6 +20,7 @@
           </div>
         </div>
       </div>
+      <!-- 轮播内容end -->
     </div>
   </div>
 </template>
@@ -130,25 +135,29 @@ export default {
     height: 350px;
     position: relative;
     margin-top: 50px;
-    // padding: 0 20px;
-    // box-sizing: border-box;
     .left-arrow{
       width: 40px;
       height: 90px;
-      background-color: peru;
+      // background-color: peru;
       position: absolute;
       top: 130px;
       left: -60px;
       cursor: pointer;
+      border: 1px solid #ccc;
     }
     .right-arrow{
       width: 40px;
       height: 90px;
-      background-color: palevioletred;
+      // background-color: palevioletred;
       position: absolute;
       top: 130px;
       right: -60px;
       cursor: pointer;
+      border: 1px solid #ccc;
+    }
+    .left-arrow img, .right-arrow img{
+      width: 24px;
+      height: 43px;
     }
     .myswiper-inner-wrap{
       width: 1200px;

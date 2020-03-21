@@ -16,7 +16,7 @@
         <div class="searchdetail2">
           <div class="texts" v-show="isText">
             <div class="w1">亚卓教育素养培养生态空间</div>
-            <div class="w2">Vocational Schools Cultivate Ecological Space</div>
+            <div class="w2">Vocational schools cultivate ecological space</div>
           </div>
           <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay()">
             <i class="iconfont iconicon-"></i>
@@ -125,13 +125,13 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(0, 0, 0, 0.4);
         cursor: pointer;
         height: 100%;
         position: absolute;
-        right: 0;
+        right: 20px;
         i {
-          color: #333333;
+          color: #ccc;
           font-size: 36px;
           transform: rotate(180deg);
         }
