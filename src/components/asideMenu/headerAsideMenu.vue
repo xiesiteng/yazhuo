@@ -48,45 +48,45 @@
                     },
                     {
                         id: "a02",
-                        url: "javascript:void(0)",
+                        url: "#/middleEducation",
                         // url: 'page2',
                         name: '课程资源',
                         children: [
-                            {
-                                id: "a01-2",
-                                url: "/middleEducation",
-                                // url: "educational-resources",
-                                name: '中职德育',
-                            },
-                            {
-                                id: "a01-3",
-                                url: "zzccomplishment",
-                                name: '中职核心素养',
-                            },
-                            {
-                                id: "a01-4",
-                                url: "bzr-dreamWorks",
-                                name: '班主任梦工厂',
-                            },
-                            {
-                                id: "a01-5",
-                                url: "ggbasic-class",
-                                name: '公共基础课',
-                            },
-                            {
-                                id: "a01-6",
-                                url: "steam-page",
-                                name: 'steam',
-                            },
-                            {
-                                id: "a01-7",
-                                url: "ggbasic-class",
-                                name: '小猛犸',
-                            },{
-                                id: "a01-8",
-                                url: "zhClass",
-                                name: '综合实践活动课',
-                            }
+                            // {
+                            //     id: "a01-2",
+                            //     url: "/middleEducation",
+                            //     // url: "educational-resources",
+                            //     name: '中职德育',
+                            // },
+                            // {
+                            //     id: "a01-3",
+                            //     url: "zzccomplishment",
+                            //     name: '中职核心素养',
+                            // },
+                            // {
+                            //     id: "a01-4",
+                            //     url: "bzr-dreamWorks",
+                            //     name: '班主任梦工厂',
+                            // },
+                            // {
+                            //     id: "a01-5",
+                            //     url: "ggbasic-class",
+                            //     name: '公共基础课',
+                            // },
+                            // {
+                            //     id: "a01-6",
+                            //     url: "steam-page",
+                            //     name: 'steam',
+                            // },
+                            // {
+                            //     id: "a01-7",
+                            //     url: "ggbasic-class",
+                            //     name: '小猛犸',
+                            // },{
+                            //     id: "a01-8",
+                            //     url: "zhClass",
+                            //     name: '综合实践活动课',
+                            // }
                         ]
 
                     },

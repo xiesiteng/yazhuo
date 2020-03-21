@@ -47,6 +47,11 @@ export default {
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家19', title: '教授 博士 研究生导师'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家20', title: '教授 博士 研究生导师'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家21', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家22', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家23', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家24', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家25', title: '教授 博士 研究生导师'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家26', title: '教授 博士 研究生导师'},
       ],
       current: 0,
       count: 1, // 纪录超出宽度的item移动数量
@@ -57,7 +62,6 @@ export default {
   },
   mounted () {
     // document.getElementById("slide").style.transform = "translateX(" + this.slideValue +"px)"
-    
   },
   methods:{
     // 下一个
