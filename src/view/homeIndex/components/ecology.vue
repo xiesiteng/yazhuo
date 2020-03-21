@@ -1,5 +1,5 @@
 <template>
-  <div class="app" style="background:url(http://huangqinchao.host3v.vip/yazhuo/mapbg.png)">
+  <div class="app" :style="{background:`url(${this.base+'mapbg.png'})`}">
     <div class="boxHead">生态共建</div>
     <!-- tab切换 开始 -->
     <div class="headTitTab">
@@ -33,7 +33,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
-      </swiper> -->
+      </swiper>-->
       <swiper-one></swiper-one>
     </div>
     <!-- 盒子1 结束 -->
@@ -46,7 +46,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
-      </swiper> -->
+      </swiper>-->
       <swiper-two></swiper-two>
     </div>
     <!-- 盒子2 结束 -->
@@ -90,8 +90,8 @@
 </template>
 <script>
 import Axios from "axios";
-import swiperOne from './swiperOne'
-import swiperTwo from './swiperTwo'
+import swiperOne from "./swiperOne";
+import swiperTwo from "./swiperTwo";
 // import VueAwesomeSwiper from "vue-awesome-swiper";
 // import "swiper/dist/css/swiper.css";
 export default {
@@ -102,10 +102,9 @@ export default {
     swiperTwo
   },
   created() {
-    this.$nextTick(()=>{
+    this.$nextTick(() => {
       this.getmessage();
-      
-    })
+    });
   },
   data() {
     return {
@@ -137,11 +136,11 @@ export default {
       }
     };
   },
-  mounted () {
-    setTimeout(()=>{
+  mounted() {
+    setTimeout(() => {
       // console.log(this.$refs.sw.children[0].children[0].style.display = "flex")
       // this.$refs.sw.children[0].children[0].style.display = "flex"
-    }, 500)
+    }, 500);
   },
   methods: {
     getmessage() {
@@ -153,7 +152,6 @@ export default {
           timeout: 3000 // 配置
         }
       ).then(res => {
-        
         that.list = res.data.data.list;
         that.bg = res.data.data.bg;
         that.company = res.data.data.list[that.isShowTab].company;
@@ -429,7 +427,6 @@ export default {
   //   z-index: 999;
   //   background-color: #111111;
   // }
-  
 }
 </style>
 

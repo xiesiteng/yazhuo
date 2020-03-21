@@ -1,9 +1,6 @@
 <template>
   <div class="banners">
-    <div
-      class="bannerBox"
-      style="background:url(http://huangqinchao.host3v.vip/yazhuo/bannerbg.png)"
-    >
+    <div class="bannerBox" :style="{background:`url(${this.base+'bannerbg.png'})`}">
       <!-- 视频背景 开始 -->
       <!-- <video class="video" autoplay muted="muted" loop="loop" width="100%">
         <source
@@ -54,6 +51,7 @@ export default {
 .bannerBox {
   position: relative;
   background-position: center center !important;
+  background-size: 100% 100% !important;
   width: 100%;
   height: 870px;
   //    视频背景
@@ -125,18 +123,22 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgba(0, 0, 0, 0.4);
+        // background: rgba(0, 0, 0, 1);
+        // opacity: 0.1;
+        background: rgba(0, 0, 0, 0.1);
         cursor: pointer;
         height: 100%;
         position: absolute;
         right: 20px;
         i {
-          color: #ccc;
+          color: #ffffff;
           font-size: 36px;
           transform: rotate(180deg);
         }
         &:hover {
-          background: rgba(255, 255, 255, 0.8);
+          // background: rgba(0, 0, 0, 1);
+          // opacity: 0.2;
+          background: rgba(0, 0, 0, 0.2);
         }
       }
       .closeBtn {
@@ -149,6 +151,24 @@ export default {
   }
   .closeLay {
     width: auto;
+  }
+}
+// 1600px
+@media (max-width: 1600px) {
+  .bannerBox {
+    height: 835px;
+  }
+}
+// 1440px
+@media (max-width: 1440px) {
+  .bannerBox {
+    height: 800px;
+  }
+}
+// 1366px
+@media (max-width: 1366px) {
+  .bannerBox {
+    height: 770px;
   }
 }
 </style>

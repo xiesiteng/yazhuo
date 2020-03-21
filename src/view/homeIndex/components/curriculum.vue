@@ -29,7 +29,7 @@
               <img class="img" :src="poster" />
             </div>
             <div class="videoplaybtn">
-              <img src="http://huangqinchao.host3v.vip/yazhuo/playbtn.png" />
+              <img :src="this.base+'playbtn.png'" />
             </div>
           </div>
           <!-- 左侧 结束 -->
@@ -94,7 +94,7 @@ export default {
   },
   created() {
     // this.getmessage();
-    this.changeTab(this.choose2)
+    this.changeTab(this.choose2);
   },
   methods: {
     getmessage() {
@@ -141,7 +141,7 @@ export default {
       // this.errormessage = "";
     }
   }
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -180,10 +180,10 @@ export default {
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
-        .tablink-active{
-          background-color: #007ab7!important;
-          color: #fff!important;
-          border: 1px solid #007ab7!important;
+        .tablink-active {
+          background-color: #007ab7 !important;
+          color: #fff !important;
+          border: 1px solid #007ab7 !important;
         }
         .tablink {
           height: 50px;

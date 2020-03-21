@@ -1,5 +1,5 @@
 <template>
-  <div class="app" style="background:url(http://huangqinchao.host3v.vip/yazhuo/wisdbg.png);">
+  <div class="app" :style="{background:`url(${this.base+'wisdbg.png'})`}">
     <div class="boxHead">智慧教学</div>
     <div class="boxBody">
       <!-- 1/ 开始 -->
@@ -11,7 +11,7 @@
             <div class="content">{{list1.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list1.picture" alt class="img" />
+            <img :src="list1.picture" class="img" />
           </div>
         </div>
         <div class="list0">
@@ -21,26 +21,26 @@
             <div class="content">{{list2.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list2.picture" alt class="img" />
+            <img :src="list2.picture" class="img" />
           </div>
         </div>
       </div>
       <!-- 1/ 结束 -->
       <!-- 2/ 开始 -->
       <div class="middleline">
-        <div class="linetop"></div>
-        <div class="linedown"></div>
+        <div class="linetop" :style="{background:`url(${this.base+'wisdLine1.png'})`}"></div>
+        <div class="linedown" :style="{background:`url(${this.base+'wisdLine3.png'})`}"></div>
       </div>
       <!-- 2/ 结束 -->
       <!-- 3/ 开始 -->
       <div class="ball" :style="{backgroundImage:'url('+ball+')',backgroundSize:'100% 100%'}">
-        <img class="ballImage" :src="runaround" alt />
+        <img class="ballImage" :src="runaround" />
       </div>
       <!-- 3/ 结束 -->
       <!-- 4/ 开始 -->
       <div class="middleline2">
-        <div class="linetop"></div>
-        <div class="linedown"></div>
+        <div class="linetop" :style="{background:`url(${this.base+'wisdLine2.png'})`}"></div>
+        <div class="linedown" :style="{background:`url(${this.base+'wisdLine4.png'})`}"></div>
       </div>
       <!-- 4/ 结束 -->
       <!-- 5/ 开始 -->
@@ -52,7 +52,7 @@
             <div class="content">{{list1.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list1.picture" alt class="img" />
+            <img :src="list1.picture" class="img" />
           </div>
         </div>
         <div class="list0">
@@ -62,7 +62,7 @@
             <div class="content">{{list2.content}}</div>
           </div>
           <div class="icon">
-            <img :src="list2.picture" alt class="img" />
+            <img :src="list2.picture" class="img" />
           </div>
         </div>
       </div>
@@ -179,6 +179,8 @@ export default {
       justify-content: space-between;
       align-items: center;
       .linetop {
+        background-size: 100% 100% !important;
+        background-position: center center !important;
         background: linear-gradient(
           45deg,
           transparent 49.5%,
@@ -190,6 +192,11 @@ export default {
         margin-top: 55px;
       }
       .linedown {
+        position: relative;
+        top: 20px;
+        left: -5px;
+        background-size: 100% 100% !important;
+        background-position: center center !important;
         background: linear-gradient(
           135deg,
           transparent 49.5%,
@@ -221,6 +228,8 @@ export default {
       justify-content: space-between;
       align-items: center;
       .linetop {
+        background-size: 100% 100% !important;
+        background-position: center center !important;
         background: linear-gradient(
           -45deg,
           transparent 49.5%,
@@ -232,6 +241,11 @@ export default {
         margin-top: 55px;
       }
       .linedown {
+        position: relative;
+        top: 5px;
+        left: 18px;
+        background-size: 100% 100% !important;
+        background-position: center center !important;
         background: linear-gradient(
           -135deg,
           transparent 49.5%,
