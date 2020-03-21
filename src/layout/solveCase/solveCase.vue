@@ -163,7 +163,7 @@ img {
       color: #0182fa;
     }
     p {
-      display: block;
+      // display: block;
       width: 100%;
     }
     .p1 {
