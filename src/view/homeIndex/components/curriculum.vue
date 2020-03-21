@@ -12,7 +12,7 @@
         <!-- tab切换 开始 -->
         <div class="boxHead">
           <div
-            class="tablink"
+            :class="['tablink', choose2 == index ? 'tablink-active' : '']"
             @click="changeTab(index)"
             v-for="(items,index) in typeList"
             :key="index"
@@ -93,7 +93,8 @@ export default {
     };
   },
   created() {
-    this.getmessage();
+    // this.getmessage();
+    this.changeTab(this.choose2)
   },
   methods: {
     getmessage() {
@@ -130,7 +131,7 @@ export default {
     changeTab(index) {
       this.choose2 = index;
       this.getmessage();
-      console.log(index);
+      console.log(this.choose2);
     },
     opean() {
       // this.popup = 1;
@@ -179,19 +180,23 @@ export default {
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        .tablink-active{
+          background-color: #007ab7!important;
+          color: #fff!important;
+          border: 1px solid #007ab7!important;
+        }
         .tablink {
           height: 50px;
           width: 160px;
-          color: #ffffff;
+          color: #333;
           font-size: 22px;
-          background: #007ab7;
+          background: #fff;
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
-          &:hover {
-            background: #1997d6;
-          }
+          border: 1px solid #ccc;
+          border-bottom: none;
           .iconfont {
             margin-left: 8px;
             width: 15px;

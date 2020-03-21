@@ -14,6 +14,8 @@
     <wisdom />
     <!-- 生态共建 -->
     <ecology />
+
+    <back-top></back-top>
   </div>
 </template>
 

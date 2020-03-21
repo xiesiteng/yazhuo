@@ -300,7 +300,7 @@
     }
 
     .button-group {
-        border: #fff 1.5px solid;
+        border: #fff 1px solid;
         padding: 3px 8px;
     }
 
