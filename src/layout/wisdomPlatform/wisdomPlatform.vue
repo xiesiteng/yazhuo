@@ -7,13 +7,13 @@
               <div class="center-box">
                   <div class="left-line-box">
                     <div class="left-line" v-for="(item, index) in smLeftList" :key="index" :data-text="item">
-                      <img src="../../assets/wisdomPlatform/折线-左.png">
+                      <img src="http://182.148.48.236:54321/source/images/wp-sm-leftLine.png">
                       <!-- <span class="line-text">亚卓学院</span> -->
                     </div>
                   </div>
                   <div class="right-line-box">
                     <div class="right-line" v-for="(item, index) in smRightList" :key="index" :data-text="item">
-                      <img src="../../assets/wisdomPlatform/折线-右.png">
+                      <img src="http://182.148.48.236:54321/source/images/wp-sm-rightLine.png">
                       <!-- <span class="line-text">教学中心</span> -->
                     </div>
                   </div>
@@ -76,7 +76,7 @@
                     <!-- <transition name="fade"> -->
                     <div ref="cfHover" class="cf-item" :class="{ cfHover: isShow }" v-show="isShow" @mouseleave="leaveHandle">
                         <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
+                        <img :src="currentData.url">
                         <p class="cf-name">{{currentData.name}}</p>
                         <p class="cf-content">{{currentData.content}}</p>
                         </div>
@@ -102,28 +102,28 @@
                       <ul>
                           <li class="left-title">
                               <!-- <div class="little-icon"></div> -->
-                              <img src="../../assets/wisdomPlatform/推广优势.png" alt="">
+                              <img src="http://182.148.48.236:54321/source/images/wp-sa-icon1.png" alt="">
                               <span>优势</span>
                               <div class="line"></div>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
-                              <img src="../../assets/wisdomPlatform/操作.png" alt="">
+                              <img src="http://182.148.48.236:54321/source/images/wp-sa-icon2.png" alt="">
                               <span>操作简单</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
-                              <img src="../../assets/wisdomPlatform/交互演示动画.png" alt="">
+                              <img src="http://182.148.48.236:54321/source/images/wp-sa-icon3.png" alt="">
                               <span>交互教学</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
-                              <img src="../../assets/wisdomPlatform/安全.png" alt="">
+                              <img src="http://182.148.48.236:54321/source/images/wp-sa-icon4.png" alt="">
                               <span>安全稳定</span>
                           </li>
                           <li>
                               <!-- <div class="little-icon"></div> -->
-                              <img src="../../assets/wisdomPlatform/整体全部计划.png" alt="">
+                              <img src="http://182.148.48.236:54321/source/images/wp-sa-icon5.png" alt="">
                               <span>一站式</span>
                           </li>
                       </ul>
@@ -146,32 +146,32 @@ export default {
             smRightList: ['教学中心', '管理中心', '评价中心'],
             cfList: [
               {
-                url: '../../assets/wisdomPlatform/cf-icon1.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon1.png',
                 name: '智能化教学',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               },
               {
-                url: '../../assets/wisdomPlatform/cf-icon2.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon2.png',
                 name: '一体化管理',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               },
               {
-                url: '../../assets/wisdomPlatform/cf-icon3.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon3.png',
                 name: '素材库',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               },
               {
-                url: '../../assets/wisdomPlatform/cf-icon4.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon4.png',
                 name: '选择式备课',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               },
               {
-                url: '../../assets/wisdomPlatform/cf-icon5.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon5.png',
                 name: '生涯教育',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               },
               {
-                url: '../../assets/wisdomPlatform/cf-icon6.png',
+                url: 'http://182.148.48.236:54321/source/images/wp-cf-icon6.png',
                 name: '大数据中心',
                 content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
               }
@@ -210,7 +210,7 @@ export default {
     min-width: 1200px;
     .wp-header{
         height: 600px;
-        background-image: url(../../assets/wisdomPlatform/横线.png);
+        background-image: url(http://182.148.48.236:54321/source/images/wp-header-bg.png);
         background-size: 100% 100%;
     }
     .wp-systemModule{
@@ -223,7 +223,7 @@ export default {
             position: relative;
             width: 584px;
             height: 558px;
-            background-image: url(../../assets/wisdomPlatform/center-box.png);
+            background-image: url(http://182.148.48.236:54321/source/images/wp-sm-centerBox.png);
             .left-line-box{
               position: absolute;
               top: 95px;
@@ -351,7 +351,7 @@ export default {
             display: flex;
             flex-wrap: wrap;
             .cf-item{
-                flex: 1;
+                // flex: 1; //ie11 以下不兼容
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -409,6 +409,7 @@ export default {
                 height: 330px;
                 box-shadow: 0 0 20px #333;
                 transform: translate(-15px, -15px);
+                // transition: all .5s;
             }
         }
     }
@@ -490,7 +491,7 @@ export default {
                 flex: 4;
                 width: 508px;
                 height: 524px;
-                background-image: url(../../assets/wisdomPlatform/sa-img1.png);
+                background-image: url(http://182.148.48.236:54321/source/images/wp-sa-img1.png);
             }
         }
     }

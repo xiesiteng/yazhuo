@@ -82,7 +82,7 @@ export default {
     .up-part{
         position: relative;
         height: 600px;
-        background-image: url(../../assets/school/亚卓学院-bg1.png);
+        background-image: url(http://182.148.48.236:54321/source/images/school-up-bg.png);
         background-size: 100% 100%;
         .check-btn{
             display: block;
@@ -97,7 +97,7 @@ export default {
         position: relative;
         min-width: 1200px;
         height: 549px;
-        background-image: url(../../assets/school/矢量智能对象 拷贝.jpg);
+        background-image: url(http://182.148.48.236:54321/source/images/school-down-bg.png);
         background-size: 100% 100%;
         .up-item-box, .center-box, .down-item-box{
             font-family:Source Han Sans CN;
@@ -152,7 +152,7 @@ export default {
             margin: auto;
             width: 160px;
             height: 64px;
-            background-image: url(../../assets/school/矩形 523.png);
+            background-image: url(http://182.148.48.236:54321/source/images/school-littleBox.png);
             background-size: 100%;
             background-repeat:no-repeat;
             text-align: center;
@@ -177,7 +177,7 @@ export default {
                 border-left: 6px solid transparent;
                 border-right: 6px solid transparent;
                 border-bottom: 13px solid rgba(80,183,235,1);
-            }  
+            }
             &::after{
                 content: '';
                 position: absolute;
