@@ -2,7 +2,7 @@
   <div class="main">
     <transition name="fade">
       <!-- back-wrap绝对定位 -->
-      <div class="back-wrap" v-if="showBtn">
+      <div class="back-wrap" v-show="showBtn">
         <!-- back-wrap-inner相对定位 -->
         <div class="back-wrap-inner flex-end">
           <div class="back-item-wrap">
@@ -40,16 +40,17 @@ export default {
     return {
       active: 0,
       itemList: ["售前", "售后"],
-      showBtn: false
+      showBtn: false,
+      scrollTop: 0
     };
   },
-  created() {
+  mounted() {
     this.$nextTick(() => {
-      window.addEventListener("scroll", this.scrollToTop);
+      window.addEventListener("scroll", this.scrollToTop, true);
     });
   },
   destroyed() {
-    window.removeEventListener("scroll", this.scrollToTop);
+    window.removeEventListener("scroll", this.scrollToTop, true);
   },
   methods: {
     choose(index) {
@@ -58,10 +59,7 @@ export default {
     // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
     scrollToTop() {
       const _this = this;
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       _this.scrollTop = scrollTop;
       if (_this.scrollTop > 60) {
         _this.showBtn = true;
@@ -71,17 +69,15 @@ export default {
     },
     // 回到顶部
     toTop() {
-      var timer = setInterval(function() {
-        let osTop =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        let ispeed = Math.floor(-osTop / 5);
-        document.documentElement.scrollTop = document.body.scrollTop =
-          osTop + ispeed;
-        this.isTop = true;
-        if (osTop === 0) {
-          clearInterval(timer);
-        }
-      }, 30);
+      var timer = setInterval(function(){
+            let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let ispeed = Math.floor(-osTop / 5); 
+            document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+            this.isTop = true;
+            if(osTop === 0){
+              clearInterval(timer);
+            }
+          },30)
     }
   }
 };
@@ -150,7 +146,7 @@ export default {
 /* 设置持续时间和动画函数 */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity .8s;
 }
 /* .fade-leave-active, 2.1.8 版本以下 */
 .fade-enter,

@@ -5,6 +5,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 // 引入工具文件
 import '@/utils/tool.js'
+// 按需引入ant组件
+import 'ant-design-vue/dist/antd.css'
+// Vue.use(Antd)
+import { Message } from 'ant-design-vue';
+Vue.use(Message);
+Vue.prototype.$message = Message
 Vue.use(VueAwesomeSwiper)
 
 // 全局注册header
