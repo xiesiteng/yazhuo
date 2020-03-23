@@ -32,7 +32,7 @@
               </div>
               <div class="cf-box" @mouseleave="leaveHandle">
                     <div class="cf-item" v-for="(item, index) in cfList" :key="index" @mouseenter="enterHandle(index)">
-                        <div class="cf-inner">
+                        <div class="cf-inner" :style="'borderColor: '+item.lineColor">
                         <img :src="item.url">
                         <p class="cf-name">{{item.name}}</p>
                         <p class="cf-content">{{item.content}}</p>
@@ -75,7 +75,7 @@
                     </div> -->
                     <!-- <transition name="fade"> -->
                     <div ref="cfHover" class="cf-item" :class="{ cfHover: isShow }" v-show="isShow" @mouseleave="leaveHandle">
-                        <div class="cf-inner">
+                        <div class="cf-inner" :style="'borderColor: '+currentData.lineColor">
                         <img :src="currentData.url">
                         <p class="cf-name">{{currentData.name}}</p>
                         <p class="cf-content">{{currentData.content}}</p>
@@ -148,32 +148,38 @@ export default {
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon1.png',
                 name: '智能化教学',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#007AB7'
               },
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon2.png',
                 name: '一体化管理',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#00B79B'
               },
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon3.png',
                 name: '素材库',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#008EB7'
               },
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon4.png',
                 name: '选择式备课',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#6139B2'
               },
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon5.png',
                 name: '生涯教育',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#AA3FD1'
               },
               {
                 url: 'http://182.148.48.236:54321/source/images/wp-cf-icon6.png',
                 name: '大数据中心',
-                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。'
+                content: '亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。',
+                lineColor: '#EC4F8A'
               }
             ],
             currentData: {}
@@ -360,7 +366,6 @@ export default {
                 height: 300px;
                 border:1px solid rgba(213,213,213,1);
                 background-color: #fff;
-                transition: all .5s;
                 &:nth-child(n+4){
                     border-top: none;
                 }
