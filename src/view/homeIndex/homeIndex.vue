@@ -34,6 +34,12 @@ export default {
     HelloWorld,
     wisdom,
     ecology
+  },
+  mounted () {
+    
+  },
+  methods:{
+    
   }
 };
 </script>
