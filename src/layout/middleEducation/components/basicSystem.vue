@@ -9,7 +9,7 @@
       <!-- 定位背景2 -->
       <div class="systembgs systembg2" :style="{background:`url(${this.base+'edufrbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
-      <p class="flex-center system-title">产品体系</p>
+      <p class="flex-center system-title">产/品/体/系</p>
       <div class="system-content">
         <div class="system-three flex-between">
           <div class="flex-center-y">
