@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <div class="solve" style="background:url(http://huangqinchao.host3v.vip/yazhuo/solvebg.png)">
+    <div class="solve" :style="{background:`url(${this.base+'solvebg.png'})`}">
       <div class="solvetitle">亚卓教育素养培养全场景覆盖</div>
       <div class="flex-center-x">
         <div class="programme">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="middle">
-            <img class="brokenline" src="http://huangqinchao.host3v.vip/yazhuo/solveLine.png" alt />
+            <img class="brokenline" :src="this.base+'solveLine.png'" />
           </div>
           <div class="down">
             <div class="up" style="margin-left: 0px;">
@@ -151,6 +151,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .solve {
   height: 600px;
   width: 100%;

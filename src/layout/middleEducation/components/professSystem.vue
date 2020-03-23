@@ -1,120 +1,113 @@
 <template>
   <div>
-    <!-- 产品体系 开始-->
+    <!-- 产品体系 开始 -->
     <div class="system">
       <!-- 定位闹钟 -->
-      <div class="systeperson" :style="{background:`url(${this.base+'sysPerson.png'})`}"></div>
+      <div class="systemtime" :style="{background:`url(${this.base+'sysTiem.png'})`}"></div>
       <!-- 定位背景1 -->
-      <div class="systembgs systembg1" :style="{background:`url(${this.base+'edufrbg2.png'})`}"></div>
+      <div class="systembgs systembg1" :style="{background:`url(${this.base+'eduflbg2.png'})`}"></div>
       <!-- 定位背景2 -->
-      <div class="systembgs systembg2" :style="{background:`url(${this.base+'edufrbg1.png'})`}"></div>
+      <div class="systembgs systembg2" :style="{background:`url(${this.base+'eduflbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
       <p class="flex-center system-title">产品体系</p>
-      <div class="system-content">
-        <div class="system-three flex-between">
+      <div class="system-content" :style="{background:`#2A70E1 url(${this.base+'edulines.png'})`}">
+        <div class="system-one flex-between">
           <div class="flex-center-y">
-            <img :src="this.base+'proBas1.png'" />
-            <span>创意科学实验课程</span>
+            <img :src="this.base+'proSys1.png'" />
+            <span>素养播种计划</span>
           </div>
-          <p>创新科学课堂，融合STEAM理念，培养创新思维，促进全面发展</p>
+          <p>从职业角色、工作胜任、生涯发展三维度培养学生职业素养</p>
+        </div>
+        <div class="system-two flex-between">
+          <div class="flex-center-y">
+            <img :src="this.base+'proSys2.png'" />
+            <span>班主任成长梦工场</span>
+          </div>
+          <p>教育信息化背景下的“班主任职业能力构建与提升”，班主任成长路上好伙伴</p>
         </div>
         <div class="system-three flex-between">
           <div class="flex-center-y">
-            <img :src="this.base+'proBas2.png'" />
-            <span>小学综合实践活动课</span>
+            <img :src="this.base+'proSys3.png'" />
+            <span>公共基础课程辅助数字资源库</span>
           </div>
-          <p>动手操作实践，解决实际问题，服务学习和生活</p>
-        </div>
-        <div class="system-three flex-between">
-          <div class="flex-center-y">
-            <img :src="this.base+'proBas3.png'" />
-            <span>中学生核心素养培养数字资源库</span>
-          </div>
-          <p>适应终身发展和社会发展需要，落实立德树人根本任务</p>
-        </div>
-        <div class="system-three flex-between">
-          <div class="flex-center-y">
-            <img :src="this.base+'proBas4.png'" />
-            <span>玩出来的小科学家</span>
-          </div>
-          <p>绘本、游戏化教学，帮助学前儿童智能和情绪发展</p>
+          <p>聚焦新课标学科素养 挖掘公共基础课育人价值</p>
         </div>
       </div>
     </div>
-    <!-- 产品体系 结束-->
-    <!-- 课程结构 开始-->
+    <!-- 产品体系 结束 -->
+    <!-- 课程结构 开始 -->
     <div class="lesson">
-      <p class="lesson-title flex-center">课/程/结/构</p>
+      <p class="lesson-title flex-center">课程结构</p>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
-      <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'basicBg.png'})`}">
+      <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'lessonBg.png'})`}">
         <div class="lesson-inner">
           <!-- 顺序为顺时针，最后一个div是中间最大的 -->
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >公众号</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >教学素材</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >微课</div>
           <div
             class="lesson-item flex-center-col"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >
             <span>在线开放</span>
             <span>课程</span>
           </div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >专题网站</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >移动端</div>
           <div
             class="lesson-item-center flex-center"
-            :style="{background:`url(${this.base+'basicBig.png'})`}"
+            :style="{background:`url(${this.base+'sysbig.png'})`}"
           >集成数字化课程资源</div>
         </div>
       </div>
     </div>
-    <!-- 课程结构 结束-->
+    <!-- 课程结构 结束 -->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <p class="advantage-title flex-center">亮/点/优/势</p>
+      <p class="advantage-title flex-center">亮点优势</p>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr1.png'" />
+          <img :src="this.base+'linagfl1.png'" />
           <span>海量资源</span>
           <div class="line"></div>
-          <p>四大产品共728学时，包含6000分钟微课视频，728个资源包，汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源、AR互动游戏等，满足教师课前备课、课中授课以及学生课后拓展学习的需求。</p>
+          <p>汇集近千个精心打磨的教学设计、丰富的案例、有趣的活动、大量的拓展资源等，满足教师课前备课、课中授课以及学生课后拓展学习、提升自我素养的需求。</p>
         </div>
         <!-- 2/4权威专家 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr2.png'" />
+          <img :src="this.base+'linagfl2.png'" />
           <span>权威专家</span>
           <div class="line"></div>
-          <p>由“中国学生发展核心素养”项目负责人林崇德教授担任总顾问，《义务教育小学科学》课标组负责人胡卫平领衔，STEAM教育评价专家会员36位资深专家及国内50多位基础教育领域的课程研究与课程教学的专家及近200位一线优秀教师共同研发。</p>
+          <p>由中国人民大学心理研究所所长俞国良教授、北京师范大学公民与道德教育研究中心主任檀传宝教授、华东师范大学职业教育与成人教育研究所徐国庆教授、中国职教学会德育工作委员会副主任汪永智教授领衔，北大、清华、北师大、人民大学、中国教育科学研究院、华东师大、北航、电子科大、华南理工、西南大学等50余位知名专家学者教育科技机构国内、众多中职德育领域课程研究与课。</p>
         </div>
         <!-- 3/4系统科学 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr3.png'" />
+          <img :src="this.base+'linagfl3.png'" />
           <span>系统科学</span>
           <div class="line"></div>
-          <p>根据学前儿童及中小学生认知水平、身心发展特点分学段进阶式设计，通过高质量、系统性的课程资源库建设，弥补STEAM教育、素养类课程师资的缺乏，深化基础教育课程的广度和深度。</p>
+          <p>遵照教育部颁发的《中等职业学校公共基础课课程方案》、《中国职业教育学生发展核心素养》等文件纲领要求，根据中职学生的身心特点和职业发展需求设计，适应新时代发展趋势，通过高质量、系统性的课程资源，提高中等职业学校德育、公共基础课及职业素养建设水平。</p>
         </div>
         <!-- 4/4信息化学习 -->
         <div class="advantage-inner-item">
-          <img :src="this.base+'liangfr4.png'" />
+          <img :src="this.base+'linagfl4.png'" />
           <span>信息化学习</span>
           <div class="line"></div>
-          <p>坚持以学定教，结合学习平台（手机端、PC端）、AR技术等信息化手段实现教师、学生、家长之间的互动与协作。</p>
+          <p>坚持以学定教，结合学习平台（手机端、PC端），满足教师和学生在线学习、在线课程建设、教学管理等功能，促进广大中职学校教育信息化的发展。</p>
         </div>
       </div>
     </div>
@@ -137,8 +130,6 @@ export default {
 .system {
   width: 100%;
   padding: 80px 0 30px;
-  background-position: 0 bottom;
-  background-repeat: no-repeat !important;
   position: relative;
   .systembgs {
     position: absolute;
@@ -154,11 +145,11 @@ export default {
   .systembg2 {
     height: 285px;
   }
-  .systeperson {
-    width: 231px;
-    height: 245px;
-    bottom: 0;
-    left: 60px;
+  .systemtime {
+    width: 261px;
+    height: 194px;
+    top: 115px;
+    right: 17px;
     display: block;
     position: absolute;
     background-repeat: no-repeat !important;
@@ -170,11 +161,10 @@ export default {
     margin: 38px auto;
   }
   .system-content {
-    background: rgba(12, 102, 192, 1);
-    opacity: 0.77;
     width: 1100px;
     height: 430px;
     background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
     margin: 0 auto;
     padding: 83px 0;
     box-sizing: border-box;
@@ -343,18 +333,9 @@ export default {
 }
 /* 1600px */
 @media (max-width: 1600px) {
-  .system .systeperson {
-    width: 186px;
-    height: 186px;
-    left: 30px;
-  }
-}
-/* 1366px */
-@media (max-width: 1366px) {
-  .system .systeperson {
-    width: 160px;
-    height: 160px;
-    left: 30px;
+  .system .systemtime {
+    width: 221px;
+    height: 164px;
   }
 }
 </style>

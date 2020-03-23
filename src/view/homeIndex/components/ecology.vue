@@ -1,5 +1,5 @@
 <template>
-  <div class="app" style="background:url(http://huangqinchao.host3v.vip/yazhuo/mapbg.png)">
+  <div class="app" :style="{background:`url(${this.base+'mapbg.png'})`}">
     <div class="boxHead">生态共建</div>
     <!-- tab切换 开始 -->
     <div class="headTitTab">
@@ -13,8 +13,8 @@
     </div>
     <!-- tab切换 结束 -->
     <!-- 盒子1 开始 -->
-    <div class="showBoxs show1" v-show="isShowTab===0?true:false" ref="sw">
-      <swiper :options="swiperOption" v-if="company.length>0" >
+    <div class="showBoxs show1" v-show="isShowTab===0?true:false">
+      <!-- <swiper :options="swiperOption" v-if="company.length>0" >
         <swiper-slide
           v-for="(items, index) in company"
           :key="index"
@@ -30,24 +30,24 @@
             <span>研究生导师</span>
           </p>
         </swiper-slide>
-        <!-- 可能需要 -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
-      </swiper>
+      </swiper>-->
+      <swiper-one></swiper-one>
     </div>
     <!-- 盒子1 结束 -->
     <!-- 盒子2 开始 -->
     <div class="showBoxs show2" v-show="isShowTab===1?true:false">
-      <swiper :options="swiperOption">
+      <!-- <swiper :options="swiperOption">
         <swiper-slide v-for="(items, index) in school" :key="index">
           <img src="http://huangqinchao.host3v.vip/yazhuo/xuexiao.png" />
         </swiper-slide>
-        <!-- 可能需要 -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
-      </swiper>
+      </swiper>-->
+      <swiper-two></swiper-two>
     </div>
     <!-- 盒子2 结束 -->
     <!-- 盒子3 开始 -->
@@ -90,18 +90,21 @@
 </template>
 <script>
 import Axios from "axios";
-import VueAwesomeSwiper from "vue-awesome-swiper";
-import "swiper/dist/css/swiper.css";
+import swiperOne from "./swiperOne";
+import swiperTwo from "./swiperTwo";
+// import VueAwesomeSwiper from "vue-awesome-swiper";
+// import "swiper/dist/css/swiper.css";
 export default {
   name: "ecology",
   components: {
-    VueAwesomeSwiper
+    // VueAwesomeSwiper
+    swiperOne,
+    swiperTwo
   },
   created() {
-    this.$nextTick(()=>{
+    this.$nextTick(() => {
       this.getmessage();
-      
-    })
+    });
   },
   data() {
     return {
@@ -133,11 +136,11 @@ export default {
       }
     };
   },
-  mounted () {
-    setTimeout(()=>{
+  mounted() {
+    setTimeout(() => {
       // console.log(this.$refs.sw.children[0].children[0].style.display = "flex")
       // this.$refs.sw.children[0].children[0].style.display = "flex"
-    }, 500)
+    }, 500);
   },
   methods: {
     getmessage() {
@@ -149,7 +152,6 @@ export default {
           timeout: 3000 // 配置
         }
       ).then(res => {
-        
         that.list = res.data.data.list;
         that.bg = res.data.data.bg;
         that.company = res.data.data.list[that.isShowTab].company;
@@ -200,6 +202,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .app {
   // 背景图片
   height: 655px;
@@ -425,16 +430,6 @@ export default {
   //   z-index: 999;
   //   background-color: #111111;
   // }
-  
 }
 </style>
 
-<style>
-  .show1 .swiper-wrapper{
-    display: flex!important;
-  }
-  .show2 .swiper-wrapper{
-    display: flex!important;
-    flex-wrap: wrap;
-  }
-</style>

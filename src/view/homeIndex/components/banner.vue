@@ -1,9 +1,6 @@
 <template>
   <div class="banners">
-    <div
-      class="bannerBox"
-      style="background:url(http://huangqinchao.host3v.vip/yazhuo/bannerbg.png)"
-    >
+    <div class="bannerBox" :style="{background:`url(${this.base+'bannerbg.png'})`}">
       <!-- 视频背景 开始 -->
       <!-- <video class="video" autoplay muted="muted" loop="loop" width="100%">
         <source
@@ -16,7 +13,7 @@
         <div class="searchdetail2">
           <div class="texts" v-show="isText">
             <div class="w1">亚卓教育素养培养生态空间</div>
-            <div class="w2">Vocational Schools Cultivate Ecological Space</div>
+            <div class="w2">Vocational schools cultivate ecological space</div>
           </div>
           <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay()">
             <i class="iconfont iconicon-"></i>
@@ -51,9 +48,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+* {
+  font-family: "microsoft yahei", "微软雅黑";
+}
 .bannerBox {
   position: relative;
   background-position: center center !important;
+  background-size: 100% 100% !important;
   width: 100%;
   height: 870px;
   //    视频背景
@@ -78,6 +79,7 @@ export default {
       justify-content: center;
       width: 100%;
       height: 100%;
+      position: relative;
       .texts {
         display: inline-block;
         text-align: center;
@@ -125,18 +127,23 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgba(255, 255, 255, 0.7);
+        // background: rgba(0, 0, 0, 1);
+        // opacity: 0.1;
+        background: rgba(0, 0, 0, 0.1);
         cursor: pointer;
-        height: 100%;
+        height: 200px;
         position: absolute;
-        right: 0;
+        right: 20px;
+        top: 0;
         i {
-          color: #333333;
+          color: #ffffff;
           font-size: 36px;
           transform: rotate(180deg);
         }
         &:hover {
-          background: rgba(255, 255, 255, 0.8);
+          // background: rgba(0, 0, 0, 1);
+          // opacity: 0.2;
+          background: rgba(0, 0, 0, 0.2);
         }
       }
       .closeBtn {
@@ -149,6 +156,24 @@ export default {
   }
   .closeLay {
     width: auto;
+  }
+}
+// 1600px
+@media (max-width: 1600px) {
+  .bannerBox {
+    height: 835px;
+  }
+}
+// 1440px
+@media (max-width: 1440px) {
+  .bannerBox {
+    height: 800px;
+  }
+}
+// 1366px
+@media (max-width: 1366px) {
+  .bannerBox {
+    height: 770px;
   }
 }
 </style>

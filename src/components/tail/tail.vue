@@ -5,7 +5,7 @@
       <div class="footerLeft">
         <div class="lines one">
           <a href="javascript:;">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/footlog.png" />
+            <img :src="this.base+'footlog.png'" />
           </a>
         </div>
         <div class="lines two">
@@ -28,33 +28,33 @@
           <p class="p1">
             <span class="s1">关注我们:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i class="wx" :style="{background:`url(${this.base+'iconwx.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot1.png" />
+            <img :src="this.base+'foot1.png'" />
           </p>
         </div>
         <div class="onebox onebox2">
           <p class="p1">
             <span class="s1">在线客服:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i class="qq" :style="{background:`url(${this.base+'iconqq.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot2.png" />
+            <img :src="this.base+'foot2.png'" />
           </p>
         </div>
         <div class="onebox onebox3">
           <p class="p1">
             <span class="s1">钉钉直播群:</span>
             <span class="s2">
-              <i class="iconfont iconmima"></i>
+              <i class="dd" :style="{background:`url(${this.base+'iconding.png'})`}"></i>
             </span>
           </p>
           <p class="p2">
-            <img src="http://huangqinchao.host3v.vip/yazhuo/foot3.png" />
+            <img :src="this.base+'foot3.png'" />
           </p>
         </div>
       </div>
@@ -100,6 +100,9 @@ export default {
 
 <style scoped>
 /* 页面公共huang */
+* {
+  font-family: "microsoft yehei", "微软雅黑" !important;
+}
 a {
   text-decoration: none;
   color: #333;
@@ -220,13 +223,25 @@ p {
 .footerRight .onebox .p1 .s2 i {
   display: inline-block;
   width: 32px;
-  text-align: center;
   height: 32px;
-  line-height: 32px;
-  border: 1px solid #797979;
+  /* border: 1px solid #797979; */
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
   border-radius: 100%;
   font-size: 22px;
   color: #797979;
+}
+.footerRight .onebox .p1 .s2 i.wx {
+  width: 31px;
+  height: 32px;
+}
+.footerRight .onebox .p1 .s2 i.qq {
+  width: 34px;
+  height: 34px;
+}
+.footerRight .onebox .p1 .s2 i.dd {
+  width: 33px;
+  height: 33px;
 }
 .footerRight .onebox .p2 {
   float: right;
