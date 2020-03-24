@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import {router} from '@/router/index.js'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+import api from '@/axios/api'
 import 'swiper/dist/css/swiper.css'
 // 引入工具文件
 import '@/utils/tool.js'
 // 按需引入ant组件
 import 'ant-design-vue/dist/antd.css'
-// Vue.use(Antd)
 import { Message } from 'ant-design-vue';
 Vue.use(Message);
 Vue.prototype.$message = Message
-Vue.use(VueAwesomeSwiper)
+// Vue.use(VueAwesomeSwiper)
+Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
 // 全局注册header
 import headerAsideMenu from './components/asideMenu/headerAsideMenu.vue'
