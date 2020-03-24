@@ -3,6 +3,9 @@ import axios from "axios";
 // import qs from 'qs'
 import router from '../router'
 import Vue from 'vue'
+import { Message } from 'ant-design-vue';
+Vue.use(Message);
+Vue.prototype.$message = Message
 
 
 let config = {
@@ -54,7 +57,7 @@ _axios.interceptors.response.use(
       // 接口状态正常
       return Promise.resolve(response);
     } else if (response.data.code == 402) {
-      this.$message.warning('登录已过期，请重新登录')
+      self.$message.warning('登录已过期，请重新登录')
       localStorage.removeItem('token')
       router.replace(
         {
@@ -65,12 +68,12 @@ _axios.interceptors.response.use(
 
     } else {
       // 接口状态异常
-      this.$error(response.data.message)
+      self.$message.error(response.data.message)
       return Promise.resolve(response);
     }
   },
   function (err) {
-    this.$error(err.message)
+    self.$error(err.message)
     return Promise.reject(err)
   }
 )
@@ -83,10 +86,10 @@ _axios.interceptors.response.use(
  * @returns {Promise}
  */
 
-export function get(url, data = {}) {
+export function get(url, params = {}) {
   return new Promise((resolve, reject) => {
     _axios.get(url, {
-      data: data
+      params: params
     })
       .then(response => {
         resolve(response.data)

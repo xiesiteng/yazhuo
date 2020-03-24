@@ -34,14 +34,14 @@
         <div class="buttonDiv inpDivs">
           <button class="comBtn1" @click="loginTurn()">立即登录</button>
           <a href="javascript:;" class="icons icon1">
-            <img :src="this.base+'log1.png'" />
+            <img :src="this.base+'log1.png'" @click="doWxLogin()"/>
           </a>
           <a href="javascript:;" class="icons icon2">
             <img :src="this.base+'log2.png'" />
           </a>
         </div>
         <div class="forgetDiv inpDivs">
-          <a href="javascript:;" class="forgetLink" @click="forgetPass()">忘记密码?</a>
+          <a href="javascript:;" class="forgetLink">忘记密码?</a>
         </div>
       </div>
       <!-- 表单结束 -->
@@ -62,25 +62,27 @@ export default {
       loginList: [], //登录接口
       username: "", //账号
       password: "", //密码
-      redirectPath: ''
+      redirectPath: '', // 重定向路径
+      userAgent: ''  // 浏览器属于pc还是移动端
     };
   },
   created() {
-    
+    this.redirectPath = this.$route.query.redirectPath
+    this.judgeUserType()
   },
   methods: {
-    getLoginMsg() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/login",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
-        }
-      ).then(res => {
-        that.loginList = res.data.data.famous;
-      });
-    },
+    // getLoginMsg() {
+    //   var that = this;
+    //   Axios.get(
+    //     "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/login",
+    //     {
+    //       params: {}, // 参数
+    //       timeout: 3000 // 配置
+    //     }
+    //   ).then(res => {
+    //     that.loginList = res.data.data.famous;
+    //   });
+    // },
     // 立即登录
     loginTurn() {
       if (this.isblank(this.username)){
@@ -92,12 +94,46 @@ export default {
         return false
       }
       // 因需求中并未说明用户名和密码的基础验证要求，因此前端暂未处理
-      
+      this.$api.login({
+        username: this.username,
+        password: this.password
+      }).then(res => {
+        if (res.data.code == 200){
+          let token = res.data.data.authorization
+          localStorage.setItem('token', token)
+          //  登录成功之后如果有重定向路径则跳转过去，没有则跳转首页
+          if (this.redirectPath) {
+            this.$router.push(this.redirectPath)
+          } else {
+            this.$router.push('/home')
+          }
+        }
+      })
     },
-    // 忘记密码
-    forgetPass() {
-      console.log("忘记密码");
-      // this.$router.replace("/home");
+    // 判断用户是PC端还是移动端
+    judgeUserType () {
+      if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+          //移动端
+          this.userAgent = 'app'
+      } else {
+          //pc端
+          this.userAgent = 'pc'
+      }
+    },
+    // 执行微信登录
+    doWxLogin () {
+      let state = 'pc'
+      this.$api.getCode({
+        state: state
+      }).then(res => {
+        if (res.data.code == 200){
+          console.log(res)
+        }
+      })
+      // Axios.get('http://182.148.48.236:23432/wechat/getCodeUrl?state=' + this.userAgent)
+      // .then(res => {
+      //   console.log(res)
+      // })
     }
   }
 };
