@@ -12,7 +12,7 @@ let config = {
 
 if (process.env.NODE_ENV == 'development') {
   // dev开发环境
-  config.baseURL = ''
+  config.baseURL = 'http://182.148.48.236:23432'
 } else if (process.env.NODE_ENV == 'production') {
   // build生产环境
   config.baseURL = ''
