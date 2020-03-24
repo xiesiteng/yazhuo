@@ -19,7 +19,7 @@
             <i class="iconfont iconzhanghao"></i>
           </div>
           <div class="inputtxt">
-            <input type="text" placeholder="请输入您的账号" class="yourAccount" />
+            <input type="text" placeholder="请输入您的账号" class="yourAccount" v-model="username"/>
           </div>
         </div>
         <!-- 密码 -->
@@ -28,7 +28,7 @@
             <i class="iconfont iconmima"></i>
           </div>
           <div class="inputtxt">
-            <input type="password" placeholder="请输入您的密码" class="yourPass" />
+            <input type="password" placeholder="请输入您的密码" class="yourPass" v-model="password"/>
           </div>
         </div>
         <div class="buttonDiv inpDivs">
@@ -60,8 +60,9 @@ export default {
   data() {
     return {
       loginList: [], //登录接口
-      yourAccount: "", //账号
-      yourPass: "" //密码
+      username: "", //账号
+      password: "", //密码
+      redirectPath: ''
     };
   },
   created() {
@@ -82,15 +83,16 @@ export default {
     },
     // 立即登录
     loginTurn() {
-      // this.$router.replace("/home");
-      if (this.yourAccount === "") {
-        console.log("账号不能为空");
-        return false;
+      if (this.isblank(this.username)){
+        this.$msg('请输入用户名')
+        return false
       }
-      if (this.yourPass === "") {
-        console.log("密码不能为空");
-        return false;
+      if (this.isblank(this.password)){
+        this.$msg('请输入密码')
+        return false
       }
+      // 因需求中并未说明用户名和密码的基础验证要求，因此前端暂未处理
+      
     },
     // 忘记密码
     forgetPass() {
