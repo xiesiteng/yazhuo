@@ -126,14 +126,11 @@ export default {
       this.$api.getCode({
         state: state
       }).then(res => {
-        if (res.data.code == 200){
-          console.log(res)
+        console.log(res)
+        if (res.code == 200){
+          window.location.href = res.data
         }
       })
-      // Axios.get('http://182.148.48.236:23432/wechat/getCodeUrl?state=' + this.userAgent)
-      // .then(res => {
-      //   console.log(res)
-      // })
     }
   }
 };
