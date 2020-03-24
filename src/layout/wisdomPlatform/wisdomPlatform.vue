@@ -213,6 +213,7 @@ export default {
 
 <style scoped lang="less">
 .wisdomPlatform-container{
+    user-select: none;
     min-width: 1200px;
     .wp-header{
         height: 600px;
@@ -366,6 +367,7 @@ export default {
                 height: 300px;
                 border:1px solid rgba(213,213,213,1);
                 background-color: #fff;
+                cursor: pointer;
                 &:nth-child(n+4){
                     border-top: none;
                 }

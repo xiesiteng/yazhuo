@@ -34,7 +34,7 @@
       <!-- 2/ 结束 -->
       <!-- 3/ 开始 -->
       <div class="ball" :style="{backgroundImage:'url('+ball+')',backgroundSize:'100% 100%'}">
-        <img class="ballImage" :src="runaround" />
+        <img class="ballImage" :src="base+'runaround.png'" />
       </div>
       <!-- 3/ 结束 -->
       <!-- 4/ 开始 -->
@@ -84,8 +84,8 @@ export default {
       list3: {},
       list4: {},
       bg: "",
-      ball: "",
-      runaround: ""
+      ball: ""
+      // runaround: ""
     };
   },
   methods: {
@@ -100,7 +100,7 @@ export default {
       ).then(res => {
         that.bg = res.data.data.bg;
         that.ball = res.data.data.ball;
-        that.runaround = res.data.data.runaround;
+        // that.runaround = res.data.data.runaround;
         that.list1 = res.data.data.list[0];
         that.list2 = res.data.data.list[1];
         that.list3 = res.data.data.list[2];
@@ -213,13 +213,13 @@ export default {
     }
     .ball {
       .ballImage {
-        animation: rotateImg 5s infinite;
+        animation: rotateImg linear 5s infinite;
         @keyframes rotateImg {
           0% {
-            transform: rotate(360deg);
+            transform: rotate(0deg);
           }
           100% {
-            transform: rotate(0deg);
+            transform: rotate(360deg);
           }
         }
       }
