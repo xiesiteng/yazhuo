@@ -23,14 +23,15 @@
         <div class="boxBody">
           <!-- 左侧 开始 -->
           <div class="leftVideo anisca" @click="opean()">
-            <!-- <video id="video" class="videoplayer" controls loop="loop">
+            <video id="video" class="videoplayer" controls loop="loop">
               <source :src="url" type="video/mp4" />
-            </video>-->
-            <div class="videoplayer">
+            </video>
+            <!-- <div class="videoplayer">
               <img class="img" :src="poster" />
-            </div>
-            <div class="videoplaybtn">
-              <img :src="this.base+'playbtn.png'" />
+            </div> -->
+            <div class="videoplaybtn" @click="videoPlay">
+              <img :src="this.base+'playbtn.png'" v-if="!isPlay"/>
+              <!-- <img :src="this.base+'playbtn.png'" v-else/> -->
             </div>
           </div>
           <!-- 左侧 结束 -->
@@ -42,28 +43,30 @@
               :class="{'active' : click == index}"
               v-for="(items, index) in namelist"
               :key="index"
-              @mouseover="choose(index)"
+              @click="choose(index)"
             >
               <div class="icon ellipsis" :style=" {display:(index == click ? 'block' : 'none')} ">
                 <i class="iconfont iconjiantou1"></i>
               </div>
-              {{items.name}}
+              <span v-if="items.name">
+                  {{items.name}}
+              </span>
             </div>
           </div>
           <!-- 右侧 结束 -->
         </div>
       </div>
     </div>
-    <div v-show="popup">
+    <!-- <div v-show="popup"> -->
       <!--这里是要展示的内容层-->
-      <div class="mock">
+      <!-- <div class="mock">
         <video id="video" class="videoplayer" controls loop="loop" :poster="poster">
           <source :src="url" type="video/mp4" />
         </video>
-      </div>
+      </div> -->
       <!--这里是半透明背景层-->
-      <div class="over" @click="closemock"></div>
-    </div>
+      <!-- <div class="over" @click="closemock"></div>
+    </div> -->
   </div>
 </template>
 
@@ -182,55 +185,70 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      isPlay: false,
     };
   },
-  created() {
+  created () {
     // this.getmessage();
     this.changeTab(this.choose2);
   },
+  // mounted () {
+  //   this.$nextTick(() => {
+  //     this.choose(0)
+  //   })
+  // },
   methods: {
     getmessage() {
-      // var that = this;
-      // Axios.get(
-      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-      //   {
-      //     params: {}, // 参数
-      //     timeout: 3000 // 配置
-      //   }
-      // ).then(res => {
-      //   that.getData = res.data.data[0].Education; //获取数据
-      //   // console.log(res.data.data); //获取数据
-      //   that.getData = this.courseList
-      //   that.typeList = that.getData; //tab切换
-      //   // console.log(that.getData);//tab切换
-      //   that.namelist = that.getData[that.choose2].list;
-      //   that.url = that.getData[that.choose2].list[0].url;
-      //   that.poster = that.getData[that.choose2].list[0].picture;
-      //   // console.log(res.data.data);
-      //   that.namelist.map((e, index) => {
-      //     e.color = this.colorList[index]
-      //     console.log(e.color)
-      //   })
-      // });
-      this.$api.getInfmByParams({
-        infmTypeId: 8
-      }).then(res => {
-        if (res.code == 200) {
-          console.log('精品课程---------', res.data)
+      var that = this;
+      Axios.get(
+        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
+        {
+          params: {}, // 参数
+          timeout: 3000 // 配置
         }
-      })
+      ).then(res => {
+        that.getData = res.data.data[0].Education; //获取数据
+        // console.log(res.data.data); //获取数据
+        that.getData = this.courseList
+        that.typeList = that.getData; //tab切换
+        // console.log(that.getData);//tab切换
+        that.namelist = that.getData[that.choose2].list;
+        that.url = that.getData[that.choose2].list[0].url;
+        that.poster = that.getData[that.choose2].list[0].picture;
+        // console.log(res.data.data);
+        that.namelist.map((e, index) => {
+          e.color = this.colorList[index]
+        })
+        that.choose(0)
+      });
+      // this.$api.getInfmByParams({
+      //   infmTypeId: 8
+      // }).then(res => {
+      //   if (res.code == 200) {
+      //     console.log('精品课程---------', res.data)
+      //   }
+      // })
     },
     // 改变左边播放的内容
     choose(index) {
-      var that = this;
-      that.click = index;
+      // var that = this;
+      this.click = index;
       let player = document.querySelector("#video");
-      player.src = that.url;
       // player.play();
-      that.url = that.getData[that.ind].list[index].url;
-      that.poster = that.getData[that.ind].list[index].picture;
-      console.log(that.poster);
+      this.url = this.getData[this.choose2].list[index].url;
+      player.src = this.url;
+      // this.poster = this.getData[this.choose2].list[index].picture;
+    },
+    videoPlay () {
+      let player = document.querySelector("#video");
+      if (player.paused) {
+        player.play();
+        this.isPlay = true
+      } else {
+        player.pause()
+        this.isPlay = false
+      }
     },
     // tab切换
     changeTab(index) {
@@ -239,13 +257,13 @@ export default {
       console.log(this.choose2);
     },
     opean() {
-      // this.popup = 1;
+      this.popup = 1;
     },
     closemock() {
-      // this.popup = 0;
-      // this.errormessage = "";
+      this.popup = 0;
+      this.errormessage = "";
     }
-  }
+  },
 };
 </script>
 
@@ -344,6 +362,10 @@ export default {
             display: inline-block;
             width: 100px;
             height: 100px;
+            // opacity: 0;
+            // &:hover{
+            //   opacity: 1;
+            // }
           }
         }
         .rightList {
@@ -360,6 +382,9 @@ export default {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            &:hover{
+              opacity: .5;
+            }
             .icon {
               .iconfont {
                 width: 22px;

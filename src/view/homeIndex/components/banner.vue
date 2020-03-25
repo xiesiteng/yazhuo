@@ -45,7 +45,7 @@ export default {
   created () {
     this.getBannerInfo()
     this.infmImgUri = this.base+'bannerbg.png'
-    this.infmUri = "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4"
+    // this.infmUri = "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4"
   },
   methods: {
     getBannerInfo () {
@@ -54,10 +54,11 @@ export default {
       }).then(res => {
         if (res.code == 200) {
           console.log(res.data)
-          if (res.list) {
-            let bannerInfo = res.list[0]
+          if (res.data.list) {
+            let bannerInfo = res.data.list[0]
             this.infmImgUri = bannerInfo.infmImgUri
             this.infmUri = bannerInfo.infmUri
+            console.log('url------------------------------------------------------------', this.infmUri)
           }
         }
       })
