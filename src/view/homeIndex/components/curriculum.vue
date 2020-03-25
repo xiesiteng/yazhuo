@@ -191,28 +191,35 @@ export default {
   },
   methods: {
     getmessage() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
+      // var that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
+      //   }
+      // ).then(res => {
+      //   that.getData = res.data.data[0].Education; //获取数据
+      //   // console.log(res.data.data); //获取数据
+      //   that.getData = this.courseList
+      //   that.typeList = that.getData; //tab切换
+      //   // console.log(that.getData);//tab切换
+      //   that.namelist = that.getData[that.choose2].list;
+      //   that.url = that.getData[that.choose2].list[0].url;
+      //   that.poster = that.getData[that.choose2].list[0].picture;
+      //   // console.log(res.data.data);
+      //   that.namelist.map((e, index) => {
+      //     e.color = this.colorList[index]
+      //     console.log(e.color)
+      //   })
+      // });
+      this.$api.getInfmByParams({
+        infmTypeId: 8
+      }).then(res => {
+        if (res.code == 200) {
+          console.log('精品课程---------', res.data)
         }
-      ).then(res => {
-        that.getData = res.data.data[0].Education; //获取数据
-        // console.log(res.data.data); //获取数据
-        that.getData = this.courseList
-        that.typeList = that.getData; //tab切换
-        // console.log(that.getData);//tab切换
-        that.namelist = that.getData[that.choose2].list;
-        that.url = that.getData[that.choose2].list[0].url;
-        that.poster = that.getData[that.choose2].list[0].picture;
-        // console.log(res.data.data);
-        that.namelist.map((e, index) => {
-          e.color = this.colorList[index]
-          console.log(e.color)
-        })
-      });
+      })
     },
     // 改变左边播放的内容
     choose(index) {

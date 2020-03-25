@@ -115,6 +115,18 @@ export default {
         that.listup = that.group(that.list, 3)[0];
         that.listdown = that.group(that.list, 3)[1];
       });
+      // this.$api.getInfmByParams({
+      //   infmTypeId: 9
+      // }).then(res => {
+      //   if (res.code == 200) {
+      //     console.log('精品课程---------', res.data)
+      //     that.title = res.data.data;
+      //     that.list = res.data.data.solve;
+      //     that.menu = res.data.data.name;
+      //     that.listup = that.group(that.list, 3)[0];
+      //     that.listdown = that.group(that.list, 3)[1];
+      //   }
+      // })
     },
     group(array, subGroupLength) {
       //  将数组array分成长度为subGroupLength的小数组并返回新数组

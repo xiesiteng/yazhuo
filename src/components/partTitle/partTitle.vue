@@ -2,7 +2,6 @@
   <div class="title-box">
       <div class="title">
         <i :class="isWhite?'whiteLine':'blackLine'"></i>
-        <!-- <span>精品课程展示</span> -->
         <span class="title-text" :class="isWhite?'whiteColor':'blackColor'">{{titleText}}</span>
         <i :class="isWhite?'whiteLine':'blackLine'"></i>
       </div>
