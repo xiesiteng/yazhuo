@@ -15,8 +15,8 @@ let config = {
 
 if (process.env.NODE_ENV == 'development') {
   // dev开发环境
-  // config.baseURL = 'http://182.148.48.236:23432'
-  config.baseURL = '/api'
+  config.baseURL = 'http://182.148.48.236:23432'
+  // config.baseURL = '/api'
 } else if (process.env.NODE_ENV == 'production') {
   // build生产环境
   config.baseURL = ''
