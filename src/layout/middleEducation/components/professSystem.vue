@@ -3,13 +3,14 @@
     <!-- 产品体系 开始 -->
     <div class="system">
       <!-- 定位闹钟 -->
-      <div class="systemtime" :style="{background:`url(${this.base+'sysTiem.png'})`}"></div>
+      <!-- <div class="systemtime" :style="{background:`url(${this.base+'sysTiem.png'})`}"></div> -->
       <!-- 定位背景1 -->
       <div class="systembgs systembg1" :style="{background:`url(${this.base+'eduflbg2.png'})`}"></div>
       <!-- 定位背景2 -->
       <div class="systembgs systembg2" :style="{background:`url(${this.base+'eduflbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
-      <p class="flex-center system-title">产品体系</p>
+      <!-- <p class="flex-center system-title">产品体系</p> -->
+      <partTitle :isWhite='false' :titleText="'系列课程'"/>
       <div class="system-content" :style="{background:`#2A70E1 url(${this.base+'edulines.png'})`}">
         <div class="system-one flex-between">
           <div class="flex-center-y">
@@ -37,7 +38,8 @@
     <!-- 产品体系 结束 -->
     <!-- 课程结构 开始 -->
     <div class="lesson">
-      <p class="lesson-title flex-center">课程结构</p>
+      <!-- <p class="lesson-title flex-center">课程结构</p> -->
+      <partTitle :isWhite='false' :titleText="'课程结构'"/>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
       <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'lessonBg.png'})`}">
         <div class="lesson-inner">
@@ -79,7 +81,8 @@
     <!-- 课程结构 结束 -->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <p class="advantage-title flex-center">亮点优势</p>
+      <!-- <p class="advantage-title flex-center">亮点优势</p> -->
+      <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">

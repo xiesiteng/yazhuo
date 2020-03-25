@@ -84,7 +84,7 @@ export default {
             getNavBarInfo () {
               this.$api.getNavBarInfms().then(res => {
                 if (res.code == 200) {
-                  console.log(res.data)
+                  console.log('res.data---------', res.data)
                 }
               })
             },
@@ -270,6 +270,7 @@ export default {
 .search-wrap {
   width: 400px;
   height: 30px;
+  line-height: 30px;
   border-radius: 20px;
   background-color: #fff;
   padding: 0 10px;

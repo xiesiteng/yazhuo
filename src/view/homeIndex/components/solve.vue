@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <div class="solve" :style="{background:`url(${this.base+'solvebg.png'})`}">
-      <div class="solvetitle">亚卓教育素养培养全场景覆盖</div>
+      <!-- <div class="solvetitle">亚卓教育素养培养全场景覆盖</div> -->
+      <partTitle :isWhite='true' :titleText="'亚卓教育素养培养全场景覆盖'"/>
       <div class="flex-center-x">
         <div class="programme">
           <div class="up">
@@ -158,14 +159,14 @@ export default {
   height: 600px;
   width: 100%;
   background-position: center center !important;
-  .solvetitle {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-family: "Microsoft YaHei";
-    color: #ffffff;
-    padding: 40px 0;
-  }
+  // .solvetitle {
+  //   width: 100%;
+  //   text-align: center;
+  //   font-size: 24px;
+  //   font-family: "Microsoft YaHei";
+  //   color: #ffffff;
+  //   padding: 40px 0;
+  // }
   .programme {
     background: -pink;
     display: inline-block;

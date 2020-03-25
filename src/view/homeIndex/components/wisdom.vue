@@ -1,6 +1,7 @@
 <template>
   <div class="app" :style="{background:`url(${this.base+'wisdbg.png'})`}">
-    <div class="boxHead">智慧教学</div>
+    <!-- <div class="boxHead">智慧教学</div> -->
+    <partTitle  :isWhite='true' :titleText="'智慧教学'"/>
     <div class="boxBody">
       <!-- 1/ 开始 -->
       <div class="left">

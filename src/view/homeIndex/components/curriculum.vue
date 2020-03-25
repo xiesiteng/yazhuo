@@ -2,11 +2,12 @@
   <div class="app">
     <div class="curriculum">
       <!-- 标题 开始 -->
-      <div class="titles">
+      <!-- <div class="titles">
         <i></i>
         <span>精品课程展示</span>
         <i></i>
-      </div>
+      </div> -->
+      <partTitle :isWhite='false' :titleText="'精品课程展示'"/>
       <!-- 标题 结束 -->
       <div class="class">
         <!-- tab切换 开始 -->
@@ -253,26 +254,26 @@ export default {
     align-items: center;
     background: -pink;
     padding-bottom: 60px;
-    .titles {
-      width: 100%;
-      text-align: center;
-      color: #333333;
-      font-size: 24px;
-      background: -orange;
-      padding: 30px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      span {
-        padding: 0 50px;
-      }
-      i {
-        display: inline-block;
-        width: 480px;
-        height: 1px;
-        background: rgba(221, 221, 221, 1);
-      }
-    }
+    // .titles {
+    //   width: 100%;
+    //   text-align: center;
+    //   color: #333333;
+    //   font-size: 24px;
+    //   background: -orange;
+    //   padding: 30px 0;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   span {
+    //     padding: 0 50px;
+    //   }
+    //   i {
+    //     display: inline-block;
+    //     width: 480px;
+    //     height: 1px;
+    //     background: rgba(221, 221, 221, 1);
+    //   }
+    // }
     .class {
       text-align: center;
       width: 1200px;
