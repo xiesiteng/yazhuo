@@ -40,10 +40,10 @@ export default {
     };
   },
   created () {
-    this.getMessage()
+    this.getBannerInfo()
   },
   methods: {
-    getMessage () {
+    getBannerInfo () {
       this.$api.getInfmByParams({
         infmTypeId: 7
       }).then(res => {

@@ -77,9 +77,17 @@ export default {
         }
     },
         created () {
+          this.getNavBarInfo()
             this.isCurrent()
         },
         methods: {
+            getNavBarInfo () {
+              this.$api.getNavBarInfms().then(res => {
+                if (res.code == 200) {
+                  console.log(res.data)
+                }
+              })
+            },
             goPage(data, item) {
                 // 点击之后把:before伪元素移动到对应父元素上
                 sessionStorage.setItem('headerId', item.id)

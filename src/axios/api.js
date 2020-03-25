@@ -15,8 +15,11 @@ const api = {
   // 执行微信登录
   wxLogin: data => get('/wechat/login', data),
 
+  // 导航栏信息目录
+ getNavBarInfms: data => post('/yzInformation/setNavigationBarInfms', data),
+
   // 首页接口集合
-  gitInfmByParams: data => get('/yzInformation/queryInfmByParams', data)
+  getInfmByParams: data => post('/yzInformation/queryInfmByParams', data)
 }
 
 export default api
