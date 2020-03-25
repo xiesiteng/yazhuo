@@ -39,7 +39,19 @@ export default {
       isText: true
     };
   },
+  created () {
+    this.getMessage()
+  },
   methods: {
+    getMessage () {
+      this.$api.getInfmByParams({
+        infmTypeId: 7
+      }).then(res => {
+        if (res.code == 200) {
+          console.log(res.data)
+        }
+      })
+    },
     isShowLay() {
       this.isText = !this.isText;
     }
