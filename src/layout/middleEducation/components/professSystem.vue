@@ -9,7 +9,9 @@
       <!-- 定位背景2 -->
       <div class="systembgs systembg2" :style="{background:`url(${this.base+'eduflbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
-      <p class="flex-center system-title">产品体系</p>
+      <p class="flex-center system-title">
+        <span>系列课程</span>
+      </p>
       <div class="system-content" :style="{background:`#2A70E1 url(${this.base+'edulines.png'})`}">
         <div class="system-one flex-between">
           <div class="flex-center-y">
@@ -37,7 +39,9 @@
     <!-- 产品体系 结束 -->
     <!-- 课程结构 开始 -->
     <div class="lesson">
-      <p class="lesson-title flex-center">课程结构</p>
+      <p class="lesson-title flex-center">
+        <span>课程结构</span>
+      </p>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
       <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'lessonBg.png'})`}">
         <div class="lesson-inner">
@@ -79,7 +83,9 @@
     <!-- 课程结构 结束 -->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <p class="advantage-title flex-center">亮点优势</p>
+      <p class="advantage-title flex-center">
+        <span>亮点优势</span>
+      </p>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">
@@ -157,8 +163,22 @@ export default {
     z-index: 9;
   }
   .system-title {
-    font-size: 24px;
-    margin: 38px auto;
+    margin: 0 auto 50px;
+    padding-top: 50px;
+    width: 323px;
+    border-bottom: 2px solid #8C8C8C;
+    position: relative;
+    span{
+      width: 123px;
+      background-color: #fff;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #333;
+      font-weight: bold;
+      font-size: 24px;
+    }
   }
   .system-content {
     width: 1100px;
@@ -172,7 +192,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     .system-one {
-      padding: 0 115px 0 93px;
+      padding: 0 40px 0 93px;
       img {
         width: 44px;
         height: 44px;
@@ -185,13 +205,14 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
     .system-two {
       padding: 0 40px 0 93px;
       img {
-        width: 52px;
-        height: 51px;
+        width: 44px;
+        height: 44px;
       }
       span {
         font-size: 20px;
@@ -201,13 +222,14 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
     .system-three {
-      padding: 0 160px 0 93px;
+      padding: 0 40px 0 93px;
       img {
-        width: 41px;
-        height: 37px;
+        width: 44px;
+        height: 44px;
       }
       span {
         font-size: 20px;
@@ -217,14 +239,29 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
   }
 }
 // 课程结构
 .lesson-title {
-  padding: 39px 0 24px;
-  font-size: 24px;
+  padding: 50px 0 0;
+  margin: 0 auto 45px;
+  position: relative;
+  width: 323px;
+  border-bottom: 2px solid #8c8c8c;
+  span{
+    width: 123px;
+    background-color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+  }
 }
 .lesson-inner-wrap {
   width: 100%;
@@ -289,8 +326,22 @@ export default {
   padding-bottom: 40px;
 }
 .advantage-title {
-  padding: 40px 0;
-  font-size: 24px;
+  padding: 50px 0 0;
+  margin: 0 auto 45px;
+  position: relative;
+  width: 323px;
+  border-bottom: 2px solid #8c8c8c;
+  span{
+    width: 123px;
+    background-color: #fafafa;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+  }
 }
 .advantage-inner {
   width: 1200px;
