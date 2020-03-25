@@ -160,8 +160,22 @@ export default {
     z-index: 9;
   }
   .system-title {
-    font-size: 24px;
-    margin: 38px auto;
+    margin: 0 auto 50px;
+    padding-top: 50px;
+    width: 323px;
+    border-bottom: 2px solid #8C8C8C;
+    position: relative;
+    span{
+      width: 123px;
+      background-color: #fff;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #333;
+      font-weight: bold;
+      font-size: 24px;
+    }
   }
   .system-content {
     width: 1100px;
@@ -175,7 +189,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     .system-one {
-      padding: 0 115px 0 93px;
+      padding: 0 40px 0 93px;
       img {
         width: 44px;
         height: 44px;
@@ -188,13 +202,14 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
     .system-two {
       padding: 0 40px 0 93px;
       img {
-        width: 52px;
-        height: 51px;
+        width: 44px;
+        height: 44px;
       }
       span {
         font-size: 20px;
@@ -204,13 +219,14 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
     .system-three {
-      padding: 0 160px 0 93px;
+      padding: 0 40px 0 93px;
       img {
-        width: 41px;
-        height: 37px;
+        width: 44px;
+        height: 44px;
       }
       span {
         font-size: 20px;
@@ -220,14 +236,29 @@ export default {
       p {
         font-size: 14px;
         color: #fff;
+        width: 480px;
       }
     }
   }
 }
 // 课程结构
 .lesson-title {
-  padding: 39px 0 24px;
-  font-size: 24px;
+  padding: 50px 0 0;
+  margin: 0 auto 45px;
+  position: relative;
+  width: 323px;
+  border-bottom: 2px solid #8c8c8c;
+  span{
+    width: 123px;
+    background-color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+  }
 }
 .lesson-inner-wrap {
   width: 100%;
@@ -292,8 +323,22 @@ export default {
   padding-bottom: 40px;
 }
 .advantage-title {
-  padding: 40px 0;
-  font-size: 24px;
+  padding: 50px 0 0;
+  margin: 0 auto 45px;
+  position: relative;
+  width: 323px;
+  border-bottom: 2px solid #8c8c8c;
+  span{
+    width: 123px;
+    background-color: #fafafa;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+  }
 }
 .advantage-inner {
   width: 1200px;

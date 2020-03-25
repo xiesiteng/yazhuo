@@ -19,7 +19,7 @@
             <i class="iconfont iconzhanghao"></i>
           </div>
           <div class="inputtxt">
-            <input type="text" placeholder="请输入您的账号" class="yourAccount" v-model="username"/>
+            <input type="text" placeholder="请输入您的账号" class="yourAccount" v-model="username" @keyup.enter="loginTurn()"/>
           </div>
         </div>
         <!-- 密码 -->
@@ -28,7 +28,7 @@
             <i class="iconfont iconmima"></i>
           </div>
           <div class="inputtxt">
-            <input type="password" placeholder="请输入您的密码" class="yourPass" v-model="password"/>
+            <input type="password" placeholder="请输入您的密码" class="yourPass" v-model="password" @keyup.enter="loginTurn()"/>
           </div>
         </div>
         <div class="buttonDiv inpDivs">
@@ -98,8 +98,9 @@ export default {
         username: this.username,
         password: this.password
       }).then(res => {
-        if (res.data.code == 200){
-          let token = res.data.data.authorization
+        console.log(res)
+        if (res.code == 200){
+          let token = res.data.authorization
           localStorage.setItem('token', token)
           //  登录成功之后如果有重定向路径则跳转过去，没有则跳转首页
           if (this.redirectPath) {

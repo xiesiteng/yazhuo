@@ -2,9 +2,9 @@
   <div class="main">
     <transition name="fade">
       <!-- back-wrap绝对定位 -->
-      <div class="back-wrap" v-show="showBtn">
+      <div class="back-wrap" :class="showBtn ? 'opa1' : 'opa0'">
         <!-- back-wrap-inner相对定位 -->
-        <div class="back-wrap-inner flex-end">
+        <div class="back-wrap-inner flex-end" >
           <div class="back-item-wrap">
             <!-- 回到顶部的箭头 -->
             <div class="back-item flex-center" @click="toTop">
@@ -54,7 +54,9 @@ export default {
   },
   methods: {
     choose(index) {
-      this.active = index;
+      if (this.showBtn){
+        this.active = index;
+      }
     },
     // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
     scrollToTop() {
@@ -90,7 +92,7 @@ export default {
   position: fixed;
   bottom: 110px;
   right: 40px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   .back-wrap-inner {
     width: 100%;
     height: 100%;
@@ -104,7 +106,7 @@ export default {
       .back-item {
         width: 100%;
         height: 46px;
-        cursor: pointer;
+        // cursor: pointer;
         text-align: center;
         line-height: 46px;
         img {
@@ -142,6 +144,8 @@ export default {
     }
   }
 }
+.opa1{opacity: 1;cursor: pointer!important;}
+.opa0{opacity: 0;cursor: default!important;}
 /* 可以设置不同的进入和离开动画 */
 /* 设置持续时间和动画函数 */
 .fade-enter-active,
