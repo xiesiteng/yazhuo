@@ -2,12 +2,12 @@
   <div class="banners">
     <div class="bannerBox" :style="{background:`url(${this.base+'bannerbg.png'})`}">
       <!-- 视频背景 开始 -->
-      <!-- <video class="video" autoplay muted="muted" loop="loop" width="100%">
+      <video class="video" autoplay muted="muted" loop="loop" width="100%">
         <source
-          src="https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4"
+          :src="infmUri"
           type="video/mp4"
         />
-      </video>-->
+      </video>
       <!-- 视频背景 结束 -->
       <div :class="'searchdetail ' + (isText?'':'closeLay')">
         <div class="searchdetail2">
@@ -36,11 +36,16 @@ export default {
   name: "banner",
   data() {
     return {
-      isText: true
+      isActive: false,
+      isText: true,
+      infmImgUri: '', // 图封面
+      infmUri: '' // 资源链接
     };
   },
   created () {
     this.getBannerInfo()
+    this.infmImgUri = this.base+'bannerbg.png'
+    this.infmUri = "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4"
   },
   methods: {
     getBannerInfo () {
@@ -49,6 +54,11 @@ export default {
       }).then(res => {
         if (res.code == 200) {
           console.log(res.data)
+          if (res.list) {
+            let bannerInfo = res.list[0]
+            this.infmImgUri = bannerInfo.infmImgUri
+            this.infmUri = bannerInfo.infmUri
+          }
         }
       })
     },
@@ -70,14 +80,14 @@ export default {
   width: 100%;
   height: 870px;
   //    视频背景
-  //   .video {
-  //     object-fit: fill;
-  //     width: 100%;
-  //     height: 100%;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //   }
+    .video {
+      object-fit: fill;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   .searchdetail {
     position: absolute;
     top: 50%;

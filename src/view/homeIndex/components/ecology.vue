@@ -1,6 +1,7 @@
 <template>
   <div class="app" :style="{background:`url(${this.base+'mapbg.png'})`}">
-    <div class="boxHead">生态共建</div>
+    <!-- <div class="boxHead">生态共建</div> -->
+    <partTitle :isWhite='false' :titleText="'生态共建'"/>
     <!-- tab切换 开始 -->
     <div class="headTitTab">
       <div

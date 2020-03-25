@@ -2,11 +2,12 @@
   <div class="app">
     <div class="curriculum">
       <!-- 标题 开始 -->
-      <div class="titles">
+      <!-- <div class="titles">
         <i></i>
         <span>精品课程展示</span>
         <i></i>
-      </div>
+      </div> -->
+      <partTitle :isWhite='false' :titleText="'精品课程展示'"/>
       <!-- 标题 结束 -->
       <div class="class">
         <!-- tab切换 开始 -->
@@ -190,28 +191,35 @@ export default {
   },
   methods: {
     getmessage() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
+      // var that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
+      //   }
+      // ).then(res => {
+      //   that.getData = res.data.data[0].Education; //获取数据
+      //   // console.log(res.data.data); //获取数据
+      //   that.getData = this.courseList
+      //   that.typeList = that.getData; //tab切换
+      //   // console.log(that.getData);//tab切换
+      //   that.namelist = that.getData[that.choose2].list;
+      //   that.url = that.getData[that.choose2].list[0].url;
+      //   that.poster = that.getData[that.choose2].list[0].picture;
+      //   // console.log(res.data.data);
+      //   that.namelist.map((e, index) => {
+      //     e.color = this.colorList[index]
+      //     console.log(e.color)
+      //   })
+      // });
+      this.$api.getInfmByParams({
+        infmTypeId: 8
+      }).then(res => {
+        if (res.code == 200) {
+          console.log('精品课程---------', res.data)
         }
-      ).then(res => {
-        that.getData = res.data.data[0].Education; //获取数据
-        // console.log(res.data.data); //获取数据
-        that.getData = this.courseList
-        that.typeList = that.getData; //tab切换
-        // console.log(that.getData);//tab切换
-        that.namelist = that.getData[that.choose2].list;
-        that.url = that.getData[that.choose2].list[0].url;
-        that.poster = that.getData[that.choose2].list[0].picture;
-        // console.log(res.data.data);
-        that.namelist.map((e, index) => {
-          e.color = this.colorList[index]
-          console.log(e.color)
-        })
-      });
+      })
     },
     // 改变左边播放的内容
     choose(index) {
@@ -253,26 +261,26 @@ export default {
     align-items: center;
     background: -pink;
     padding-bottom: 60px;
-    .titles {
-      width: 100%;
-      text-align: center;
-      color: #333333;
-      font-size: 24px;
-      background: -orange;
-      padding: 30px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      span {
-        padding: 0 50px;
-      }
-      i {
-        display: inline-block;
-        width: 480px;
-        height: 1px;
-        background: rgba(221, 221, 221, 1);
-      }
-    }
+    // .titles {
+    //   width: 100%;
+    //   text-align: center;
+    //   color: #333333;
+    //   font-size: 24px;
+    //   background: -orange;
+    //   padding: 30px 0;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   span {
+    //     padding: 0 50px;
+    //   }
+    //   i {
+    //     display: inline-block;
+    //     width: 480px;
+    //     height: 1px;
+    //     background: rgba(221, 221, 221, 1);
+    //   }
+    // }
     .class {
       text-align: center;
       width: 1200px;

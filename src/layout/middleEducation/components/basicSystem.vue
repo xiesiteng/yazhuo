@@ -9,9 +9,8 @@
       <!-- 定位背景2 -->
       <div class="systembgs systembg2" :style="{background:`url(${this.base+'edufrbg1.png'})`}"></div>
       <!-- 以下开始正文了 -->
-      <p class="flex-center system-title">
-        <span>产品体系</span>
-      </p>
+      <!-- <p class="flex-center system-title">产/品/体/系</p> -->
+      <partTitle :isWhite='false' :titleText="'系列课程'"/>
       <div class="system-content">
         <div class="system-three flex-between">
           <div class="flex-center-y">
@@ -46,9 +45,8 @@
     <!-- 产品体系 结束-->
     <!-- 课程结构 开始-->
     <div class="lesson">
-      <p class="lesson-title flex-center">
-        <span>课程结构</span>
-      </p>
+      <!-- <p class="lesson-title flex-center">课/程/结/构</p> -->
+      <partTitle :isWhite='false' :titleText="'课程结构'"/>
       <!-- 多套一层避免里面的元素定位距离小屏幕不兼容 -->
       <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'basicBg.png'})`}">
         <div class="lesson-inner">
@@ -90,9 +88,8 @@
     <!-- 课程结构 结束-->
     <!-- 亮点优势 开始 -->
     <div class="advantage">
-      <p class="advantage-title flex-center">
-        <span>亮点优势</span>
-      </p>
+      <!-- <p class="advantage-title flex-center">亮/点/优/势</p> -->
+      <partTitle :isWhite='false' :titleText="'亮点优势'"/>
       <div class="advantage-inner flex-center-y">
         <!-- 1/4海量资源 -->
         <div class="advantage-inner-item">

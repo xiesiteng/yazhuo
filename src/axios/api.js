@@ -16,7 +16,7 @@ const api = {
   wxLogin: data => get('/wechat/login', data),
 
   // 导航栏信息目录
- getNavBarInfms: data => post('/yzInformation/setNavigationBarInfms', data),
+ getNavBarInfms: data => post('/yzInformation/queryNavigationBarInfms', data),
 
   // 首页接口集合
   getInfmByParams: data => post('/yzInformation/queryInfmByParams', data)

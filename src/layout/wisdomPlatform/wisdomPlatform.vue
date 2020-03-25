@@ -24,12 +24,13 @@
               </div>
           </div>
           <div class="wp-coreFunction">
-              <div class="cf-header">
+              <!-- <div class="cf-header">
                   <div class="cf-titie">
                       <span>核/心/功/能</span>
                   </div>
                   <div class="line"></div>
-              </div>
+              </div> -->
+              <partTitle :isWhite='false' :titleText="'核心功能'"/>
               <div class="cf-box" @mouseleave="leaveHandle">
                     <div class="cf-item" v-for="(item, index) in cfList" :key="index" @mouseenter="enterHandle(index)">
                         <div class="cf-inner" :style="'borderColor: '+item.lineColor">
@@ -85,12 +86,13 @@
               </div>
           </div>
           <div class="wp-specialAdvantage">
-              <div class="sa-header">
+              <!-- <div class="sa-header">
                   <div class="sa-titie">
                       <span>特/色/优/势</span>
                   </div>
                   <div class="line"></div>
-              </div>
+              </div> -->
+              <partTitle :isWhite='false' :titleText="'特色优势'"/>
               <div class="sa-box">
                   <div class="sa-box-left">
                       <!-- <div class="left-title">
@@ -327,31 +329,31 @@ export default {
         flex-direction: column;
         align-items: center;
         align-content: center;
-        .cf-header{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            height: 50px;
-            width: 1200px;
-            margin-bottom: 20px;
-            .line{
-                border-top: 1px solid rgba(221,221,221,1);
-            }
-            .cf-titie{
-                width: 160px;
-                position: absolute;
-                top: 8px;
-                left: 50%;
-                transform: translate(-50%);
-                background-color: #fff;
-                font-size:24px;
-                font-family:Microsoft YaHei;
-                font-weight:400;
-                color:rgba(51,51,51,1);
-                text-align: center;
-            }
-        }
+        // .cf-header{
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: center;
+        //     position: relative;
+        //     height: 50px;
+        //     width: 1200px;
+        //     margin-bottom: 20px;
+        //     .line{
+        //         border-top: 1px solid rgba(221,221,221,1);
+        //     }
+        //     .cf-titie{
+        //         width: 160px;
+        //         position: absolute;
+        //         top: 8px;
+        //         left: 50%;
+        //         transform: translate(-50%);
+        //         background-color: #fff;
+        //         font-size:24px;
+        //         font-family:Microsoft YaHei;
+        //         font-weight:400;
+        //         color:rgba(51,51,51,1);
+        //         text-align: center;
+        //     }
+        // }
         .cf-box{
             position: relative;
             width: 1200px;
@@ -428,31 +430,31 @@ export default {
         flex-direction: column;
         align-items: center;
         align-content: center;
-        .sa-header{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            height: 50px;
-            width: 1200px;
-            margin-bottom: 20px;
-            .line{
-                border-top: 1px solid rgba(221,221,221,1);
-            }
-            .sa-titie{
-                width: 160px;
-                position: absolute;
-                top: 8px;
-                left: 50%;
-                transform: translate(-50%);
-                background-color: #F4F4F4;
-                font-size:24px;
-                font-family:Microsoft YaHei;
-                font-weight:400;
-                color:rgba(51,51,51,1);
-                text-align: center;
-            }
-        }
+        // .sa-header{
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: center;
+        //     position: relative;
+        //     height: 50px;
+        //     width: 1200px;
+        //     margin-bottom: 20px;
+        //     .line{
+        //         border-top: 1px solid rgba(221,221,221,1);
+        //     }
+        //     .sa-titie{
+        //         width: 160px;
+        //         position: absolute;
+        //         top: 8px;
+        //         left: 50%;
+        //         transform: translate(-50%);
+        //         background-color: #F4F4F4;
+        //         font-size:24px;
+        //         font-family:Microsoft YaHei;
+        //         font-weight:400;
+        //         color:rgba(51,51,51,1);
+        //         text-align: center;
+        //     }
+        // }
         .sa-box{
             position: relative;
             width: 1200px;

@@ -1,7 +1,8 @@
 <template>
   <div class="app">
     <div class="solve" :style="{background:`url(${this.base+'solvebg.png'})`}">
-      <div class="solvetitle">亚卓教育素养培养全场景覆盖</div>
+      <!-- <div class="solvetitle">亚卓教育素养培养全场景覆盖</div> -->
+      <partTitle :isWhite='true' :titleText="'亚卓教育素养培养全场景覆盖'"/>
       <div class="flex-center-x">
         <div class="programme">
           <div class="up">
@@ -114,6 +115,18 @@ export default {
         that.listup = that.group(that.list, 3)[0];
         that.listdown = that.group(that.list, 3)[1];
       });
+      // this.$api.getInfmByParams({
+      //   infmTypeId: 9
+      // }).then(res => {
+      //   if (res.code == 200) {
+      //     console.log('精品课程---------', res.data)
+      //     that.title = res.data.data;
+      //     that.list = res.data.data.solve;
+      //     that.menu = res.data.data.name;
+      //     that.listup = that.group(that.list, 3)[0];
+      //     that.listdown = that.group(that.list, 3)[1];
+      //   }
+      // })
     },
     group(array, subGroupLength) {
       //  将数组array分成长度为subGroupLength的小数组并返回新数组
@@ -158,14 +171,14 @@ export default {
   height: 600px;
   width: 100%;
   background-position: center center !important;
-  .solvetitle {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-family: "Microsoft YaHei";
-    color: #ffffff;
-    padding: 40px 0;
-  }
+  // .solvetitle {
+  //   width: 100%;
+  //   text-align: center;
+  //   font-size: 24px;
+  //   font-family: "Microsoft YaHei";
+  //   color: #ffffff;
+  //   padding: 40px 0;
+  // }
   .programme {
     background: -pink;
     display: inline-block;
