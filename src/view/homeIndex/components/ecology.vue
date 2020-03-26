@@ -102,7 +102,11 @@ export default {
     swiperOne,
     swiperTwo
   },
-  
+  created() {
+    this.$nextTick(() => {
+      this.getmessage();
+    });
+  },
   data() {
     return {
       list: [],
@@ -134,10 +138,12 @@ export default {
     };
   },
   mounted() {
-    this.init()
+    setTimeout(() => {
+      // console.log(this.$refs.sw.children[0].children[0].style.display = "flex")
+      // this.$refs.sw.children[0].children[0].style.display = "flex"
+    }, 500);
   },
   methods: {
-<<<<<<< HEAD
     getmessage() {
       // var that = this;
       // Axios.get(
@@ -162,7 +168,6 @@ export default {
           this.list = list
           this.company = list[this.isShowTab].subList
           this.school = list[1].subList
-          
         }
       })
     },
@@ -171,7 +176,39 @@ export default {
       this.isShowTab = index;
       console.log(index);
     }
-    
+    // 表单提交
+    // submit() {
+    //   let that = this;
+    //   !/^[\u4e00-\u9fa5]{2,4}$/.test(this.name) ||
+    //   !/^1[3456789]\d{9}$/.test(this.phone)
+    //     ? that.opean()
+    //     : console.log(this.sel + this.name + this.phone);
+    // },
+    //打开活动规则页面
+    // opean() {
+    //   !/^[\u4e00-\u9fa5]{2,4}$/.test(this.name)
+    //     ? (this.errormessage += "姓名")
+    //     : "";
+    //   !/^1[3456789]\d{9}$/.test(this.phone)
+    //     ? (this.errormessage += "手机号码")
+    //     : "";
+    //   this.popup = 1;
+    // },
+    //关闭活动规则页面
+    // closemock() {
+    //   this.popup = 0;
+    //   this.errormessage = "";
+    // },
+    // changeschool() {
+    //   this.school = this.list[1].company.school;
+    //   this.schoolactive = "active";
+    //   this.companyactive = "";
+    // },
+    // changecompany() {
+    //   this.school = this.list[1].company.company;
+    //   this.companyactive = "active";
+    //   this.schoolactive = "";
+    // }
   }
 };
 </script>
