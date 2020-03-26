@@ -27,7 +27,11 @@ import backTop from './components/backTop/backTop.vue'
 Vue.component('backTop', backTop) 
 
 import partTitle from './components/partTitle/partTitle.vue'
-Vue.component('partTitle', partTitle) 
+Vue.component('partTitle', partTitle)
+
+// 全局注册绑定账号弹框
+import bindAccount from './components/bindAccount/bindAccount.vue'
+Vue.component('bindAccount', bindAccount) 
 
 const base = 'http://182.148.48.236:54321/source/images/'
 // const base = 'http://huangqinchao.host3v.vip/yazhuo/'
