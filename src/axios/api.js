@@ -19,7 +19,10 @@ const api = {
  getNavBarInfms: data => post('/yzInformation/queryNavigationBarInfms', data),
 
   // 首页接口集合
-  getInfmByParams: data => post('/yzInformation/queryInfmByParams', data)
+  getInfmByParams: data => post('/yzInformation/queryInfmByParams', data),
+
+  // 首页列表接口集合
+  getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data)
 }
 
 export default api

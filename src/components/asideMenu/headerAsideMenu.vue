@@ -67,13 +67,13 @@ export default {
                 children: []
             }
         ],
-            btns: [
-                {
-                id: "b01",
-                url: "/login",
-                name: "登录"
-                }
-            ]
+        btns: [
+            {
+            id: "b01",
+            url: "/login",
+            name: "登录"
+            }
+        ]
         }
     },
         created () {
@@ -85,6 +85,9 @@ export default {
               this.$api.getNavBarInfms().then(res => {
                 if (res.code == 200) {
                   console.log('res.data---------', res.data)
+                  res.data.list.map(e => {
+                    
+                  })
                 }
               })
             },

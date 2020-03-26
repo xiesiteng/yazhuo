@@ -101,32 +101,44 @@ export default {
   },
   methods: {
     getmessage() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/solve",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
-        }
-      ).then(res => {
-        that.title = res.data.data;
-        that.list = res.data.data.solve;
-        that.menu = res.data.data.name;
-        that.listup = that.group(that.list, 3)[0];
-        that.listdown = that.group(that.list, 3)[1];
-      });
-      // this.$api.getInfmByParams({
-      //   infmTypeId: 9
-      // }).then(res => {
-      //   if (res.code == 200) {
-      //     console.log('精品课程---------', res.data)
-      //     that.title = res.data.data;
-      //     that.list = res.data.data.solve;
-      //     that.menu = res.data.data.name;
-      //     that.listup = that.group(that.list, 3)[0];
-      //     that.listdown = that.group(that.list, 3)[1];
+      // var that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/solve",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
       //   }
-      // })
+      // ).then(res => {
+      //   that.title = res.data.data;
+      //   console.log('----------------------------', that.title)
+      //   that.list = res.data.data.solve;
+      //   that.menu = res.data.data.name;
+      //   that.listup = that.group(that.list, 3)[0];
+      //   that.listdown = that.group(that.list, 3)[1];
+      // });
+      this.$api.getInfmAndSubList({
+        infmTypeId: 9
+      }).then(res => {
+        if (res.code == 200) {
+          console.log('精品课程---------', res.data)
+          this.menu = res.data.list.map(e => {
+            return e.firstInfm.infmTitle
+          })
+          console.log('this.name=======================', this.menu)
+          this.list = res.data.list.map(e => {
+            return e.subList.map(e => {
+              return {
+                title: e.infmTitle,
+                explain: e.infmContent,
+                infmUri: e.infmUri
+              }
+            })
+          })
+          console.log('list=============================', this.list)
+          this.listup = this.group(this.list, 3)[0];
+          this.listdown = this.group(this.list, 3)[1];
+        }
+      })
     },
     group(array, subGroupLength) {
       //  将数组array分成长度为subGroupLength的小数组并返回新数组
