@@ -111,7 +111,6 @@ export default {
         infmTypeId: 10
       }).then(res => {
         if (res.code == 200) {
-          console.log(res.data)
           if (res.data.list) {
             let lists = res.data.list.map(e => {
               return {

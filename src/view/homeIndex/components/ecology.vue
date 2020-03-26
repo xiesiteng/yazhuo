@@ -10,7 +10,7 @@
         v-for="(items, index) in list"
         :key="index"
         @click="changeTab(index)"
-      >{{items.title}}</div>
+      >{{items.firstInfm.infmTitle}}</div>
     </div>
     <!-- tab切换 结束 -->
     <!-- 盒子1 开始 -->
@@ -35,7 +35,7 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
       </swiper>-->
-      <swiper-one></swiper-one>
+      <swiper-one :company='company'></swiper-one>
     </div>
     <!-- 盒子1 结束 -->
     <!-- 盒子2 开始 -->
@@ -48,7 +48,7 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>
       </swiper>-->
-      <swiper-two></swiper-two>
+      <swiper-two :school='school'></swiper-two>
     </div>
     <!-- 盒子2 结束 -->
     <!-- 盒子3 开始 -->
@@ -106,7 +106,7 @@ export default {
   data() {
     return {
       list: [],
-      bg: "",
+      bg: "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE%E8%83%8C%E6%99%AF.png",
       isShowTab: 0, //索引决定显示tab选项第几个
       company: [],
       school: {},
@@ -137,14 +137,33 @@ export default {
     this.init()
   },
   methods: {
-    
-    init () {
-      this.$api.getInfmByParams({
-        infmTypeId: '6',
-        pageNum: 1,
-        pageSize: 5
+<<<<<<< HEAD
+    getmessage() {
+      // var that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/ecology",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
+      //   }
+      // ).then(res => {
+      //   that.list = res.data.data.list;
+      //   that.bg = res.data.data.bg;
+      //   that.company = res.data.data.list[that.isShowTab].company;
+      //   that.school = res.data.data.list[1].company.school;
+      //   // console.log(that.company)
+      // });
+      this.$api.getInfmAndSubList({
+        infmTypeId: 6
       }).then(res => {
-        console.log(res)
+        if (res.code == 200) {
+          console.log('res.data=======================6', res.data)
+          let list = res.data.list
+          this.list = list
+          this.company = list[this.isShowTab].subList
+          this.school = list[1].subList
+          
+        }
       })
     },
     // tab切换

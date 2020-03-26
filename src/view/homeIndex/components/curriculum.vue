@@ -22,15 +22,16 @@
         <!-- tab切换 结束 -->
         <div class="boxBody">
           <!-- 左侧 开始 -->
-          <div class="leftVideo anisca" @click="opean()">
-            <video id="video" class="videoplayer" controls loop="loop">
+          <div class="leftVideo anisca" @click.prevent="videoPlay">
+            <!--  @click="opean" -->
+            <video id="video" class="videoplayer" controls loop>
               <source :src="url" type="video/mp4" />
             </video>
             <!-- <div class="videoplayer">
               <img class="img" :src="poster" />
             </div> -->
-            <div class="videoplaybtn" @click="videoPlay">
-              <img :src="this.base+'playbtn.png'" v-if="!isPlay"/>
+            <div class="videoplaybtn" v-show="!isPlay">
+              <img :src="this.base+'playbtn.png'"/>
               <!-- <img :src="this.base+'playbtn.png'" v-else/> -->
             </div>
           </div>
@@ -192,43 +193,59 @@ export default {
   created () {
     // this.getmessage();
     this.changeTab(this.choose2);
+    console.log('that.url', this.url)
   },
-  // mounted () {
-  //   this.$nextTick(() => {
-  //     this.choose(0)
-  //   })
-  // },
   methods: {
     getmessage() {
-      var that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
-        }
-      ).then(res => {
-        that.getData = res.data.data[0].Education; //获取数据
-        // console.log(res.data.data); //获取数据
-        that.getData = this.courseList
-        that.typeList = that.getData; //tab切换
-        // console.log(that.getData);//tab切换
-        that.namelist = that.getData[that.choose2].list;
-        that.url = that.getData[that.choose2].list[0].url;
-        that.poster = that.getData[that.choose2].list[0].picture;
-        // console.log(res.data.data);
-        that.namelist.map((e, index) => {
-          e.color = this.colorList[index]
-        })
-        that.choose(0)
-      });
-      // this.$api.getInfmByParams({
-      //   infmTypeId: 8
-      // }).then(res => {
-      //   if (res.code == 200) {
-      //     console.log('精品课程---------', res.data)
+      // var that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
       //   }
-      // })
+      // ).then(res => {
+      //   that.getData = res.data.data[0].Education; //获取数据
+      //   // console.log(res.data.data); //获取数据
+      //   that.getData = this.courseList
+      //   that.typeList = that.getData; //tab切换
+      //   // console.log(that.getData);//tab切换
+      //   that.namelist = that.getData[that.choose2].list;
+      //   that.url = that.getData[that.choose2].list[0].url;
+      //   that.poster = that.getData[that.choose2].list[0].picture;
+      //   // console.log(res.data.data);
+      //   that.namelist.map((e, index) => {
+      //     e.color = this.colorList[index]
+      //   })
+      //   that.choose(0)
+      // });
+      this.$api.getInfmAndSubList({
+        infmTypeId: 8
+      }).then(res => {
+        if (res.code == 200) {
+          console.log('精品课程---------', res.data)
+          let courseList = res.data.list.map(e => {
+            return {
+              type: e.firstInfm.infmTitle,
+              list: e.subList.map((e, index) => {
+                return {
+                  name: e.infmTitle,
+                  url: e.infmUri,
+                  color: this.colorList[index],
+                  picture: e.infmImgUri
+                }
+              })
+            }
+          })
+          this.getData = courseList
+          console.log('courseList', courseList)
+          this.typeList = this.getData; //tab切换
+          this.namelist = this.getData[this.choose2].list;
+          this.url = this.getData[this.choose2].list[0].url;
+          this.poster = this.getData[this.choose2].list[0].picture;
+          this.choose(0)
+        }
+      })
     },
     // 改变左边播放的内容
     choose(index) {
@@ -237,11 +254,32 @@ export default {
       let player = document.querySelector("#video");
       // player.play();
       this.url = this.getData[this.choose2].list[index].url;
+      if (!this.url) {
+        return
+      }
       player.src = this.url;
       // this.poster = this.getData[this.choose2].list[index].picture;
     },
     videoPlay () {
       let player = document.querySelector("#video");
+      console.log(player.currentSrc)
+      if (!player.currentSrc) {
+        this.$error('暂无资源，敬请期待！')
+        return
+      }
+      if (player.networkState == 0) {
+        this.$error('视频错误，请联系管理员')
+        return
+      } else if (player.networkState == 1) {
+        this.$error('没有网络，请检查网络')
+        return
+      } else if (player.networkState == 2) {
+        this.$msg('正在下载数据，请稍后')
+        return
+      } else if (player.networkState == 3) {
+        this.$error('暂未找到视频资源')
+        return
+      }
       if (player.paused) {
         player.play();
         this.isPlay = true
@@ -254,15 +292,14 @@ export default {
     changeTab(index) {
       this.choose2 = index;
       this.getmessage();
-      console.log(this.choose2);
     },
-    opean() {
-      this.popup = 1;
-    },
-    closemock() {
-      this.popup = 0;
-      this.errormessage = "";
-    }
+    // opean() {
+    //   // this.popup = 1;
+    // },
+    // closemock() {
+    //   this.popup = 0;
+    //   this.errormessage = "";
+    // }
   },
 };
 </script>
@@ -362,18 +399,17 @@ export default {
             display: inline-block;
             width: 100px;
             height: 100px;
-            // opacity: 0;
-            // &:hover{
-            //   opacity: 1;
-            // }
+            z-index: 100;
           }
         }
         .rightList {
           width: 487px;
-          // height: 467px;
+          height: 462px;
           border-top: 1px solid rgba(0, 0, 0, 0.1);
           // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
           border-right: 1px solid rgba(0, 0, 0, 0.1);
+          background-color: #0561A9;
+          overflow: auto;
           .classname {
             cursor: pointer;
             padding-left: 22px;
@@ -383,7 +419,7 @@ export default {
             justify-content: flex-start;
             align-items: center;
             &:hover{
-              opacity: .5;
+              opacity: .7;
             }
             .icon {
               .iconfont {

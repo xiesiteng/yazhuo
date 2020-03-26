@@ -12,11 +12,11 @@
         <div class="myswiper-inner" id="slide">
           <div 
             :class="['myswiper-item', current == index ? 'myswiper-item-active' : '']"
-            v-for="(item, index) in list" :key="index"
+            v-for="(item, index) in company" :key="index"
             >
-              <img :src="item.url" alt="" class="myswiper-item-head">
-              <p class="myswiper-item-name">{{item.name}}</p>
-              <p class="myswiper-item-title">{{item.title}}</p>
+              <img :src="item.infmImgUri" alt="" class="myswiper-item-head">
+              <p class="myswiper-item-name">{{item.infmTitle}}</p>
+              <p class="myswiper-item-title">{{item.infmKeyword}}</p>
           </div>
         </div>
       </div>
@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  props: ['company'],
   data () {
     return{
       list: [
@@ -82,7 +83,7 @@ export default {
         this.current = this.count*5
         this.count++
       }
-      if (this.current == this.list.length) {
+      if (this.current == this.company.length) {
         slide.style.transform = "translateX(" + 0 + "px)"
         this.current = 0
         this.count = 1

@@ -22,7 +22,10 @@ const api = {
   getInfmByParams: data => post('/yzInformation/queryInfmByParams', data),
 
   // 首页列表接口集合
-  getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data)
+  getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data),
+
+  // 生态共建列表接口
+  getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data)
 }
 
 export default api

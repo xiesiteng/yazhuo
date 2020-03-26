@@ -11,8 +11,8 @@
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">
         <div class="myswiper-inner flex-wrap">
-          <div class="myswiper-inner-item" v-for="(item, index) in list" :key="index">
-            <img :src="item.url" alt="">
+          <div class="myswiper-inner-item" v-for="(item, index) in school" :key="index">
+            <img :src="item.infmImgUri" alt="">
           </div>
         </div>
       </div>
@@ -24,6 +24,7 @@
 
 <script>
 export default {
+  props: ['school'],
   data () {
     return{
       list: [
@@ -36,7 +37,7 @@ export default {
         {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
         {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
+        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'}
       ]
     }
   },
