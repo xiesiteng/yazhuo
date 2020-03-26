@@ -11,23 +11,23 @@
               <img :src="this.base+'toparrow.png'" />
             </div>
             <!-- 售前与售后 -->
-            <div
+            <!-- <div
               v-for="(item, index) in itemList"
               :key="index"
               :class="['back-item', active == index ? 'back-item-active' : '']"
               @click="choose(index)"
-            >{{item}}</div>
+            >{{item}}</div> -->
             <!-- 售前与售后end -->
           </div>
           <!-- 售前 售后的电话显示 -->
-          <div class="sale-pre flex-center-y" v-show="active == 0">
+          <!-- <div class="sale-pre flex-center-y" v-show="active == 0">
             <img :src="this.base+'toptel.png'" />
             <span>6 8 7 3 0 6 2 5</span>
-          </div>
-          <div class="sale-over flex-center-y" v-show="active == 1">
+          </div> -->
+          <!-- <div class="sale-over flex-center-y" v-show="active == 1">
             <img :src="this.base+'toptel.png'" />
             <span>6 8 7 3 0 6 2 5</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </transition>
@@ -88,7 +88,7 @@ export default {
 <style scoped lang="less">
 .back-wrap {
   width: 253px;
-  height: 138px;
+  height: 50px;
   position: fixed;
   bottom: 110px;
   right: 40px;
@@ -102,7 +102,7 @@ export default {
       height: 100%;
       border: 1px solid #ccc;
       box-sizing: border-box;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0);
       .back-item {
         width: 100%;
         height: 46px;

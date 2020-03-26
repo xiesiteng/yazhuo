@@ -3,10 +3,7 @@
     <div class="bannerBox" :style="{background:`url(${this.base+'bannerbg.png'})`}">
       <!-- 视频背景 开始 -->
       <video class="video" autoplay muted="muted" loop="loop" width="100%">
-        <source
-          :src="infmUri"
-          type="video/mp4"
-        />
+        <source :src="infmUri" type="video/mp4" />
       </video>
       <!-- 视频背景 结束 -->
       <div :class="'searchdetail ' + (isText?'':'closeLay')">
@@ -36,7 +33,7 @@ export default {
   name: "banner",
   data() {
     return {
-      isActive: false,
+      // isActive: false,
       isText: true,
       infmImgUri: '', // 图封面
       infmUri: '' // 资源链接
@@ -44,8 +41,6 @@ export default {
   },
   created () {
     this.getBannerInfo()
-    this.infmImgUri = this.base+'bannerbg.png'
-    // this.infmUri = "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4"
   },
   methods: {
     getBannerInfo () {
@@ -53,15 +48,18 @@ export default {
         infmTypeId: 7
       }).then(res => {
         if (res.code == 200) {
-          console.log(res.data)
           if (res.data.list) {
             let bannerInfo = res.data.list[0]
             this.infmImgUri = bannerInfo.infmImgUri
             this.infmUri = bannerInfo.infmUri
-            console.log('url------------------------------------------------------------', this.infmUri)
+            this.setVedioUrl()
           }
         }
       })
+    },
+    setVedioUrl () {
+      let player = document.querySelector(".video");
+      player.src = this.infmUri;
     },
     isShowLay() {
       this.isText = !this.isText;
@@ -79,7 +77,7 @@ export default {
   background-position: center center !important;
   background-size: 100% 100% !important;
   width: 100%;
-  height: 870px;
+  height: 950px;
   //    视频背景
     .video {
       object-fit: fill;

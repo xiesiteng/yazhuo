@@ -82,11 +82,16 @@ export default {
         },
         methods: {
             getNavBarInfo () {
-              this.$api.getNavBarInfms().then(res => {
+              this.$api.getNavBarInfms({
+                infmTypeId: 11
+              }).then(res => {
                 if (res.code == 200) {
                   console.log('res.data---------', res.data)
+                  // 映射后端数据与前端保持一致
                   res.data.list.map(e => {
-                    
+                    return {
+                      id: 'a0' + e.sort
+                    }
                   })
                 }
               })

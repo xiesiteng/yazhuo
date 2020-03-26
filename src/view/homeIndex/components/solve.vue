@@ -120,11 +120,9 @@ export default {
         infmTypeId: 9
       }).then(res => {
         if (res.code == 200) {
-          console.log('精品课程---------', res.data)
           this.menu = res.data.list.map(e => {
             return e.firstInfm.infmTitle
           })
-          console.log('this.name=======================', this.menu)
           this.list = res.data.list.map(e => {
             return e.subList.map(e => {
               return {
@@ -134,7 +132,6 @@ export default {
               }
             })
           })
-          console.log('list=============================', this.list)
           this.listup = this.group(this.list, 3)[0];
           this.listdown = this.group(this.list, 3)[1];
         }
