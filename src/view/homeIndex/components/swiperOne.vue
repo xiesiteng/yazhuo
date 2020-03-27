@@ -30,100 +30,32 @@ export default {
   props: ['company'],
   data () {
     return{
-      list: [
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家0', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家1', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家2', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家3', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家4', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家5', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家6', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家7', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家8', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家9', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家10', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家11', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家12', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家13', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家14', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家15', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家16', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家17', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家18', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家19', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家20', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家21', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家22', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家23', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家24', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家25', title: '教授 博士 研究生导师'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/zhuajia.jpg', name: '专家26', title: '教授 博士 研究生导师'},
-      ],
-      current: 0,
-      count: 1, // 纪录超出宽度的item移动数量
-      nextValue: 0,
-      preValue: 0,
-      
+      list: [],
+      pageNum: 1,
+      pageSize: 5
     }
   },
   mounted () {
-    // document.getElementById("slide").style.transform = "translateX(" + this.slideValue +"px)"
+    this.init()
   },
   methods:{
+    // 初始化默认加载专家团队第一页的数据
+    init () {
+      this.$api.getTeamAndSchool({
+        infmParentId: 36,
+        pageNum: this.pageNum,
+        pageSize: this.pageSize
+      }).then(res => {
+        console.log(res)
+        
+      })
+    },
     // 下一个
     next () {
-      // console.log('join', this.current, this.count)
-      // 获取类名为'myswiper-inner'的div
-      let slide = document.getElementById("slide")
-      if (this.current < this.count*5 - 1){
-        this.current++
-      } else{
-        this.nextValue = this.count*(-1200)
-        slide.style.transform = "translateX(" + this.nextValue + "px)"
-        this.current = this.count*5
-        this.count++
-      }
-      if (this.current == this.company.length) {
-        slide.style.transform = "translateX(" + 0 + "px)"
-        this.current = 0
-        this.count = 1
-      }
+      
     },
     // 前一个
     pre () {
-      let slide = document.getElementById("slide")
-      if (this.current == 0){
-        slide.style.transform = "translateX(" + 0 + "px)"
-        this.current = 0
-        this.count = 1
-        return false
-      }
-      // console.log(this.count, this.current)
-      if (this.current == 5) {
-        // this.current >= 4 && this.current <= 9
-        console.log(this.count, this.nextValue)
-        slide.style.transform = "translateX(" + 0 + "px)"
-        // slide.style.transform = "translateX(" + (this.nextValue + (this.count - 1)*(1200)) + "px)"
-        this.count--
-        this.current = this.count*5 - 1
-        console.log(222)
-        return false
-      }
-      // this.current--
-      if (this.current == (this.count - 1)*5) {
-        // 每页第一个倒退
-        console.log(333, this.nextValue, this.count)
-        slide.style.transform = "translateX(" + (this.nextValue + 1200) + "px)"
-        this.nextValue += 1200
-        this.count--
-        this.current = this.count*5 - 1
-        
-      }else if (this.current >= this.count*5 - 5 && this.current <= this.count*5 - 1){
-        // 每一页倒退
-        this.current--
-        console.log(111)
-      }
-      
       
     }
   }
@@ -168,6 +100,10 @@ export default {
         align-items: center;
         transform: translateX(0);
         .myswiper-item-active{
+          box-shadow: 0px 0px 8px 6px rgba(0,0,0, .2);
+          transform: scale(1.05);
+        }
+        .myswiper-item:hover{
           box-shadow: 0px 0px 8px 6px rgba(0,0,0, .2);
           transform: scale(1.05);
         }

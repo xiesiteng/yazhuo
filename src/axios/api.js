@@ -30,6 +30,9 @@ const api = {
   // 生态共建列表接口
   getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data),
 
+  // 获取专家团队和合作学校的数据
+  getTeamAndSchool: data => post('/yzInformation/queryEcologyInfmSubList', data)
+
 }
 
 export default api

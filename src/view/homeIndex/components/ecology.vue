@@ -1,7 +1,7 @@
 <template>
   <div class="app" :style="{background:`url(${this.base+'mapbg.png'})`}">
     <!-- <div class="boxHead">生态共建</div> -->
-    <partTitle :isWhite='false' :titleText="'生态共建'"/>
+    <partTitle :isWhite='false' :titleText="'生态共建'" style="padding: 40px 0 20px"/>
     <!-- tab切换 开始 -->
     <div class="headTitTab">
       <div
@@ -138,27 +138,11 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      // console.log(this.$refs.sw.children[0].children[0].style.display = "flex")
-      // this.$refs.sw.children[0].children[0].style.display = "flex"
-    }, 500);
+    
   },
   methods: {
     getmessage() {
-      // var that = this;
-      // Axios.get(
-      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/ecology",
-      //   {
-      //     params: {}, // 参数
-      //     timeout: 3000 // 配置
-      //   }
-      // ).then(res => {
-      //   that.list = res.data.data.list;
-      //   that.bg = res.data.data.bg;
-      //   that.company = res.data.data.list[that.isShowTab].company;
-      //   that.school = res.data.data.list[1].company.school;
-      //   // console.log(that.company)
-      // });
+      
       this.$api.getInfmAndSubList({
         infmTypeId: 6
       }).then(res => {
@@ -219,7 +203,7 @@ export default {
 }
 .app {
   // 背景图片
-  height: 655px;
+  height: 700px;
   width: 100%;
   background-position: center center !important;
   // 标题文字
