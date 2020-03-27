@@ -163,7 +163,7 @@ export default {
       .list0 {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         .text {
           width: 300px;
           display: flex;
@@ -173,7 +173,8 @@ export default {
           .title {
             font-size: 20px;
             font-weight: 600;
-            padding-bottom: 10px;
+            line-height: 20px;
+            padding-bottom: 5px;
           }
           .ksyWord {
             font-size: 16px;
@@ -291,7 +292,7 @@ export default {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         .text {
           width: 300px;
           display: flex;
@@ -301,7 +302,8 @@ export default {
           .title {
             font-size: 20px;
             font-weight: 600;
-            padding-bottom: 10px;
+            line-height: 20px;
+            padding-bottom: 5px;
           }
           .ksyWord {
             font-size: 16px;
