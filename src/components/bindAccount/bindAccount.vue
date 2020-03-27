@@ -22,29 +22,36 @@
           </div>
           <!-- 协议 -->
           <div class="agree flex-center">
-            <input type="checkbox" v-model="checked" @click="select()">
+            <input type="checkbox" v-model="checked" @click.stop="select()">
             <p>阅读并</p>
-            <span>同意用户协议</span>
+            <span @click="showstate = true">同意用户协议</span>
           </div>
           <!-- 确认登录 -->
           <div :class="['sure-btn', checked ? 'sure-btn-active' : '']" @click="sureLogin()">确认登录</div>
         </div>
       </div>
     </div>
+
+    <!-- 协议 -->
+    <agreement :showstate="showstate" @tocancel="showstate = false"></agreement>
   </div>
 </template>
 
 <script>
+import agreement from './components/agreement'
 export default {
   data () {
     return{
-      // bindShow: true,
+      showstate: false, // 协议显示
       checked: false, // 协议勾选
       username: '', // 用户名
-      password: '' // 密码
+      password: '', // 密码
     }
   },
   props: ['bindShow'],
+  components:{
+    agreement
+  },
   mounted () {
 
   },
@@ -233,11 +240,15 @@ export default {
         .agree{
           font-size: 16px;
           margin-bottom: 15px;
+          input{
+            cursor: pointer;
+          }
           p{
             padding-left: 10px;
           }
           span{
               color: #5179F4!important;
+              cursor: pointer;
             }
         }
         // 确认登录
