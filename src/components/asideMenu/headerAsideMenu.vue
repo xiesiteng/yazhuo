@@ -87,10 +87,12 @@ export default {
               }).then(res => {
                 if (res.code == 200) {
                   console.log('res.data---------', res.data)
-                  // 映射后端数据与前端保持一致
-                  res.data.list.map(e => {
+                  this.linkList = res.data.list.map(e => {
                     return {
-                      id: 'a0' + e.sort
+                      id: 'a0' + (e.sort + 1),
+                      url: e.url,
+                      name: e.name,
+                      children: e.children
                     }
                   })
                 }

@@ -193,7 +193,6 @@ export default {
   created () {
     // this.getmessage();
     this.changeTab(this.choose2);
-    console.log('that.url', this.url)
   },
   methods: {
     getmessage() {
@@ -223,7 +222,6 @@ export default {
         infmTypeId: 8
       }).then(res => {
         if (res.code == 200) {
-          console.log('精品课程---------', res.data)
           let courseList = res.data.list.map(e => {
             return {
               type: e.firstInfm.infmTitle,
@@ -238,7 +236,6 @@ export default {
             }
           })
           this.getData = courseList
-          console.log('courseList', courseList)
           this.typeList = this.getData; //tab切换
           this.namelist = this.getData[this.choose2].list;
           this.url = this.getData[this.choose2].list[0].url;

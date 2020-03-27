@@ -32,7 +32,7 @@
             </span>
           </p>
           <p class="p2">
-            <img :src="this.base+'foot1.png'" />
+            <img :src="tailInfo.infmWechatQrCode" />
           </p>
         </div>
         <div class="onebox onebox2">
@@ -43,7 +43,7 @@
             </span>
           </p>
           <p class="p2">
-            <img :src="this.base+'foot2.png'" />
+            <img :src="tailInfo.infmQqQrCode" />
           </p>
         </div>
         <div class="onebox onebox3">
@@ -54,7 +54,7 @@
             </span>
           </p>
           <p class="p2">
-            <img :src="this.base+'foot3.png'" />
+            <img :src="tailInfo.infmDingQrCode" />
           </p>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default {
   components: {},
   data() {
     return {
-      res: {}
+      tailInfo: {}
     };
   },
   created() {
@@ -83,16 +83,25 @@ export default {
   },
   methods: {
     getmessage() {
-      let that = this;
-      Axios.get(
-        "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/title",
-        {
-          params: {}, // 参数
-          timeout: 3000 // 配置
+      // let that = this;
+      // Axios.get(
+      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/title",
+      //   {
+      //     params: {}, // 参数
+      //     timeout: 3000 // 配置
+      //   }
+      // ).then(res => {
+      //   that["res"] = res.data.data[0];
+      //   console.log('````````````````````````````````````````````````````````````````````', that["res"])
+      // });
+      this.$api.getInfmByParams({
+        infmTypeId: 12
+      }).then(res => {
+        if (res.code == 200) {
+          this.tailInfo = res.data.list[0]
+          console.log('footerData==========', this.tailInfo)
         }
-      ).then(res => {
-        that["res"] = res.data.data[0];
-      });
+      })
     }
   }
 };
