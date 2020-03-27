@@ -12,8 +12,11 @@ const api = {
   // 微信登录获取url
   getCode: data => get('/wechat/getCodeUrl', data),
 
-  // 执行微信登录
-  wxLogin: data => get('/wechat/login', data),
+  // 获取用户账号和微信是否绑定
+  getBind: data => get('/wechat/getIsBindFlag', data),
+
+  // 绑定账号和微信号
+  bindAccount: data => get('/wechat/bindAccount', data),
 
   // 导航栏信息目录
  getNavBarInfms: data => post('/yzInformation/queryNavigationBarInfms', data),
@@ -25,7 +28,8 @@ const api = {
   getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data),
 
   // 生态共建列表接口
-  getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data)
+  getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data),
+
 }
 
 export default api
