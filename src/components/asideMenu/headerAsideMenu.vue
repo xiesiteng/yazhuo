@@ -146,7 +146,7 @@ export default {
     width: 280px !important;
   }
   .search-input {
-    width: 200px !important;
+    width: 230px !important;
   }
 }
 .wrapper {
@@ -291,7 +291,7 @@ export default {
     height: 30px;
     line-height: 30px;
     border-radius: 20px;
-    width: 300px;
+    width: 350px;
     font-size: 14px;
   }
   .search-icon{
