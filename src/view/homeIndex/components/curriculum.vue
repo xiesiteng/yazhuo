@@ -255,6 +255,8 @@ export default {
         return
       }
       player.src = this.url;
+      player.pause()
+      this.isPlay = false
       // this.poster = this.getData[this.choose2].list[index].picture;
     },
     videoPlay () {
@@ -264,16 +266,21 @@ export default {
         this.$error('暂无资源，敬请期待！')
         return
       }
-      if (player.networkState == 0) {
-        this.$error('视频错误，请联系管理员')
-        return
-      } else if (player.networkState == 1) {
-        this.$error('没有网络，请检查网络')
-        return
-      } else if (player.networkState == 2) {
-        this.$msg('正在下载数据，请稍后')
-        return
-      } else if (player.networkState == 3) {
+      console.log(player.networkState)
+      // if (player.networkState == 0) {
+      //   this.$error('视频错误，请联系管理员')
+      //   return
+      // } else if (player.networkState == 1) {
+      //   this.$error('没有网络，请检查网络')
+      //   return
+      // } else if (player.networkState == 2) {
+      //   this.$msg('正在下载数据，请稍后')
+      //   return
+      // } else if (player.networkState == 3) {
+      //   this.$error('暂未找到视频资源')
+      //   return
+      // }
+      if (player.networkState == 3) {
         this.$error('暂未找到视频资源')
         return
       }

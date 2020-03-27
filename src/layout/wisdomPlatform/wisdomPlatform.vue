@@ -233,12 +233,19 @@ export default {
             width: 584px;
             height: 558px;
             background-image: url(http://182.148.48.236:54321/source/images/wp-sm-centerBox.png);
+            // transition: all 1s linear;
+            // &:hover{
+            //     transform: rotateZ(90deg);
+            // }
             .left-line-box{
               position: absolute;
               top: 95px;
               left: -115px;
               .left-line{
                 position: relative;
+                &:hover{
+                    transform: scale(1.1);
+                }
                 &:nth-child(2){
                   margin: 45px 0 10px;
                 }
@@ -267,6 +274,9 @@ export default {
               right: -75px;
               .right-line{
                 position: relative;
+                &:hover{
+                    transform: scale(1.1);
+                }
                 &::before{
                   content: attr(data-text);
                   display: block;

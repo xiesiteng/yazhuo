@@ -11,7 +11,7 @@
       <!-- 以下开始正文了 -->
       <!-- <p class="flex-center system-title">产品体系</p> -->
       <partTitle :isWhite='false' :titleText="'系列课程'"/>
-      <div class="system-content" :style="{background:`#2A70E1 url(${this.base+'edulines.png'})`}">
+      <div class="system-content" :style="{backgroundImage:`url(${this.base+'edulines.png'})`}">
         <div class="system-one flex-between">
           <div class="flex-center-y">
             <img :src="this.base+'proSys1.png'" />

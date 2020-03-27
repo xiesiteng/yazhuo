@@ -85,7 +85,7 @@ export default {
       list3: {},
       list4: {},
       bg: "",
-      ball: ""
+      ball: "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E7%90%83.png"
       // runaround: ""
     };
   },

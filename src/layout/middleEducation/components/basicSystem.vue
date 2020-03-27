@@ -51,36 +51,39 @@
       <div class="lesson-inner-wrap" :style="{background:`url(${this.base+'basicBg.png'})`}">
         <div class="lesson-inner">
           <!-- 顺序为顺时针，最后一个div是中间最大的 -->
+          <!-- 原图片 basicSmall.png -->
+          <!-- basicBig.png -->
+          <!-- 现修正为 syssmall.png、sysbig.png -->
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >公众号</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >教学素材</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >微课</div>
           <div
             class="lesson-item flex-center-col"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >
             <span>在线开放</span>
             <span>课程</span>
           </div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >专题网站</div>
           <div
             class="lesson-item flex-center"
-            :style="{background:`url(${this.base+'basicSmall.png'})`}"
+            :style="{background:`url(${this.base+'syssmall.png'})`}"
           >移动端</div>
           <div
             class="lesson-item-center flex-center"
-            :style="{background:`url(${this.base+'basicBig.png'})`}"
+            :style="{background:`url(${this.base+'sysbig.png'})`}"
           >集成数字化课程资源</div>
         </div>
       </div>

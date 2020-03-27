@@ -2,8 +2,8 @@
   <div>
       <headerAsideMenu/>
       <div class="school-container">
-        <div class="up-part">
-            <a class="check-btn" href="javascript:;" @click="check"></a>
+        <div class="up-part" @click="check">
+            <!-- <a class="check-btn" href="javascript:;" @click="check"></a> -->
         </div>
         <div class="down-part">
             <div class="up-item-box" v-for="(item, index) in upItemList" :key="'up-'+index" :style="{left: item.left}">
@@ -84,14 +84,15 @@ export default {
         height: 600px;
         background-image: url(http://182.148.48.236:54321/source/images/school-up-bg.png);
         background-size: 100% 100%;
-        .check-btn{
-            display: block;
-            width: 9%;
-            height: 7%;
-            position: absolute;
-            top: 74%;
-            left: 34%;
-        }
+        cursor: pointer;
+        // .check-btn{
+        //     display: block;
+        //     width: 9%;
+        //     height: 7%;
+        //     position: absolute;
+        //     top: 74%;
+        //     left: 34%;
+        // }
     }
     .down-part{
         position: relative;
@@ -103,6 +104,7 @@ export default {
             font-family:Source Han Sans CN;
             font-weight:400;
             color:rgba(255,255,255,1);
+            cursor: pointer;
         }
         .up-item-box, .down-item-box{
             position: absolute;
@@ -117,6 +119,13 @@ export default {
         .up-item-box{
             top: 232px;
             left: 200px;
+            &:hover{
+                transform: scale(1.2);
+                opacity: .9;
+                &::before{
+                    bottom: -32px;
+                }
+            }
             &::after{
                 content: '';
                 position: absolute;
@@ -156,6 +165,10 @@ export default {
             background-size: 100%;
             background-repeat:no-repeat;
             text-align: center;
+            &:hover{
+                transform: scale(1.2);
+                opacity: .9;
+            }
             span{
                 font-size:28px;
                 line-height: 64px;
@@ -164,7 +177,14 @@ export default {
         .down-item-box{
             top: 352px;
             left: 500px;
-            &::before{
+            &:hover{
+                transform: scale(1.2);
+                opacity: .9;
+                &::before{
+                    bottom: 69px;
+                }
+            }
+            &::after{
                 content: '';
                 position: absolute;
                 top: -11.3px;
@@ -178,7 +198,7 @@ export default {
                 border-right: 6px solid transparent;
                 border-bottom: 13px solid rgba(80,183,235,1);
             }
-            &::after{
+            &::before{
                 content: '';
                 position: absolute;
                 width:10px;
