@@ -36,14 +36,14 @@
             <img class="brokenline" :src="this.base+'solveLine.png'" />
           </div>
           <div class="down">
-            <div class="up" style="margin-left: 0px;">
+            <div class="up" style="margin-left: -20px;">
               <div
                 class="studyup"
                 style="top: -2800px;"
                 v-for="(items, index) in listdown"
                 :key="index"
               >
-                <div class="box" style="flex-direction: column-reverse;">
+                <div class="box downBox" style="flex-direction: column-reverse;">
                   <div class="study">
                     <div
                       class="programme"
@@ -203,6 +203,7 @@ export default {
         justify-content: center;
         align-items: center;
         .box {
+          align-self: flex-end;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -276,9 +277,12 @@ export default {
             width: 76px;
           }
         }
+        .downBox{
+          align-self: flex-start;
+        }
         .tips {
           width: 180px;
-          height: 180px;
+          min-height: 180px;
           .tipscontent {
             width: 180px;
             height: 180px;
