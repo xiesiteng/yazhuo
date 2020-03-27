@@ -103,18 +103,23 @@ export default {
       position: relative;
       .texts {
         display: inline-block;
-        text-align: center;
+        position: absolute;
+        left: 360px;
+        top: 50%;
+        transform: translateY(-50%);
         .w1 {
           padding-bottom: 10px;
           font-size: 50px;
           color: #ffffff;
           width: 100%;
+          font-family: reeji;
         }
         .w2 {
           font-size: 20px;
           color: #ffffff;
           width: 100%;
           text-align-last: justify;
+          font-family: reeji;
         }
       }
       //   输入框

@@ -2,7 +2,6 @@
   <div class="wrapper flex-between">
     <div class="lef-box">
       <div class="logo">
-        <!--                <span>{{logoText}}</span>-->
         <img :src="this.base+'logo.png'" />
       </div>
       <div class="link-list">
@@ -20,8 +19,9 @@
         </div>
       </div>
     </div>
-    <div class="search-wrap">
+    <div class="search-wrap flex-between">
       <input type="text" placeholder="请输入搜索内容" class="search-input" />
+      <img :src="base + 'search-icon.png'" alt="" class="search-icon" @click="toSearch()">
     </div>
     <div class="button-group">
       <a :href="item.url" v-for="item in btns" :key="item.id" class="link">{{item.name}}</a>
@@ -86,7 +86,7 @@ export default {
                 infmTypeId: 11
               }).then(res => {
                 if (res.code == 200) {
-                  console.log('res.data---------', res.data)
+                  // console.log('res.data---------', res.data)
                   this.linkList = res.data.list.map(e => {
                     return {
                       id: 'a0' + (e.sort + 1),
@@ -105,12 +105,14 @@ export default {
                 // console.log(data.url)
                 this.$router.push(data.url)
             },
+            // 导航栏切换
             choose (item) {
-                // if (item.url == 'javascript:void(0)') {
-                //     return false
-                // }
                 this.active = item.id
             },
+            toSearch () {
+              // do search from this
+            },
+            // 根据路由路径来显示对应导航栏下面的横线
             isCurrent () {
                 let path = this.$route.path
                 switch (path) {
@@ -291,6 +293,11 @@ export default {
     border-radius: 20px;
     width: 300px;
     font-size: 14px;
+  }
+  .search-icon{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
   }
 }
 </style>

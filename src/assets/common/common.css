@@ -64,3 +64,34 @@ input{border: none;outline: none;}
 .ellipsis-two{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
 /* 单行文字超出显示省略号 */
 .ellipsis{white-space:nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+
+#app * {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+select,
+button {
+  border: none;
+  outline: none;
+}
+body,
+p {
+  margin: 0;
+  padding: 0;
+}
+.anisca {
+  cursor: pointer;
+  overflow: hidden;
+}
+.anisca img {
+  cursor: pointer;
+  transition: all 0.8s;
+  transform: scale(1, 1);
+}
+.anisca:hover img {
+  transform: scale(1.2, 1.2);
+}
