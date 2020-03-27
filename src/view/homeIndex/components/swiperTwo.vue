@@ -2,16 +2,16 @@
   <div class="main">
     <div class="main">
     <div class="myswiper">
-      <div class="left-arrow flex-center" @click="pre()">
+      <div class="left-arrow flex-center" @click="pre()" v-show="pageNum !== 1">
         <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfl.png" alt="">
       </div>
-      <div class="right-arrow flex-center" @click="next()">
+      <div class="right-arrow flex-center" @click="next()" v-show="!isOver">
         <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfr.png" alt="">
       </div>
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">
         <div class="myswiper-inner flex-wrap">
-          <div class="myswiper-inner-item" v-for="(item, index) in school" :key="index">
+          <div class="myswiper-inner-item" v-for="(item, index) in list" :key="index">
             <img :src="item.infmImgUri" alt="">
           </div>
         </div>
@@ -24,28 +24,53 @@
 
 <script>
 export default {
-  props: ['school'],
+  // props: ['school'],
   data () {
     return{
-      list: [
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'},
-        {url: 'http://huangqinchao.host3v.vip/yazhuo/xiao1.png'}
-      ]
+      list: [],
+      pageNum: 1,
+      pageSize: 10,
+      isOver: false
     }
   },
+  mounted () {
+    this.init()
+  },
   methods:{
-    next () {
-
+    // 初始化加载合作学校第一页的数据
+    init () {
+      this.$api.getTeamAndSchool({
+        infmParentId: 37,
+        pageNum: this.pageNum,
+        pageSize: this.pageSize
+      }).then(res => {
+        if (res.code == 200) {
+          if (this.pageNum < res.data.pages) {
+            this.list = res.data.list
+          } else if(this.pageNum == res.data.pages){
+            this.list = res.data.list
+            this.isOver = true
+          }
+        }
+      })
     },
-    pre () {}
+    // 下一个
+    next () {
+      if (this.isOver) {
+        return false
+      }
+      this.pageNum++
+      this.init()
+    },
+    // 前一个
+    pre () {
+      this.isOver = false
+      if (this.pageNum == 1) {
+        return false
+      }
+      this.pageNum--
+      this.init()
+    }
   }
 }
 </script>
@@ -94,9 +119,10 @@ export default {
           width: 188px;
           height: 188px;
           border-radius: 50%;
-          box-shadow: 0px 0px 8px 6px rgba(0,0,0, .2);
+          // box-shadow: 0px 0px 8px 6px rgba(0,0,0, .2);
           margin: 0 26px 56px;
           transition: all .3s ease-in-out;
+          cursor: pointer;
           img{
             width: 100%;
             height: 100%;

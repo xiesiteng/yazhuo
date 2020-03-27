@@ -1,22 +1,22 @@
 <template>
   <div class="main">
     <div class="myswiper flex-center">
-      <div class="left-arrow flex-center" @click="pre()">
+      <div class="left-arrow flex-center" @click="pre()" v-show="pageNum !== 1">
         <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfl.png" alt="">
       </div>
-      <div class="right-arrow flex-center" @click="next()">
+      <div class="right-arrow flex-center" @click="next()" v-show="!isOver">
         <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfr.png" alt="">
       </div>
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">
         <div class="myswiper-inner" id="slide">
           <div 
-            :class="['myswiper-item', current == index ? 'myswiper-item-active' : '']"
-            v-for="(item, index) in company" :key="index"
+            :class="['myswiper-item']"
+            v-for="(item, index) in list" :key="index"
             >
               <img :src="item.infmImgUri" alt="" class="myswiper-item-head">
               <p class="myswiper-item-name">{{item.infmTitle}}</p>
-              <p class="myswiper-item-title">{{item.infmKeyword}}</p>
+              <p class="myswiper-item-title ellipsis">{{item.infmContent}}</p>
           </div>
         </div>
       </div>
@@ -27,12 +27,14 @@
 
 <script>
 export default {
-  props: ['company'],
+  // props: ['company'],
   data () {
     return{
       list: [],
       pageNum: 1,
-      pageSize: 5
+      pageSize: 5,
+      isOver: false,
+      showRightArrow: true
     }
   },
   mounted () {
@@ -46,17 +48,32 @@ export default {
         pageNum: this.pageNum,
         pageSize: this.pageSize
       }).then(res => {
-        console.log(res)
-        
+        if (res.code == 200) {
+          if (this.pageNum < res.data.pages) {
+            this.list = res.data.list
+          } else if(this.pageNum == res.data.pages){
+            this.list = res.data.list
+            this.isOver = true
+          }
+        }
       })
     },
     // 下一个
     next () {
-      
+      if (this.isOver) {
+        return false
+      }
+      this.pageNum++
+      this.init()
     },
     // 前一个
     pre () {
-      
+      this.isOver = false
+      if (this.pageNum == 1) {
+        return false
+      }
+      this.pageNum--
+      this.init()
     }
   }
 }
@@ -116,6 +133,7 @@ export default {
           margin: 22px;
           position: relative;
           transition: all .3s ease-in-out;
+          cursor: pointer;
           .myswiper-item-head{
             width: 122px;
             height: 122px;
@@ -142,6 +160,8 @@ export default {
             text-align: center;
             top: 225px;
             color: #666;
+            padding: 0 10px;
+            box-sizing: border-box;
           }
         }
       }
