@@ -87,15 +87,20 @@ export default {
       .myswiper-inner{
         width: 100%;
         height: 100%;
+        .myswiper-inner-item:hover{
+          transform: scale(1.05);
+        }
         .myswiper-inner-item{
           width: 188px;
           height: 188px;
           border-radius: 50%;
           box-shadow: 0px 0px 8px 6px rgba(0,0,0, .2);
           margin: 0 26px 56px;
+          transition: all .3s ease-in-out;
           img{
             width: 100%;
             height: 100%;
+            border-radius: 50%;
           }
         }
       }
