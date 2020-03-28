@@ -23,6 +23,7 @@
         <div class="boxBody">
           <!-- 左侧 开始 -->
           <div class="leftVideo anisca" @click.prevent="videoPlay">
+            <div class="play-block"></div>
             <!--  @click="opean" -->
             <video id="video" class="videoplayer" controls loop>
               <source :src="url" type="video/mp4" />
@@ -266,7 +267,7 @@ export default {
         this.$error('暂无资源，敬请期待！')
         return
       }
-      console.log(player.networkState)
+      console.log(player.networkState, 'ppppp')
       // if (player.networkState == 0) {
       //   this.$error('视频错误，请联系管理员')
       //   return
@@ -477,6 +478,15 @@ export default {
     left: 0;
     z-index: 999;
     background: #111111;
+  }
+  .play-block{
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 25px;
+    left: 0px;
+    z-index: 10;
   }
 }
 </style>

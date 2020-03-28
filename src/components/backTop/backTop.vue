@@ -87,11 +87,12 @@ export default {
 
 <style scoped lang="less">
 .back-wrap {
-  width: 253px;
+  // width: 253px;
+  width: 60px;
   height: 50px;
   position: fixed;
   bottom: 110px;
-  right: 40px;
+  right: 60px;
   transition: all 0.5s ease-in-out;
   .back-wrap-inner {
     width: 100%;
@@ -100,15 +101,17 @@ export default {
     .back-item-wrap {
       width: 60px;
       height: 100%;
-      border: 1px solid #ccc;
+      // border: 1px solid #ccc;
       box-sizing: border-box;
       background-color: rgba(255, 255, 255, 0);
       .back-item {
         width: 100%;
-        height: 46px;
+        height: 58px;
+        // height: 46px;
         // cursor: pointer;
         text-align: center;
-        line-height: 46px;
+        line-height: 58px;
+        background-color: rgba(0, 0, 0, 0.5);
         img {
           width: 43px;
           height: 24px;

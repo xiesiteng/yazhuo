@@ -34,7 +34,7 @@
       </div>
       <!-- 2/ 结束 -->
       <!-- 3/ 开始 -->
-      <div class="ball" :style="{backgroundImage:'url('+ball+')',backgroundSize:'100% 100%'}">
+      <div class="ball" :style="{background:'url('+ball+') no-repeat',backgroundSize:'80% 80%', backgroundPosition: 'center'}">
         <img class="ballImage" :src="base+'runaround.png'" />
       </div>
       <!-- 3/ 结束 -->
@@ -160,6 +160,8 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
       .list0 {
         display: flex;
         justify-content: center;
@@ -288,6 +290,8 @@ export default {
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
       .list0 {
         display: flex;
         flex-direction: row-reverse;

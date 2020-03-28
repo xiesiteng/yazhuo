@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="search-wrap flex-between">
-      <input type="text" placeholder="请输入搜索内容" class="search-input" />
+      <input type="text" placeholder="请输入关键词" class="search-input" />
       <img :src="base + 'search-icon.png'" alt="" class="search-icon" @click="toSearch()">
     </div>
     <div class="button-group">
@@ -293,6 +293,9 @@ export default {
     border-radius: 20px;
     width: 350px;
     font-size: 14px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    color: #333;
   }
   .search-icon{
     width: 18px;

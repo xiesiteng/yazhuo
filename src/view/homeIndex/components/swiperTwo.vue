@@ -87,7 +87,7 @@ export default {
       // background-color: peru;
       position: absolute;
       top: 130px;
-      left: -60px;
+      left: -50px;
       cursor: pointer;
       border: 1px solid #ccc;
     }
@@ -97,7 +97,7 @@ export default {
       // background-color: palevioletred;
       position: absolute;
       top: 130px;
-      right: -60px;
+      right: -50px;
       cursor: pointer;
       border: 1px solid #ccc;
     }

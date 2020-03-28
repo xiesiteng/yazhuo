@@ -26,18 +26,18 @@
       <div class="footerRight">
         <div class="onebox onebox1">
           <p class="p1">
-            <span class="s1">关注我们:</span>
+            <span class="s1">关注我们 :</span>
             <span class="s2">
               <i class="wx" :style="{background:`url(${this.base+'iconwx.png'})`}"></i>
             </span>
           </p>
-          <p class="p2">
+          <p class="p2" style="padding: 0 20px;box-sizing: border-box;">
             <img :src="tailInfo.infmWechatQrCode" />
           </p>
         </div>
         <div class="onebox onebox2">
           <p class="p1">
-            <span class="s1">在线客服:</span>
+            <span class="s1">在线客服 :</span>
             <span class="s2">
               <i class="qq" :style="{background:`url(${this.base+'iconqq.png'})`}"></i>
             </span>
@@ -48,7 +48,7 @@
         </div>
         <div class="onebox onebox3">
           <p class="p1">
-            <span class="s1">钉钉直播群:</span>
+            <span class="s1">钉钉直播群 :</span>
             <span class="s2">
               <i class="dd" :style="{background:`url(${this.base+'iconding.png'})`}"></i>
             </span>
@@ -142,7 +142,7 @@ p {
 .footerCopy {
   width: 100%;
   clear: both;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e0e0e0;
 }
 .footerCopy p {
   width: 1200px;
@@ -154,7 +154,7 @@ p {
 /* 左侧 */
 .footerLeft {
   float: left;
-  width: 45%;
+  width: 40%;
   background: -pink;
 }
 .footerLeft .lines {
@@ -207,7 +207,7 @@ p {
 /* 右侧 */
 .footerRight {
   float: right;
-  width: 55%;
+  width: 60%;
   background: -greenyellow;
   overflow: hidden;
 }

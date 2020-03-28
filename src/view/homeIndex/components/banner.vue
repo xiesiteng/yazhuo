@@ -9,7 +9,7 @@
       <div :class="'searchdetail ' + (isText?'':'closeLay')">
         <div class="searchdetail2">
           <div class="texts" v-show="isText">
-            <div class="w1">亚卓教育素养培养生态空间</div>
+            <div class="w1">亚 卓 教 育 素 养 培 养 生 态 空 间</div>
             <div class="w2">Vocational schools cultivate ecological space</div>
           </div>
           <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay()">
@@ -104,7 +104,7 @@ export default {
       .texts {
         display: inline-block;
         position: absolute;
-        left: 360px;
+        left: 15%;
         top: 50%;
         transform: translateY(-50%);
         .w1 {
