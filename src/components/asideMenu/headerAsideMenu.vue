@@ -148,6 +148,9 @@ export default {
   .search-input {
     width: 230px !important;
   }
+  .wrapper{
+    padding: 0 40px!important;
+  }
 }
 .wrapper {
   position: absolute;
