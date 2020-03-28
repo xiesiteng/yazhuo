@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import {router} from '@/router/index.js'
-// import VueAwesomeSwiper from 'vue-awesome-swiper'
 import api from '@/axios/api'
 import 'swiper/dist/css/swiper.css'
 // 引入工具文件
@@ -11,7 +10,6 @@ import 'ant-design-vue/dist/antd.css'
 import { Message } from 'ant-design-vue';
 Vue.use(Message);
 Vue.prototype.$message = Message
-// Vue.use(VueAwesomeSwiper)
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
 // 全局注册header
@@ -34,7 +32,6 @@ import bindAccount from './components/bindAccount/bindAccount.vue'
 Vue.component('bindAccount', bindAccount) 
 
 const base = 'http://182.148.48.236:54321/source/images/'
-// const base = 'http://huangqinchao.host3v.vip/yazhuo/'
 Vue.prototype.base = base
 
 new Vue({

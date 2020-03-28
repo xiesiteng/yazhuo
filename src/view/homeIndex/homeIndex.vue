@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- 头部 -->
+    <header-asideMenu />
     <!-- 亚卓教育素养培养生态空间 -->
     <banner />
     <!-- 亚卓教育素养培养全场景覆盖 -->
@@ -14,9 +16,11 @@
     <wisdom />
     <!-- 生态共建 -->
     <ecology />
-
+    <!-- 底部 -->
+    <tail />
+    <!-- 账号与微信账号绑定窗口 -->
     <bind-account :bindShow = bindShow></bind-account>
-
+    <!-- 回到顶部 -->
     <back-top></back-top>
   </div>
 </template>
