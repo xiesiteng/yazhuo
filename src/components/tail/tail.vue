@@ -99,7 +99,6 @@ export default {
       }).then(res => {
         if (res.code == 200) {
           this.tailInfo = res.data.list[0]
-          console.log('footerData==========', this.tailInfo)
         }
       })
     }

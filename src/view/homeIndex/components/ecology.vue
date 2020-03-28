@@ -102,7 +102,6 @@ export default {
     // tab切换
     changeTab(index) {
       this.isShowTab = index;
-      console.log(index);
     }
     
   }

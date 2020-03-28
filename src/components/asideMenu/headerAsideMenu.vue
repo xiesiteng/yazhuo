@@ -161,7 +161,7 @@ export default {
   padding: 0 60px;
   box-sizing: border-box;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 999;
   min-width: 1200px;
 }
 .logo {
