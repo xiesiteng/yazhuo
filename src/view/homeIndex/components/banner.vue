@@ -15,14 +15,6 @@
           <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay()">
             <i class="iconfont iconicon-"></i>
           </div>
-          <!-- 输入框 开始 -->
-          <!-- <div class="input-box">
-            <input type="text" v-model="searchText" placeholder="请输入关键词" />
-            <div class="btn">
-              <i class="iconfont iconfangdajing"></i>
-            </div>
-          </div>-->
-          <!-- 输入框 结束 -->
         </div>
       </div>
     </div>
@@ -122,32 +114,7 @@ export default {
           font-family: reeji;
         }
       }
-      //   输入框
-      //   .input-box {
-      //     width: @baseWidth;
-      //     height: 60px;
-      //     display: flex;
-      //     input {
-      //       width: @baseWidth - 100px;
-      //       height: 100%;
-      //       padding: 0;
-      //       margin: 0;
-      //       box-sizing: border-box;
-      //       padding: 25px 10px;
-      //     }
-      //     .btn {
-      //       width: 100px;
-      //       height: 100%;
-      //       background: #007ab7;
-      //       display: flex;
-      //       align-items: center;
-      //       justify-content: center;
-      //       cursor: pointer;
-      //       .iconfont {
-      //         font-size: 24px;
-      //       }
-      //     }
-      //   }
+      
       .buttons {
         width: 30px;
         display: flex;

@@ -2,16 +2,17 @@
   <div class="main">
     <div class="myswiper flex-center">
       <div class="left-arrow flex-center" @click="pre()" v-show="pageNum !== 1">
-        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfl.png" alt="">
+        <img :src="base +'arrowfl.png'" alt="">
       </div>
       <div class="right-arrow flex-center" @click="next()" v-show="!isOver">
-        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfr.png" alt="">
+        <img :src="base + 'arrowfr.png'" alt="">
       </div>
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">
         <div class="myswiper-inner" id="slide">
           <div 
-            :class="['myswiper-item']"
+            class="myswiper-item"
+            :style="{background:`url(${base + 'zhuanjiabg.png'})`}"
             v-for="(item, index) in list" :key="index"
             >
               <img :src="item.infmImgUri" alt="" class="myswiper-item-head">
@@ -128,8 +129,7 @@ export default {
           min-width: 196px;
           width: 196px;
           height: 270px;
-          background: url('http://huangqinchao.host3v.vip/yazhuo/zhuanjiabg.png') no-repeat;
-          background-size: 100% 100%;
+          background-size: 100% 100%!important;
           margin: 22px;
           position: relative;
           transition: all .3s ease-in-out;

@@ -101,21 +101,6 @@ export default {
   },
   methods: {
     getmessage() {
-      // var that = this;
-      // Axios.get(
-      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/solve",
-      //   {
-      //     params: {}, // 参数
-      //     timeout: 3000 // 配置
-      //   }
-      // ).then(res => {
-      //   that.title = res.data.data;
-      //   console.log('----------------------------', that.title)
-      //   that.list = res.data.data.solve;
-      //   that.menu = res.data.data.name;
-      //   that.listup = that.group(that.list, 3)[0];
-      //   that.listdown = that.group(that.list, 3)[1];
-      // });
       this.$api.getInfmAndSubList({
         infmTypeId: 9
       }).then(res => {

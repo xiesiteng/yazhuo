@@ -3,10 +3,10 @@
     <div class="main">
     <div class="myswiper">
       <div class="left-arrow flex-center" @click="pre()" v-show="pageNum !== 1">
-        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfl.png" alt="">
+        <img :src="base +'arrowfl.png'" alt="">
       </div>
       <div class="right-arrow flex-center" @click="next()" v-show="!isOver">
-        <img src="http://huangqinchao.host3v.vip/yazhuo/arrowfr.png" alt="">
+        <img :src="base +'arrowfr.png'" alt="">
       </div>
       <!-- 轮播内容 -->
       <div class="myswiper-inner-wrap">

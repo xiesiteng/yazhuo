@@ -8,10 +8,6 @@
     <solve />
     <!-- 精品课程展示 -->
     <curriculum />
-    <!-- 核心展示++原型图没有 -->
-    <!-- <div class="exhibition">
-      <HelloWorld />
-    </div>-->
     <!-- 智慧教学 -->
     <wisdom />
     <!-- 生态共建 -->
@@ -27,7 +23,6 @@
 
 <script>
 import banner from "./components/banner.vue";
-import HelloWorld from "./components/HelloWorld.vue";
 import curriculum from "./components/curriculum.vue";
 import wisdom from "./components/wisdom.vue";
 import solve from "./components/solve.vue";
@@ -37,7 +32,6 @@ export default {
     banner,
     solve,
     curriculum,
-    HelloWorld,
     wisdom,
     ecology
   },
@@ -103,9 +97,6 @@ export default {
 }
 </script>
 
-  }
-};
-</script>
 
 <style scoped lang="less">
 </style>

@@ -71,18 +71,6 @@ export default {
     this.judgeUserType()
   },
   methods: {
-    // getLoginMsg() {
-    //   var that = this;
-    //   Axios.get(
-    //     "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/login",
-    //     {
-    //       params: {}, // 参数
-    //       timeout: 3000 // 配置
-    //     }
-    //   ).then(res => {
-    //     that.loginList = res.data.data.famous;
-    //   });
-    // },
     // 立即登录
     loginTurn() {
       if (this.isblank(this.username)){
@@ -187,6 +175,7 @@ button {
 .titletext .titlebody {
   color: #333;
   font-size: 48px;
+  font-weight: bold;
   padding-bottom: 10px;
 }
 .titletext .titlefooter {

@@ -2,11 +2,6 @@
   <div class="app">
     <div class="curriculum">
       <!-- 标题 开始 -->
-      <!-- <div class="titles">
-        <i></i>
-        <span>精品课程展示</span>
-        <i></i>
-      </div> -->
       <partTitle :isWhite='false' :titleText="'精品课程展示'"/>
       <!-- 标题 结束 -->
       <div class="class">
@@ -104,90 +99,7 @@ export default {
         '#0C6FBD',
         '#0561A9'
       ],
-      courseList: [
-        {
-          "type": "基础教育",
-          "list": [
-            {
-              "name": "STEAM教育数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218093206z8V1JuPlpe.mp4",
-              "color": "#30b9db",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            },
-            {
-              "name": "中学生音乐欣赏数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/article/202002/18/2fca1c77730e54c7b500573c2437003f.mp4",
-              "color": "#0C6FBD",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            },
-            {
-              "name": "中学生国学经典诵读数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218025702PSiVKDB5ap.mp4",
-              "color": "#208ECD",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            },
-            {
-              "name": "中学生影视欣赏数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/18/202002181038474liyNnnSzz.mp4",
-              "color": "#0C7EBF",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            },
-            {
-              "name": "中学生中外科技史必读数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4",
-              "color": "#0C6FBD",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            },
-            {
-              "name": "中学生中外科技史必读数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/article/202002/18/02319a81c80afed90d9a2b9dc47f85b9.mp4",
-              "color": "#0C6FBD",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png"
-            }
-          ]
-        },
-        {
-          "type": "职业教育",
-          "list": [
-            {
-              "name": "复仇者联盟职业教育资源",
-              "url": "https://stream7.iqilu.com/10339/article/202002/17/c292033ef110de9f42d7d539fe0423cf.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#0C6FBD"
-            },
-            {
-              "name": "古天乐音乐欣赏数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/17/20200217021133Eggh6zdlAO.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#0C6FBD"
-            },
-            {
-              "name": "毒枭速成教育资源",
-              "url": "https://stream7.iqilu.com/10339/article/202002/17/4417a27b1a656f4779eaa005ecd1a1a0.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#208ECD"
-            },
-            {
-              "name": "甄子丹影视欣赏数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/17/20200217101826WjyFCbUXQ2.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#0C7EBF"
-            },
-            {
-              "name": "惊奇队长数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/16/20200216050645YIMfjPq5Nw.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#0C6FBD"
-            },
-            {
-              "name": "惊奇队长数字教育资源",
-              "url": "https://stream7.iqilu.com/10339/upload_transcode/202002/16/20200216050645YIMfjPq5Nw.mp4",
-              "picture": "https://lxf-1256064321.cos.ap-chengdu.myqcloud.com/picture/%E5%8A%A8%E7%89%A9%E4%B8%96%E7%95%8C.png",
-              "color": "#0C6FBD"
-            }
-          ]
-        }
-      ],
+      courseList: [],
       isPlay: false,
     };
   },
@@ -197,28 +109,6 @@ export default {
   },
   methods: {
     getmessage() {
-      // var that = this;
-      // Axios.get(
-      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/curriculum",
-      //   {
-      //     params: {}, // 参数
-      //     timeout: 3000 // 配置
-      //   }
-      // ).then(res => {
-      //   that.getData = res.data.data[0].Education; //获取数据
-      //   // console.log(res.data.data); //获取数据
-      //   that.getData = this.courseList
-      //   that.typeList = that.getData; //tab切换
-      //   // console.log(that.getData);//tab切换
-      //   that.namelist = that.getData[that.choose2].list;
-      //   that.url = that.getData[that.choose2].list[0].url;
-      //   that.poster = that.getData[that.choose2].list[0].picture;
-      //   // console.log(res.data.data);
-      //   that.namelist.map((e, index) => {
-      //     e.color = this.colorList[index]
-      //   })
-      //   that.choose(0)
-      // });
       this.$api.getInfmAndSubList({
         infmTypeId: 8
       }).then(res => {
@@ -267,7 +157,7 @@ export default {
         this.$error('暂无资源，敬请期待！')
         return
       }
-      console.log(player.networkState, 'ppppp')
+      // console.log(player.networkState, 'ppppp')
       // if (player.networkState == 0) {
       //   this.$error('视频错误，请联系管理员')
       //   return

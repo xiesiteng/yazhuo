@@ -2,14 +2,14 @@
   <div>
       <headerAsideMenu/>
       <div class="school-container">
-        <div class="up-part" @click="check">
+        <div class="up-part" @click="check" :style="{background:`url(${base + 'school-up-bg.png'})`}">
             <!-- <a class="check-btn" href="javascript:;" @click="check"></a> -->
         </div>
-        <div class="down-part">
+        <div class="down-part" :style="{background:`url(${base + 'school-down-bg.png'})`}">
             <div class="up-item-box" v-for="(item, index) in upItemList" :key="'up-'+index" :style="{left: item.left}">
                 {{item.text}}
             </div>
-            <div class="center-box">
+            <div class="center-box" :style="{background:`url(${base + 'school-littleBox.png'})`}">
                 <span>亚 卓 学 院</span>
             </div>
             <div class="down-item-box" v-for="(item, index) in downItemList" :key="'down-'+index" :style="{left: item.left}">
@@ -82,8 +82,8 @@ export default {
     .up-part{
         position: relative;
         height: 600px;
-        background-image: url(http://182.148.48.236:54321/source/images/school-up-bg.png);
-        background-size: 100% 100%;
+        // background-image: url(http://182.148.48.236:54321/source/images/school-up-bg.png);
+        background-size: 100% 100%!important;
         cursor: pointer;
         // .check-btn{
         //     display: block;
@@ -98,8 +98,8 @@ export default {
         position: relative;
         min-width: 1200px;
         height: 549px;
-        background-image: url(http://182.148.48.236:54321/source/images/school-down-bg.png);
-        background-size: 100% 100%;
+        // background-image: url(http://182.148.48.236:54321/source/images/school-down-bg.png);
+        background-size: 100% 100%!important;
         .up-item-box, .center-box, .down-item-box{
             font-family:Source Han Sans CN;
             font-weight:400;
@@ -161,8 +161,8 @@ export default {
             margin: auto;
             width: 160px;
             height: 64px;
-            background-image: url(http://182.148.48.236:54321/source/images/school-littleBox.png);
-            background-size: 100%;
+            // background-image: url(http://182.148.48.236:54321/source/images/school-littleBox.png);
+            background-size: 100% 100%!important;
             background-repeat:no-repeat;
             text-align: center;
             &:hover{

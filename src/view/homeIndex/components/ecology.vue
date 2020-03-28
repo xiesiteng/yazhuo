@@ -31,20 +31,16 @@
           <div class="onebox">
             <p class="pdes">产品咨询 OR 代理咨询</p>
             <select class="inpval">
-              <option value="0">请选择</option>
-              <option value="1">下拉菜单1</option>
-              <option value="2">下拉菜单2</option>
-              <option value="3">下拉菜单3</option>
-              <option value="4">下拉菜单4</option>
+              <option value="" v-for="(item, index) in optionList" :key="index">{{item}}</option>
             </select>
           </div>
           <div class="onebox">
             <p class="pdes">留下您的姓名:</p>
-            <input type="text" class="inpval" placeholder="请输入" />
+            <input type="text" class="inpval" placeholder="请输入" v-model="name"/>
           </div>
           <div class="onebox">
             <p class="pdes">您的联系方式:</p>
-            <input type="tel" class="inpval" placeholder="请输入" />
+            <input type="tel" class="inpval" placeholder="请输入" v-model="phone"/>
           </div>
           <div class="onebox subbox">
             <button type="button" class="subbtn">提交信息</button>
@@ -57,20 +53,10 @@
   </div>
 </template>
 <script>
-import Axios from "axios";
 import swiperOne from "./swiperOne";
 import swiperTwo from "./swiperTwo";
 export default {
   name: "ecology",
-  components: {
-    swiperOne,
-    swiperTwo
-  },
-  created() {
-    this.$nextTick(() => {
-      this.getmessage();
-    });
-  },
   data() {
     return {
       list: [],
@@ -79,14 +65,17 @@ export default {
       phone: "",
       name: "",
       sel: "",
-      popup: 0,
-      schoolactive: "active",
-      companyactive: "",
-      errormessage: "",
+      optionList: ['菜单1','菜单2','菜单3']
     };
   },
-  mounted() {
-    
+  components: {
+    swiperOne,
+    swiperTwo
+  },
+  created() {
+    this.$nextTick(() => {
+      this.getmessage();
+    });
   },
   methods: {
     getmessage() {
@@ -234,34 +223,7 @@ export default {
       }
     }
   }
-  // 页面提示
-  // .layertip {
-  //   position: fixed;
-  //   font-size: 48px;
-  //   height: 100px;
-  //   width: 600px;
-  //   background-color: #ffffff;
-  //   color: #007ab7;
-  //   border-radius: 0.25rem;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   left: 50%;
-  //   top: 50%;
-  //   transform: translate(-50%, -50%);
-  //   z-index: 1000;
-  // }
-  // .layerover {
-  //   position: fixed;
-  //   width: 100%;
-  //   height: 100%;
-  //   opacity: 0.7;
-  //   filter: alpha(opacity=70);
-  //   top: 0;
-  //   left: 0;
-  //   z-index: 999;
-  //   background-color: #111111;
-  // }
+ 
 }
 </style>
 

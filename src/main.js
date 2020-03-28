@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import {router} from '@/router/index.js'
 import api from '@/axios/api'
-import 'swiper/dist/css/swiper.css'
 // 引入工具文件
 import '@/utils/tool.js'
 // 按需引入ant组件

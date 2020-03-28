@@ -2,7 +2,7 @@
   <div class="main">
     <transition name="fade">
       <!-- back-wrap绝对定位 -->
-      <div class="back-wrap" :class="showBtn ? 'opa1' : 'opa0'">
+      <div class="back-wrap" v-show="showBtn">
         <!-- back-wrap-inner相对定位 -->
         <div class="back-wrap-inner flex-end" >
           <div class="back-item-wrap">
@@ -94,6 +94,8 @@ export default {
   bottom: 110px;
   right: 60px;
   transition: all 0.5s ease-in-out;
+  animation: fade .5s;
+  cursor: pointer;
   .back-wrap-inner {
     width: 100%;
     height: 100%;
@@ -147,13 +149,20 @@ export default {
     }
   }
 }
-.opa1{opacity: 1;cursor: pointer!important;}
-.opa0{opacity: 0;cursor: default!important;}
+// .opa1{opacity: 1;cursor: pointer!important;}
+// .opa0{opacity: 0;cursor: default!important;}
+@keyframes fade {
+  0%{opacity: 0;}
+  25%{opacity: 0.25;}
+  50%{opacity: 0.5;}
+  75%{opacity: 0.75;}
+  100%{opacity: 1;}
+}
 /* 可以设置不同的进入和离开动画 */
 /* 设置持续时间和动画函数 */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .8s;
+  transition: opacity .5s;
 }
 /* .fade-leave-active, 2.1.8 版本以下 */
 .fade-enter,

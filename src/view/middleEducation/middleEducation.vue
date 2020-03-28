@@ -56,7 +56,6 @@ export default {
   methods: {
     choose(index) {
       this.active = index;
-      console.log(this.active);
     }
   }
 };

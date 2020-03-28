@@ -92,21 +92,6 @@ export default {
   methods: {
     getmessage() {
       var that = this;
-      // Axios.get(
-      //   "https://mock.aarnio.cn/mock/5e4a4a71a7e3066df43697b8/example/wisdom",
-      //   {
-      //     params: {}, // 参数
-      //     timeout: 3000 // 配置
-      //   }
-      // ).then(res => {
-      //   that.bg = res.data.data.bg;
-      //   that.ball = res.data.data.ball;
-      //   // that.runaround = res.data.data.runaround;
-      //   that.list1 = res.data.data.list[0];
-      //   that.list2 = res.data.data.list[1];
-      //   that.list3 = res.data.data.list[2];
-      //   that.list4 = res.data.data.list[3];
-      // });
       this.$api.getInfmByParams({
         infmTypeId: 10
       }).then(res => {
