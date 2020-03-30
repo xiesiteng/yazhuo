@@ -21,16 +21,16 @@ const api = {
   // 导航栏信息目录
  getNavBarInfms: data => post('/yzInformation/queryNavigationBarInfms', data),
 
-  // 首页接口集合
+  // 首页一维数组接口集合
   getInfmByParams: data => post('/yzInformation/queryInfmByParams', data),
 
-  // 首页列表接口集合
+  // 首页二维数组接口集合
   getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data),
 
-  // 生态共建列表接口
+  // 首页生态共建列表接口
   getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data),
 
-  // 获取专家团队和合作学校的数据
+  // 首页获取专家团队和合作学校的数据
   getTeamAndSchool: data => post('/yzInformation/queryEcologyInfmSubList', data)
 
 }

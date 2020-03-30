@@ -35,105 +35,105 @@ export default {
       active: 0,
       logoText: "YAZHUO亚卓教育",
       linkList: [
-            {
-                id: "a01",
-                url: "/",
-                name: "首页",
-                children: []
-            },
-            {
-                id: "a02",
-                url: "/middleEducation",
-                // url: 'page2',
-                name: "课程资源",
-                children: []
-            },
-            {
-                id: "a03",
-                url: "/wisdomPlatform",
-                name: "智慧平台",
-                children: []
-            },
-            {
-                id: "a04",
-                url: "/solveCase",
-                name: "解决方案",
-                children: []
-            },
-            {
-                id: "a05",
-                url: "/school",
-                name: "亚卓学院",
-                children: []
-            }
-        ],
+          {
+              id: "a01",
+              url: "/",
+              name: "首页",
+              children: []
+          },
+          {
+              id: "a02",
+              url: "/middleEducation",
+              // url: 'page2',
+              name: "课程资源",
+              children: []
+          },
+          {
+              id: "a03",
+              url: "/wisdomPlatform",
+              name: "智慧平台",
+              children: []
+          },
+          {
+              id: "a04",
+              url: "/solveCase",
+              name: "解决方案",
+              children: []
+          },
+          {
+              id: "a05",
+              url: "/school",
+              name: "亚卓学院",
+              children: []
+          }
+      ],
         btns: [
-            {
+          {
             id: "b01",
             url: "/login",
             name: "登录"
             }
-        ]
-        }
+      ]
+    }
+  },
+    created () {
+      this.getNavBarInfo()
+        this.isCurrent()
     },
-        created () {
-          this.getNavBarInfo()
-            this.isCurrent()
-        },
-        methods: {
-            getNavBarInfo () {
-              this.$api.getNavBarInfms({
-                infmTypeId: 11
-              }).then(res => {
-                if (res.code == 200) {
-                  // console.log('res.data---------', res.data)
-                  this.linkList = res.data.list.map(e => {
-                    return {
-                      id: 'a0' + (e.sort + 1),
-                      url: e.url,
-                      name: e.name,
-                      children: e.children
-                    }
-                  })
+    methods: {
+        getNavBarInfo () {
+          this.$api.getNavBarInfms({
+            infmTypeId: 11
+          }).then(res => {
+            if (res.code == 200) {
+              // console.log('res.data---------', res.data)
+              this.linkList = res.data.list.map(e => {
+                return {
+                  id: 'a0' + (e.sort + 1),
+                  url: e.url,
+                  name: e.name,
+                  children: e.children
                 }
               })
-            },
-            goPage(data, item) {
-                // 点击之后把:before伪元素移动到对应父元素上
-                sessionStorage.setItem('headerId', item.id)
-                this.active = sessionStorage.getItem('headerId')
-                // console.log(data.url)
-                this.$router.push(data.url)
-            },
-            // 导航栏切换
-            choose (item) {
-                this.active = item.id
-            },
-            toSearch () {
-              // do search from this
-            },
-            // 根据路由路径来显示对应导航栏下面的横线
-            isCurrent () {
-                let path = this.$route.path
-                switch (path) {
-                    case '/home':
-                        this.active = 'a01'
-                        break
-                    case '/middleEducation':
-                        this.active = 'a02'
-                        break
-                    case '/wisdomPlatform':
-                        this.active = 'a03'
-                        break
-                    case '/solveCase':
-                        this.active = 'a04'
-                        break
-                    case '/school':
-                        this.active = 'a05'
-                        break
-                }
+            }
+          })
+        },
+        goPage(data, item) {
+            // 点击之后把:before伪元素移动到对应父元素上
+            sessionStorage.setItem('headerId', item.id)
+            this.active = sessionStorage.getItem('headerId')
+            // console.log(data.url)
+            this.$router.push(data.url)
+        },
+        // 导航栏切换
+        choose (item) {
+            this.active = item.id
+        },
+        toSearch () {
+          // do search from this
+        },
+        // 根据路由路径来显示对应导航栏下面的横线
+        isCurrent () {
+            let path = this.$route.path
+            switch (path) {
+                case '/home':
+                    this.active = 'a01'
+                    break
+                case '/middleEducation':
+                    this.active = 'a02'
+                    break
+                case '/wisdomPlatform':
+                    this.active = 'a03'
+                    break
+                case '/solveCase':
+                    this.active = 'a04'
+                    break
+                case '/school':
+                    this.active = 'a05'
+                    break
             }
         }
+    }
 }
  
 </script>

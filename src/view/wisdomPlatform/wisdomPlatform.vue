@@ -39,41 +39,6 @@
                         <p class="cf-content">{{item.content}}</p>
                         </div>
                     </div>
-                    <!-- <div class="cf-item">
-                        <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">一体化管理</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
-                        </div>
-                    </div>
-                    <div class="cf-item">
-                        <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">素材库</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
-                        </div>
-                    </div>
-                    <div class="cf-item">
-                        <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">选择式备课</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
-                        </div>
-                    </div>
-                    <div class="cf-item">
-                        <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">生涯教育</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
-                        </div>
-                    </div>
-                    <div class="cf-item">
-                        <div class="cf-inner">
-                        <img src="../../assets/wisdomPlatform/cf-icon1.png" alt="">
-                        <p class="cf-name">大数据中心</p>
-                        <p class="cf-content">亚卓教育利用AR技术来配合学生学习课程内容，学生更好的理解，更直观的感受。</p>
-                        </div>
-                    </div> -->
                     <!-- <transition name="fade"> -->
                     <div ref="cfHover" class="cf-item" :class="{ cfHover: isShow }" v-show="isShow" @mouseleave="leaveHandle">
                         <div class="cf-inner" :style="'borderColor: '+currentData.lineColor">
@@ -377,7 +342,7 @@ export default {
                 border:1px solid rgba(213,213,213,1);
                 background-color: #fff;
                 cursor: pointer;
-                transition: all .3s ease-in-out;
+                // transition: all .3s ease-in-out;
                 
                 &:nth-child(n+4){
                     border-top: none;
@@ -425,7 +390,7 @@ export default {
                 z-index: 2;
                 width: 440px;
                 height: 330px;
-                box-shadow: 0 0 20px #333;
+                box-shadow: 0 0 15px #333;
                 transform: translate(-15px, -15px);
                 // transition: all .5s;
             }
