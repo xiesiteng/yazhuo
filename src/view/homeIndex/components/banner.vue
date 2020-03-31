@@ -12,7 +12,7 @@
             <div class="w1">亚 卓 教 育 素 养 培 养 生 态 空 间</div>
             <div class="w2">Vocational schools cultivate ecological space</div>
           </div>
-          <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay()">
+          <div :class="'buttons ' + (isText?'':'closeBtn')" @click="isShowLay">
             <i class="iconfont iconicon-"></i>
           </div>
         </div>
@@ -86,6 +86,7 @@ export default {
     height: 200px;
     width: 100%;
     background: rgba(0, 0, 0, 0.2);
+    // transition: all linear 1.5s;
     .searchdetail2 {
       display: flex;
       align-items: center;
@@ -148,7 +149,8 @@ export default {
     }
   }
   .closeLay {
-    width: auto;
+    width: 0;
+    // transform: translateX(calc(-100% + 30px));
   }
 }
 // 1600px

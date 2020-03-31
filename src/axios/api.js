@@ -4,19 +4,19 @@ const api = {
   // getIndex: data => post('/api/index/index', data) 示例
 
   // 注册
-  getAccount: data => post('/api/register', data),
+  getAccount: data => post('/common/api/register', data),
 
   // 登录
-  login: data => post('/api/login', data),
+  login: data => post('/common/api/login', data),
 
   // 微信登录获取url
-  getCode: data => get('/wechat/getCodeUrl', data),
+  getCode: data => get('/common/wechat/getCodeUrl', data),
 
   // 获取用户账号和微信是否绑定
-  getBind: data => get('/wechat/getIsBindFlag', data),
+  getBind: data => get('/common/wechat/getIsBindFlag', data),
 
   // 绑定账号和微信号
-  bindAccount: data => get('/wechat/bindAccount', data),
+  bindAccount: data => get('/common/wechat/bindAccount', data),
 
   // 导航栏信息目录
  getNavBarInfms: data => post('/info/yzInformation/queryNavigationBarInfms', data),
