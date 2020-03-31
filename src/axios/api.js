@@ -19,19 +19,19 @@ const api = {
   bindAccount: data => get('/wechat/bindAccount', data),
 
   // 导航栏信息目录
- getNavBarInfms: data => post('/yzInformation/queryNavigationBarInfms', data),
+ getNavBarInfms: data => post('/info/yzInformation/queryNavigationBarInfms', data),
 
   // 首页一维数组接口集合
-  getInfmByParams: data => post('/yzInformation/queryInfmByParams', data),
+  getInfmByParams: data => post('/info/yzInformation/queryInfmByParams', data),
 
   // 首页二维数组接口集合
-  getInfmAndSubList: data => post('/yzInformation/queryInfmAndSubList', data),
+  getInfmAndSubList: data => post('/info/yzInformation/queryInfmAndSubList', data),
 
   // 首页生态共建列表接口
-  getEcologyInfm: data => post('/yzInformation/queryEcologyInfm', data),
+  getEcologyInfm: data => post('/info/yzInformation/queryEcologyInfm', data),
 
   // 首页获取专家团队和合作学校的数据
-  getTeamAndSchool: data => post('/yzInformation/queryEcologyInfmSubList', data)
+  getTeamAndSchool: data => post('/info/yzInformation/queryEcologyInfmSubList', data)
 
 }
 
