@@ -10,7 +10,7 @@
 @import url("./assets/font/font.css");
 @import url('../node_modules/ant-design-vue/dist/antd.css');
   .ant-tooltip-arrow{
-    border-bottom-color: rgba(245, 245, 245, .75) !important;
+    border-bottom-color: rgba(255, 255, 255, .75) !important;
   }
   .ant-tooltip-inner{
     background-color: rgba(255, 255, 255, .75);

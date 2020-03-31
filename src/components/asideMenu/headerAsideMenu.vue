@@ -142,12 +142,12 @@ export default {
                     break
             }
         },
-        // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+        // 为了计算距离顶部的高度，当高度大于600显示回顶部图标，小于60则隐藏
         scrollToTop() {
           const _this = this;
           let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
           _this.scrollTop = scrollTop;
-          if (_this.scrollTop > 60) {
+          if (_this.scrollTop >= 600) {
             _this.isNavBg = true;
           } else {
             _this.isNavBg = false;
@@ -187,7 +187,7 @@ export default {
 }
 .navBg{
   background-color: #0561A9;
-  opacity: 1;
+  opacity: .95;
 }
 .logo {
   margin-right: 310px;
