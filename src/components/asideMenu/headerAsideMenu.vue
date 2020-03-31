@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper flex-between">
+  <div class="wrapper flex-between" :class="{navBg:isNavBg}">
     <div class="lef-box">
       <div class="logo">
         <img :src="this.base+'logo.png'" />
@@ -34,6 +34,7 @@ export default {
     return {
       active: 0,
       logoText: "YAZHUO亚卓教育",
+      isNavBg: false,
       linkList: [
           {
               id: "a01",
@@ -72,13 +73,21 @@ export default {
             id: "b01",
             url: "/login",
             name: "登录"
-            }
+          }
       ]
     }
   },
     created () {
       this.getNavBarInfo()
-        this.isCurrent()
+      this.isCurrent()
+    },
+    mounted() {
+      this.$nextTick(() => {
+        window.addEventListener("scroll", this.scrollToTop, true);
+      });
+    },
+    destroyed() {
+      window.removeEventListener("scroll", this.scrollToTop, true);
     },
     methods: {
         getNavBarInfo () {
@@ -132,7 +141,18 @@ export default {
                     this.active = 'a05'
                     break
             }
-        }
+        },
+        // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+        scrollToTop() {
+          const _this = this;
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          _this.scrollTop = scrollTop;
+          if (_this.scrollTop > 60) {
+            _this.isNavBg = true;
+          } else {
+            _this.isNavBg = false;
+          }
+        },
     }
 }
  
@@ -157,12 +177,17 @@ export default {
   display: flex;
   height: 80px;
   align-items: center;
-  background: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 0 60px;
   box-sizing: border-box;
   justify-content: space-between;
   z-index: 999;
   min-width: 1200px;
+  transition: background-color .5s linear;
+}
+.navBg{
+  background-color: #0561A9;
+  opacity: 1;
 }
 .logo {
   margin-right: 310px;

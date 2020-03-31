@@ -6,8 +6,9 @@ import api from '@/axios/api'
 import '@/utils/tool.js'
 // 按需引入ant组件
 import 'ant-design-vue/dist/antd.css'
-import { Message } from 'ant-design-vue';
+import { Message, Tooltip } from 'ant-design-vue';
 Vue.use(Message);
+Vue.use(Tooltip);
 Vue.prototype.$message = Message
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 
