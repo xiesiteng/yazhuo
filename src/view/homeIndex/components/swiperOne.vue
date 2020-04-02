@@ -17,9 +17,15 @@
             >
               <img :src="item.infmImgUri" alt="" class="myswiper-item-head">
               <p class="myswiper-item-name">{{item.infmTitle}}</p>
-              <a-tooltip placement="bottom" :title="item.infmContent">
+              <!-- <a-tooltip placement="bottom" :title="item.infmContent">
                 <p class="myswiper-item-title ellipsis">{{item.infmContent}}</p>
-              </a-tooltip>
+              </a-tooltip> -->
+              <a-popover placement="bottom">
+                <template slot="content">
+                  <p style="width: 200px">{{item.infmContent}}</p>
+                </template>
+                <p class="myswiper-item-title ellipsis">{{item.infmContent}}</p>
+              </a-popover>
           </div>
         </div>
       </div>
