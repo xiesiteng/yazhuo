@@ -10,13 +10,13 @@ const api = {
   login: data => post('/common/api/login', data),
 
   // 微信登录获取url
-  getCode: data => get('/common/wechat/getCodeUrl', data),
+  getCode: data => get('/common/api/wechat/getCodeUrl', data),
 
   // 获取用户账号和微信是否绑定
-  getBind: data => get('/common/wechat/getIsBindFlag', data),
+  getBind: data => get('/common/api/wechat/getIsBindFlag', data),
 
   // 绑定账号和微信号
-  bindAccount: data => get('/common/wechat/bindAccount', data),
+  bindAccount: data => get('/common/api/wechat/bindAccount', data),
 
   // 导航栏信息目录
  getNavBarInfms: data => post('/info/yzInformation/queryNavigationBarInfms', data),
