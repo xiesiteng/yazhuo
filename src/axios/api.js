@@ -18,6 +18,9 @@ const api = {
   // 绑定账号和微信号
   bindAccount: data => get('/common/api/wechat/bindAccount', data),
 
+  // 验证token是否失效
+  checkTk: data => get('/common/api/checkJWT', data),
+
   // 导航栏信息目录
  getNavBarInfms: data => post('/info/yzInformation/queryNavigationBarInfms', data),
 

@@ -23,7 +23,7 @@
       <input type="text" placeholder="请输入关键词" class="search-input" />
       <img :src="base + 'search-icon.png'" alt="" class="search-icon" @click="toSearch()">
     </div>
-    <div class="button-group">
+    <div class="button-group" v-show="btnShow">
       <a :href="item.url" v-for="item in btns" :key="item.id" class="link">{{item.name}}</a>
     </div>
   </div>
@@ -32,6 +32,7 @@
 export default {
   data() {
     return {
+      btnShow: false,
       active: 0,
       logoText: "YAZHUO亚卓教育",
       isNavBg: false,
@@ -80,6 +81,7 @@ export default {
     created () {
       this.getNavBarInfo()
       this.isCurrent()
+      this.btnShow = this.isblank(localStorage.getItem('token'))
     },
     mounted() {
       this.$nextTick(() => {

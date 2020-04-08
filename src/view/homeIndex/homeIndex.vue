@@ -71,6 +71,8 @@ export default {
       } else {
         this.judgeUserType()
          let code = this.getQueryString('code')
+         // code获取到之后立即更新浏览器中url地址的显示 
+         history.pushState({},'官网','http://portal.yazhuokj.com')
          this.$api.getBind({
           //  code: '061Sniq817EzxL11v9s81wSqq81Sniq8',
            code: code,

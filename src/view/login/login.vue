@@ -67,10 +67,25 @@ export default {
     };
   },
   created() {
+    this.checkToken()
     this.redirectPath = this.$route.query.redirectPath
     this.judgeUserType()
   },
   methods: {
+    // 验证token是否失效
+    checkToken () {
+      let token = localStorage.getItem('token')
+      if (this.isblank(token)){
+        return false
+      }
+      this.$api.checkTk({
+        jwt: token
+      }).then(res => {
+        if (res.code == 200) {
+          this.$router.push('/home')
+        }
+      })
+    },
     // 立即登录
     loginTurn() {
       if (this.isblank(this.username)){
